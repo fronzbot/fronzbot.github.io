@@ -1,5 +1,22 @@
-name: Kevin Fronczak, Analog Circuit Designer
+title: Kevin Fronczak
+description: Analog Circuit Designer
+email: kfronczak@gmail.com
+baseurl: "https://fronzbot.github.io"
+#url: "https://fronzbot.github.io"
+twitter_username:
+github_username: fronzbot
+linkedin_username: kfronczak
+google_scholar_username: NmzmakYAAAAJ&hl=en
+youtube_username: kevinfronczak
+google_plus_username: 112051215299289480804
+paginate: 5
+excerpt_separator: "<!-- more -->"
+
+gems: [jekyll-paginate, kramdown]
+
+# Build settings
 markdown: kramdown
 encoding: UTF-8
-permalink: /blog/:year/:month/:day/:title
+permalink: /blog/:title
 source: source
+include: ["_pages"]

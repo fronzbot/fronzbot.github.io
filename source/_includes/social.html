@@ -1,0 +1,25 @@
+<ul class="social-media-list">
+  <li>
+    Follow Me!
+  </li>
+  <li>
+  {% if site.linkedin_username %}
+    {% include /icons/icon-linkedin.html username=site.linkedin_username %}
+  {% endif %}
+  {% if site.google_scholar_username %}
+    {% include /icons/icon-google-scholar.html username=site.google_scholar_username %}
+  {% endif %}
+  {% if site.github_username %}
+    {% include /icons/icon-github.html username=site.github_username %}
+  {% endif %}
+  {% if site.twitter_username %}
+    {% include /icons/icon-twitter.html username=site.twitter_username %}
+  {% endif %}
+  {% if site.youtube_username %}
+    {% include /icons/icon-youtube.html username=site.youtube_username %}
+  {% endif %}
+  {% if site.google_plus_username %}
+    {% include /icons/icon-google-plus.html username=site.google_plus_username %}
+  {% endif %}
+  </li>
+</ul>
