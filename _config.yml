@@ -18,5 +18,4 @@ gems: [jekyll-paginate, kramdown]
 markdown: kramdown
 encoding: UTF-8
 permalink: /blog/:title
-source: source
 include: ["_pages"]
