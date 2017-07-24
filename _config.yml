@@ -2,5 +2,4 @@ name: Kevin Fronczak, Analog Circuit Designer
 markdown: kramdown
 encoding: UTF-8
 permalink: /blog/:year/:month/:day/:title
-include: ["_pages"]
 source: source
