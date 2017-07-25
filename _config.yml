@@ -12,10 +12,40 @@ google_plus_username: 112051215299289480804
 paginate: 5
 excerpt_separator: "<!-- more -->"
 
-gems: [jekyll-paginate, kramdown]
+gems: 
+  - jekyll-paginate
+  - kramdown
+  - jekyll-assets
 
 # Build settings
 markdown: kramdown
 encoding: UTF-8
 permalink: /blog/:title
-include: ["_pages"]
+include: 
+  - "_pages"
+exclude:
+  - ".asset-cache"
+
+# Asset compression
+assets:
+  compress:
+    css: true
+    js: true
+  autowrite: true
+  cache: .asset-cache
+  cache_type: filesystem
+  prefix: "/assets"
+  digest: true
+  assets:
+    - "*.png"
+    - "bundle.css"
+  sources:
+    - _assets/css
+    - _assets/images
+  features:
+    liquid: false
+    integrity: false
+    # This will add height and width attributes for an img tag.
+    automatic_img_size: true
+    # This will add the digest path as an alt attribute for an img tag.
+    automatic_img_alt : true

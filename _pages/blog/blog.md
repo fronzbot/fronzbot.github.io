@@ -2,6 +2,7 @@
 layout: default
 title: "Blog"
 permalink: "/blog/"
+navbar: true
 ---
 <div class="page-content wrapper">
   <h1>Blog Archive</h1>  

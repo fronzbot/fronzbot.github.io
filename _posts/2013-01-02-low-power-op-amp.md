@@ -165,19 +165,19 @@ Below are various plot corresponding to each spec as well as my architecture.  
 </table>
 &nbsp;
 &nbsp;
-<a href="http://kevinfronczak.com/documents/EE610/circuit.png"><img alt="" src="{{ site.baseurl }}/assets/circuit.png" /></a>
+<a href="http://kevinfronczak.com/documents/EE610/circuit.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/circuit.png" /></a>
 Opamp Architecture
-<a href="http://kevinfronczak.com/documents/EE610/open_loop_gain_BW.png"><img alt="" src="{{ site.baseurl }}/assets/open_loop_gain_BW.png" /></a>
+<a href="http://kevinfronczak.com/documents/EE610/open_loop_gain_BW.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/open_loop_gain_BW.png" /></a>
 Open Loop Gain and Bandwidth
-<a href="http://kevinfronczak.com/documents/EE610/open_loop_phase_margin.png"><img alt="" src="{{ site.baseurl }}/assets/open_loop_phase_margin.png" /></a>
+<a href="http://kevinfronczak.com/documents/EE610/open_loop_phase_margin.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/open_loop_phase_margin.png" /></a>
 Open Loop Phase Margin
-<a href="http://kevinfronczak.com/documents/EE610/power_consumption.png"><img alt="" src="{{ site.baseurl }}/assets/power_consumption.png" /></a>
+<a href="http://kevinfronczak.com/documents/EE610/power_consumption.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/power_consumption.png" /></a>
 Power Consumption
-<a href="http://kevinfronczak.com/documents/EE610/PSRR_VCC.png"><img alt="" src="{{ site.baseurl }}/assets/PSRR_VCC.png" /></a>
+<a href="http://kevinfronczak.com/documents/EE610/PSRR_VCC.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/PSRR_VCC.png" /></a>
 PSRR on VCC
-<a href="http://kevinfronczak.com/documents/EE610/PSRR_VSS.png"><img alt="" src="{{ site.baseurl }}/assets/PSRR_VSS.png" /></a>
+<a href="http://kevinfronczak.com/documents/EE610/PSRR_VSS.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/PSRR_VSS.png" /></a>
 PSRR on VSS
-<a href="http://kevinfronczak.com/documents/EE610slew_rate.png"><img alt="" src="{{ site.baseurl }}/assets/slew_rate.png" /></a>
+<a href="http://kevinfronczak.com/documents/EE610slew_rate.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/slew_rate.png" /></a>
 Slew Rate
-<a href="http://kevinfronczak.com/documents/EE610/voltage_swing.png"><img alt="" src="{{ site.baseurl }}/assets/voltage_swing.png" /></a>
+<a href="http://kevinfronczak.com/documents/EE610/voltage_swing.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/voltage_swing.png" /></a>
 Large Signal Voltage Swing
