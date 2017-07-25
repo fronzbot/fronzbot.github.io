@@ -10,6 +10,8 @@ tags:
   - analog
   - circuits
 use_math: true
+project: false
+feature: false
 ---
 
 I've gotten a lot of feedback regarding my <a href="http://kevinfronczak.com/blog/electrical-engineering/inversion-coefficient-based-circuit-design/">post last year outlining design using the Inversion Coefficient</a> and figured it was time to outline how I go about designing a given circuit. &nbsp;If you haven't read through my first post, I'd recommend it to get a handle on why use of the Inversion Coefficient is so powerful.

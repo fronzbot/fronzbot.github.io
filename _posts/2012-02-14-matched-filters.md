@@ -10,6 +10,8 @@ tags:
   - noise
   - systems
 use_math: true
+project: false
+feature: false
 ---
 
 I came across a simple but interesting noise problem today dealing with the design of a matched filter. Matched filters, for those of you that may not know, are primarily used in communications systems and are meant to maximum the signal to noise ratio in a system (essentially they attempt to extract the most amount of signal and the least amount of noise).  Wikipedia has a <a href="http://en.wikipedia.org/wiki/Matched_filter">pretty decent explanation</a> if you're inclined to learn more.

@@ -10,6 +10,8 @@ tags:
   - analog
   - noise
 use_math: true
+project: false
+feature: false
 ---
 
 Continuing with the theme <a href="http://kevinfronczak.com/blog/electrical-engineering/circuit-noise-analysis/">from my last post</a>, I have some more neat noise analysis; this time looking at an Opamp. <em>Most</em> people would probably end up using this type of analysis rather than looking at a circuit transistor-by-transistor. Here you can grab the datasheet for you opamp and calculate the output noise you'd end up seeing. Here I'm going to look at <a href="http://www.analog.com/static/imported-files/data_sheets/OP27.pdf">Analog Device's OP27</a>.

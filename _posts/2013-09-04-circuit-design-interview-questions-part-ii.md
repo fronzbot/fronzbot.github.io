@@ -10,6 +10,8 @@ tags:
   - analog
   - circuits
 use_math: true
+project: false
+feature: false
 ---
 
 Building off of my previous post <a href="http://kevinfronczak.com/blog/electrical-engineering/circuit-design-interview-questions-part-i">Circuit Design Interview Questions: Part I</a>, we'll now explore some slightly more advanced questions (still, they should be solvable by any EE graduate with some basic analog circuit knowledge).

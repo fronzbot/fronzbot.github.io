@@ -16,8 +16,13 @@ layout: default
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
+      <div class="postTag">
+  Tags:&nbsp;
+  {% for tag in page.tags %}
+     {{tag}}&nbsp;
+  {% endfor %}
   </div>
-
+  </div>
   <footer class="postNavigation">
   {% if page.previous.url %}
     <a class="postPrev" href="{{page.previous.url}}">

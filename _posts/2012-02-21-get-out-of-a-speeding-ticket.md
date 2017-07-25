@@ -10,6 +10,8 @@ tags:
   - fun
   - noise
 use_math: true
+project: false
+feature: false
 ---
 
 First of all, this post <strong>does not</strong> condone speeding.  Don't do it, it's stupid and puts other peoples lives in danger.  That said, there is a neat noise problem that may be able to get you out of a ticket were you to ever find yourself in such a bind.  I have never tried this myself (nor am I planning to) but a student in the class this problem was introduced claimed he had used a slightly modified version to successfully get out of a speeding ticket.  Laughs were had (mainly because no one thought it could actually be a good defense) but it's still an interesting problem and I'll reproduce it here!

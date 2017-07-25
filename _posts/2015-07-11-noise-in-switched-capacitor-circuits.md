@@ -10,6 +10,8 @@ tags:
   - analog
   - noise
 use_math: true
+project: false
+feature: false
 ---
 
 I've previously covered the topic of <a href="http://kevinfronczak.com/blog/electrical-engineering/circuit-noise-analysis/" target="_blank">noise in circuits</a> and figured I'd elaborate even further. Many ICs use some sort of switched-capacitor circuit for SOME reason (sample-and-hold, for example) and the noise associated with such a circuit is not as straight-forward as you would initially assume. A lot of engineers will just approximate the noise variance of a sample-and-hold circuit as $$latex \frac{kT}{C} $$ which is a bad assumption in most cases. In fact, it's so commonly overlooked that Richard Schreier (of Analog Devices fame) wrote a great paper on this very subject [1].

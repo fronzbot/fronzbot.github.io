@@ -10,6 +10,8 @@ tags:
   - analog
   - signals
 use_math: true
+project: false
+feature: false
 ---
 
 Lately, I've been looking at harmonic distortion in circuits and was curious about the Total Harmonic Distortion, or THD, of a sine wave mixed with a square wave.  That got me thinking about the math behind a square wave and how I could get an exact expression for the THD of a square wave (which is known and in countless literature [1])  and then how I could compare the result of a sine wave mixed with a square wave (both at the same fundamental).

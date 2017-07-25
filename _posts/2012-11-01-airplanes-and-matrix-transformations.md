@@ -10,6 +10,8 @@ tags:
   - matrix
   - university project
 use_math: true
+project: true
+feature: false
 ---
 
 I've been busy (understatement of the year).  I've been working on multiple projects (many of which will be highlighted here in the near future) and as the quarter is winding down, I figured I'd share some shorter ones I've worked on.

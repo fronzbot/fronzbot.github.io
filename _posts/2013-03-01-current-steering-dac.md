@@ -10,6 +10,8 @@ tags:
   - analog
   - theory
 use_math: true
+project: true
+feature: false
 ---
 
 For a recent class, our project was to design a 7-bit 5MSPS Current-Steering DAC in 0.5um technology. While the specifications aren't neccesarily hard to meet, the time-table was rough. We had to go from a pencil-and-paper design to a full physical layout that passed LVS and DRC within about 8 weeks. Yikes. The result, however, would be that the 6 best designs would be selected for fabrication through MOSIS and the chips would arrive sometime in the following two months. Mine happened to be one of the lucky 6!

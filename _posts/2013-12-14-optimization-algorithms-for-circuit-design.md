@@ -6,10 +6,12 @@ description: Side research for my Master's thesis
 author: Kevin Fronczak
 email: kfronczak@gmail.com
 tags:
-  - university projects
+  - university project
   - MATLAB
   - theory
 use_math: true
+project: true
+feature: true
 ---
 
 Over this past summer as I was wrapping up <a href="http://kevinfronczak.com/blog/electrical-engineering/stability-analysis-of-boost-converters-for-ics/">my Master's thesis</a>, I was taking a class involving the study of AI algorithms.  Due to my thesis work involved switched DC-DC converters, I had the idea of implementing a Genetic Algorithm in order to design a Boost Converter (this was a graduate class so it was very research-based and each student had to come up with a project to pursue and then present at the end of the class).  I ended up scaling back my original idea due to time constraints (10-week schedule plus I needed to revise my thesis and prepare for my defense) so I decided to focus on implementing both a Genetic Algorithm (GA) and Particle Swarm Optimization (PSO) in order to design an optimal controller for a Boost Converter.

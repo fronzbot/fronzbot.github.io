@@ -10,6 +10,8 @@ tags:
   - theory
   - circuits
 use_math: false
+project: true
+feature: false
 ---
 
 For my Analog Design class, each student was tasked with designing an OpAmp in 0.5um technology with the following specifications:

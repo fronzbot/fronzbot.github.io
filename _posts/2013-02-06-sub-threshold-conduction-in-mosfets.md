@@ -10,6 +10,8 @@ tags:
   - theory
   - device physics
 use_math: false
+project: true
+feature: false
 ---
 
 For a recent class I was taking, entitled "Advanced Field-Effect Devices", we were tasked with choosing a specific topic pertaining to MOSFET theory, performing an extensive literature search, and then writing a paper on our findings.  My topic, as evidenced by the title of this post, was on <a href="http://kevinfronczak.com/documents/Analysis_of_Subthreshold_Conduction_in_MOSFETs_Fronczak.pdf" target="_blank">sub-threshold conduction</a>.

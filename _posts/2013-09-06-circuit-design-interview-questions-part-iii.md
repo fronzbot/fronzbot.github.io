@@ -10,6 +10,8 @@ tags:
   - analog
   - circuits
 use_math: true
+project: false
+feature: false
 ---
 
 Building off of my previous posts <a href="http://kevinfronczak.com/blog/electrical-engineering/circuit-design-interview-questions-part-i">Circuit Design Interview Questions: Part I</a> and <a href="http://kevinfronczak.com/blog/electrical-engineering/circuit-design-interview-questions-part-ii">Part II</a>, we'll now explore the last set of questions that require some decent knowledge of frequency response characteristics of amplifiers and MOSFETs.

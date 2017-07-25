@@ -9,6 +9,8 @@ tags:
   - theory
   - linear systems
 use_math: true
+project: false
+feature: false
 ---
 
 After getting a few projects done today I had a bit a free time and for some reason remembered a story my Linear Systems professor told my class about a year ago.  Here's the gist: he was listening to a Master's thesis defense that involved some sort of system.  The master's candidate had, for the entirety of the thesis research, assumed that his/her system was linear.  They based this assumption on the fact that it could be modeled close to somehting like $$y=ax+b$$.  My professor quickly pointed out that it is not, in fact, a linear system but the candidate vehmently argued that the equation was linear therefore the system was linear.  It ended in the person not actually getting a Master's degree but the point of the story is: <strong>just because a system can be represented by a linear equation does NOT make it linear!</strong>

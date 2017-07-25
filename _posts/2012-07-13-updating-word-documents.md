@@ -9,6 +9,8 @@ tags:
   - python
   - scripting
 use_math: false
+project: true
+feature: false
 ---
 
 The other day at work I found myself without much to do since I was waiting for some data analysis to be sent back to me.  I talked to another Engineer looking for some work I could do in the meantime and he gave me some Word Documents (maybe around a 15 or so) that needed to be updated.  Essentially this meant combing through the documents and replacing all the old references with new ones.  Now I didn't feel like opening each document and doing this tedious task over and over again so I didn't!  Instead I wrote a script to do it for me.

@@ -358,12 +358,27 @@ pre {
   letter-spacing: 2px;
   text-indent: 2px;
 }
+
 .postTag {
   float: right;
 }
 .postTitle {
   font-weight: 400;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-indent: 3px;
+}
+.postDateArchive {
+  font-weight: 300;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-indent: 2px;
+}
+.postArchive {
+  font-weight: 400;
+  text-align: left;
   text-transform: uppercase;
   letter-spacing: 3px;
   text-indent: 3px;

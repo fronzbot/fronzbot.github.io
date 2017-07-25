@@ -9,6 +9,8 @@ tags:
   - university project
   - circuit design
 use_math: false
+project: true
+feature: false
 ---
 
 Boy have I been overwhelmed with work these past couple of weeks!  On top of all that course work I've had to fit in job interviews so my free time has been nearly non-existent.  Luckily it looks like this weekend will allow me to catch up on other things outside of school, but I do want to give a brief update on something neat I'm working on.  It's an IR Proximity Sensor that I'm designing and building for my one course at RIT.  I just submitted my final design for verification and am in the process of laying out the PCB for printing.  Once I get the OK to continue with the project I'll write up a really nice and descriptive post about everything with circuit schematics and all that jazz.

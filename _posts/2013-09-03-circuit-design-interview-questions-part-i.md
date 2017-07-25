@@ -10,6 +10,8 @@ tags:
   - analog
   - circuits
 use_math: true
+project: false
+feature: false
 ---
 
 We recently had a few co-ops come in for interviews and two of the guys I worked with needed to come up with some questions to ask. Neither them nor I had any experience on the other side of the table (in that we've never given interviews before) so we started talking about questions we've been asked in other interviews. I wrote down a bunch of good ones we talked about and decided to share them! The whole goal is to just test their ability to think through a problem so I tried to write down ones that had a mix of that as well as some fundamental theory any EE grad should know.
