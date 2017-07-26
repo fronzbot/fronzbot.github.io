@@ -16,7 +16,8 @@ $spacing-unit:     30px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$brand-color:      #3498DB;
+$link-color:       #CD6155;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
@@ -146,7 +147,7 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: #555 !important;
+    color: $link-color !important;
     text-decoration: none;
 
     &:visited {
@@ -154,21 +155,25 @@ a {
     }
 
     &:hover {
-        color: black !important;
-        border-bottom: 1px solid black ;
+        color: $link-color !important;
+        border-bottom: 1px solid $link-color ;
     }
 
     &.page-link{
+      color: #555 !important;
+      border-bottom: none;
       &:hover {
-          color: $text-color;
-          border-bottom: 1px solid black ;
+          color: $link-color !important;
+          border-bottom: 1px solid $link-color ;
       }
     }
     &.postLink{
       color: black !important;
+      font-weight: 500;
+      border-bottom: none;
       &:hover {
-
-          border-bottom: 1px dotted black ;
+          color: $link-color !important;
+          border-bottom: none;
       }
 
       &:visited {
@@ -177,6 +182,7 @@ a {
     }
     &.post-title-link{
       color: black !important;
+      border-bottom: none;
       &:hover {
 
           border-bottom: 1px dotted black !important ;
