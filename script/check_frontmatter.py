@@ -8,8 +8,9 @@ init(autoreset=True)
 PATH = './_posts/'
 EXT = '.md'
 
-VALID_TAGS = ['analog', 'theory', 'linear systems', 'circuits', 'projects', 'university project', 'fun',
-              'python', 'scripts', 'MATLAB'
+VALID_TAGS = ['analog', 'theory', 'systems', 'circuits', 'projects', 'university project', 'fun',
+              'python', 'scripts', 'MATLAB', 'device physics', 'admin', 'home automation', 'noise',
+              'signals', 'digital'
              ]
 
 PRINT_FILE_STRING = None

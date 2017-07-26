@@ -7,7 +7,7 @@ author: Kevin Fronczak
 email: kfronczak@gmail.com
 tags:
   - python
-  - scripting
+  - scripts
 use_math: false
 project: true
 feature: false

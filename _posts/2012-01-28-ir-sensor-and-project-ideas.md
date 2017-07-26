@@ -7,7 +7,7 @@ author: Kevin Fronczak
 email: kfronczak@gmail.com
 tags:
   - university project
-  - circuit design
+  - circuits
 use_math: false
 project: true
 feature: false

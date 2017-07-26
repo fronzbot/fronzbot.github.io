@@ -10,6 +10,7 @@ tags:
 use_math: false
 project: true
 feature: true
+feature_image: /assets/images/features/levitation-clock.jpg
 ---
 
 I've been meaning to post this for awhile, but better late than never I guess. For my senior design project in college, myself and two buddies of mine, Trong and Holden, (all of us nearly done with our Master's degrees at the time) decided to build a clock... but no ordinary clock, no. We wanted to build a clock that used magnetic levitation to tell time. Our final implementation was VASTLY different from our original, but we were incredibly happy with how it turned out:

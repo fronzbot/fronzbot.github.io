@@ -5,7 +5,8 @@ date: 2017-07-23
 description: Blurb
 author: Kevin Fronczak
 email: kfronczak@gmail.com
-tags: []
+tags:
+ - admin
 use_math: false
 project: false
 feature: false

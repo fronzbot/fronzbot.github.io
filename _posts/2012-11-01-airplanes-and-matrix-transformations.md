@@ -7,7 +7,6 @@ author: Kevin Fronczak
 email: kfronczak@gmail.com
 tags:
   - MATLAB
-  - matrix
   - university project
 use_math: true
 project: true

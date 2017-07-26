@@ -7,7 +7,7 @@ author: Kevin Fronczak
 email: kfronczak@gmail.com
 tags:
   - theory
-  - linear systems
+  - systems
 use_math: true
 project: false
 feature: false

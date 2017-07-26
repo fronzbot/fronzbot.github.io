@@ -12,6 +12,7 @@ tags:
 use_math: false
 project: true
 feature: true
+feature_image: /assets/images/features/small-signal-dcm-boost.png
 ---
 
 I recently completed my Master's Thesis entitled<a href="http://kevinfronczak.com/documents/Fronczak_Thesis.pdf"> "Stability Analysis of Switched DC-DC Boost Converters for Integrated Circuit" (August 2013)</a>. My defense slides can be found <a href="http://kevinfronczak.com/documents/Fronczak_Thesis_Defense.pdf">here</a>.

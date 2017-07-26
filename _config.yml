@@ -11,6 +11,8 @@ youtube_username: kevinfronczak
 google_plus_username: 112051215299289480804
 paginate: 5
 excerpt_separator: "<!-- more -->"
+image_path: /assets/images
+doc_path: /assets/docs
 
 gems: 
   - jekyll-paginate
@@ -41,8 +43,9 @@ assets:
     - "*.png"
     - "bundle.css"
   sources:
-    - _assets/css
-    - _assets/images
+    - assets/css
+    - assets/images
+    - assets/images/features
   features:
     liquid: false
     integrity: false
