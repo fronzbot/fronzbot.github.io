@@ -1,12 +1,12 @@
 ---
-layout: page
+layout: default
 ---
 
 {% for post in site.posts %}
 <div class="post postContent">
   {% capture currentyear %}{{post.date | date: "%Y"}}{% endcapture %}
   {% if currentyear != year %}
-    <h3>{{ currentyear }}</h3>
+    <h2>{{ currentyear }}</h2>
     {% capture year %}{{currentyear}}{% endcapture %}
   {% endif %}
   <div  class="postDateArchive"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d" }}</time>
