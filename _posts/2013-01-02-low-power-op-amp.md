@@ -26,7 +26,7 @@ For my Analog Design class, each student was tasked with designing an OpAmp in 0
 <li>PSRR of -60dB at 60Hz and -40dB at 1 MHz</li>
 </ul>
 In addition, each student had to select an optional specification.  I chose low quiescent power whose specification was to be below 200 uW.  Each spec had to be run over corners which varied the supply voltages, MOSFET process, and temperature.  In all there were 45 different corners.
-My final paper can be found <a href="http://kevinfronczak.com/documents/EE610/Fronczak_EE610_Final_Paper.pdf" target="_blank">here</a>.  The physical layout was just a  quick overview of the floorplan and not a final design.
+My final paper can be found <a href="{{ site.baseurl }}{{ site.doc_path }}/Fronczak_EE610_Final_Paper.pdf" target="_blank">here</a>.  The physical layout was just a  quick overview of the floorplan and not a final design.
 Overall, the opamp performed fairly well.  The only spec that I completely missed was the unity-gain bandwidth (as the compliance table below shows).  This is due to the nature of the architecture in that by using a Folded-Cascode, I decrease the pole location with a decrease in current (since the output impedance is inversely related to current).  Since I needed a low-quiescent design and couldn't <em>quite</em> get any dynamic biasing scheme working, I had to keep the current very low to achieve a balance between power, gain, and phase margin.  This required me to sacrifice bandwidth, unfortunately.  Other than that, any other spec I missed was just by a small margin and could easily be rectified with a bit more tuning.  Eventually I just got to the point where I needed to stop tuning and start recording results (since it is quite time consuming to fiddle with a parameter, run corners simulation, and analyze results over and over again).  I was happy with what my amplifier produced so I stuck with it.
 Below are various plot corresponding to each spec as well as my architecture.  In the compliance table, specs in red text indicate that it missed the target.
 <table width="420" border="1" cellspacing="0" cellpadding="0" align="right">
@@ -167,19 +167,19 @@ Below are various plot corresponding to each spec as well as my architecture.  
 </table>
 &nbsp;
 &nbsp;
-<a href="http://kevinfronczak.com/documents/EE610/circuit.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/circuit.png" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/circuit.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}{{ site.image_path }}/circuit.png" /></a>
 Opamp Architecture
-<a href="http://kevinfronczak.com/documents/EE610/open_loop_gain_BW.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/open_loop_gain_BW.png" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/open_loop_gain_BW.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}{{ site.image_path }}/open_loop_gain_BW.png" /></a>
 Open Loop Gain and Bandwidth
-<a href="http://kevinfronczak.com/documents/EE610/open_loop_phase_margin.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/open_loop_phase_margin.png" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/EE610/open_loop_phase_margin.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}{{ site.image_path }}/open_loop_phase_margin.png" /></a>
 Open Loop Phase Margin
-<a href="http://kevinfronczak.com/documents/EE610/power_consumption.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/power_consumption.png" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/power_consumption.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}{{ site.image_path }}/power_consumption.png" /></a>
 Power Consumption
-<a href="http://kevinfronczak.com/documents/EE610/PSRR_VCC.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/PSRR_VCC.png" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/PSRR_VCC.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}{{ site.image_path }}/PSRR_VCC.png" /></a>
 PSRR on VCC
-<a href="http://kevinfronczak.com/documents/EE610/PSRR_VSS.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/PSRR_VSS.png" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/PSRR_VSS.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}{{ site.image_path }}/PSRR_VSS.png" /></a>
 PSRR on VSS
-<a href="http://kevinfronczak.com/documents/EE610slew_rate.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/slew_rate.png" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/slew_rate.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}{{ site.image_path }}/slew_rate.png" /></a>
 Slew Rate
-<a href="http://kevinfronczak.com/documents/EE610/voltage_swing.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}/assets/voltage_swing.png" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/voltage_swing.png"><img alt="{{site.baseurl}}" src="{{ site.baseurl }}{{ site.image_path }}/voltage_swing.png" /></a>
 Large Signal Voltage Swing

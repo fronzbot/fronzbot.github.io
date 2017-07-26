@@ -13,6 +13,7 @@ paginate: 5
 excerpt_separator: "<!-- more -->"
 image_path: /assets/images
 doc_path: /assets/docs
+code_path: /assets/code
 
 gems: 
   - jekyll-paginate

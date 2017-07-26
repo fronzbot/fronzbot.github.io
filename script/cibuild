@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 set -e
-bundle exec jekyll build 
-bundle exec htmlproofer ./_site --only-4xx --check-favicon --check-html
+if [[ $* == *--clean* ]]; then
+  rm -rf ./_site
+fi
+
+bundle exec jekyll build  -d _site
+bundle exec htmlproofer ./_site --disable-external --check-favicon --check-html

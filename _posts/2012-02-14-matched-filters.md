@@ -17,10 +17,10 @@ feature: false
 I came across a simple but interesting noise problem today dealing with the design of a matched filter. Matched filters, for those of you that may not know, are primarily used in communications systems and are meant to maximum the signal to noise ratio in a system (essentially they attempt to extract the most amount of signal and the least amount of noise).  Wikipedia has a <a href="http://en.wikipedia.org/wiki/Matched_filter">pretty decent explanation</a> if you're inclined to learn more.
 Basically, the problem is this: how can we design a matched filter to maximize the signal recovery?  That is, how to we maximize our signal to noise ratio?  Well, let's take a look!
 Let's face it: we live in a very noisy world.  No signal or waveform that we want to manipulate will ever be unaffected from noise in our environments.  But how can we receive relatively clean signals when all this noise is around us?  For an example, just take a look at the plot below!  You can see what the signal should be: a nice, clean, sinusoidal waveform.  But when we take into account noise, look at what happens- it's barely discernible as a sine wave let alone a waveform at all!  What can we do?!
-<a href="http://kevinfronczak.com/documents/noiseandsignal.png"><img class="aligncenter" src="{{ site.baseurl }}/assets/noiseandsignal.png" alt="{{site.baseurl}}" width="500" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/noiseandsignal.png"><img class="aligncenter" src="{{ site.baseurl }}{{ site.image_path }}/noiseandsignal.png" alt="{{site.baseurl}}" width="500" /></a>
 Well, let's look at the background information we need first.  Let's say that the nice sine wave is the information we need to receive, but we end up getting all that blue stuff.  Clearly, we need a way to filter all that noise out.  There are many, many ways to do this, but let's keep it simple and just pass our signal through a low-pass filter.  Filter choice is largely dependent on the application, but let's just pretend that a low pass filter will get us the information we want.  Ok?  Ok.
 First, we need to define what a low-pass filter is.  We'll just use a passive filter in order to simplify our calculations (and our ensuing transfer function).  The circuit below is a low-pass filter (that is, it passes low frequencies while attenuating higher ones).  Pretty easy so far!
-<a href="http://kevinfronczak.com/documents/lpf.jpg"><img class="aligncenter" src="{{ site.baseurl }}/assets/lpf.jpg" alt="{{site.baseurl}}" width="400/" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/lpf.jpg"><img class="aligncenter" src="{{ site.baseurl }}{{ site.image_path }}/lpf.jpg" alt="{{site.baseurl}}" width="400/" /></a>
 Now, lets say we have a sinusoidal input defined as $$X(t)=A \cos{(\omega_{0} t+\Theta)}+N_{i}(t)$$ where $$N_{i}(t)$$ is zero mean, white Gaussian noise.  If you're not sure what white Gaussian noise is, it's simply noise that has the same amplitude across every frequency.  Given we have white Gaussian noise, we know that the Power Spectral Density, [latex size="1"]S_{N_{i}}(f) = \frac{N_{0}}{2}$$.  This will be handy eventually, so just keep it in mind moving forward.
 First, let's take a look what our signal to noise ratio, or $$SNR_{i}$$ is at the input of our filter.  Since [latex size ="1"]SNR_{i} = \frac{Signal Power}{Noise Power}$$ this is very easy to calculate.  For the sake of completeness, however, let's find the power of our signal.  How can we find this?  By using the auto-correlation function!  To find average power, we just take this function with $$\tau = 0$$ so we get:
 [latex size = "1"]P_{avg}=R(0)=\frac{A^{2}}{2}$$
@@ -32,18 +32,18 @@ H(\j\omega) = \frac{\frac{1}{\j\omega C}}{R+\frac{1}{\j\omega C}}
 H(\j\omega) = \frac{1}{1+\j\omega RC}
 $$
 Now, let's find the magnitude of this transfer function:
-[latex size="2"]
+$$
 |H(\j\omega)| = \frac{1}{\sqrt{1+\omega^{2}R^{2}C^{2}}}$$
 The next step we need to take is to find the -3dB point.  This is the point where the signal starts to deteriorate at a -3dB/decade rate. Now, since this is a passive filter, we know the 0dB point is 1 and located at $$\omega=0$$.  Therefore, we can find the -3dB point by solving for x in the follwoing equation:
 $$-3 = 20\log(x)$$ which yields a value of [latex size="1"]\frac{1}{\sqrt{2}}$$.  To help visualize this a bit better, refer to the following graph (ignore the x-axis values- they are arbitrary and were just used to help generate the plot):
-<a href="http://kevinfronczak.com/documents/lpf_freqeuncy_response.png"><img class="aligncenter" src="{{ site.baseurl }}/assets/lpf_freqeuncy_response.png" alt="{{site.baseurl}}" width="600" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/lpf_freqeuncy_response.png"><img class="aligncenter" src="{{ site.baseurl }}{{ site.image_path }}/lpf_freqeuncy_response.png" alt="{{site.baseurl}}" width="600" /></a>
 So now that we have a magnitude value for our transfer function at the -3dB point, let's solve for an expression in terms of R and C:
 [latex size="1"]\frac{1}{\sqrt{2}} = \frac{1}{\sqrt{1+\omega_{3db}^{2}R^{2}C^{2}}}$$
 [latex size="1"]\frac{1}{2}+\frac{\omega_{3dB}^{2}R^{2}C^{2}}{2} = 1$$
 [latex size="1"]\omega_{3db} = \frac{1}{RC}$$
 Now that we have all of that out of the way, we can start the design of our filter.
 First we need to determine what our output will look like after passing through our filter.   This is illustrated in the figure below, but I'll explain it as well.  There are two things that the filter will do to our original signal.  First, it will change the amplitude of the signal based on what the response is at a given frequency.  The next is that it will have a phase change due to the phase at a given frequency.
-<a href="http://kevinfronczak.com/documents/matchedFilterSystem.png"><img class="aligncenter" src="{{ site.baseurl }}/assets/matchedFilterSystem.png" alt="{{site.baseurl}}" width="600" /></a>
+<a href="{{ site.baseurl }}{{ site.image_path }}/matchedFilterSystem.png"><img class="aligncenter" src="{{ site.baseurl }}{{ site.image_path }}/matchedFilterSystem.png" alt="{{site.baseurl}}" width="600" /></a>
 We already know that the average Power of our input $$X(t)$$ is equal to [latex size="1"]\frac{A^{2}}{2}$$.  Since out output will be scaled by the magintude of the Transfer Function we know that:
 [latex size="2"]P_{Y} = \frac{A^{2}|H(\j\omega_{0})|^{2}}{2} = \frac{A^{2}}{2(1+\omega_{0}^{2}R^{2}C^{2})}$$
 Great!  Now we have the output average power of our signal.  Now, in order to get $$SNR_{o}$$ we just need to find the average output power of the noise.
