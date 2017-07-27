@@ -24,6 +24,7 @@ $$ x(t)=\large\frac{4}{\pi}\sum\limits_{k=1}^{\infty} \large\frac{sin([2k-1]\cd
 
 Now, because it's fun, let's visualize this equation.  The following animation performs a sum of k=1 to k=32\.  As each sine wave is summed, our transient waveform (top) approaches the behavior of an ideal square wave.  The bottom plot shows the discrete fourier transform (DFT) of each summation.  The blue curve corresponds to our fundamental frequency (the frequency at k=1) and the red curves are all of our harmonics.  The ratio of the harmonics to the fundamental gives us our THD distortion (the actual THD equation is at the bottom of animated image). 
 
+{: .center}
 [![square_wave_sum]({{ site.baseurl }}{{ site.image_path }}/square_wave_sum.gif)]({{ site.baseurl }}{{ site.image_path }}/square_wave_sum.gif)
 
 $$THD\% = \sqrt{\large\frac{\sum\limits_{k=2}^{\infty} x_{k}^{2}}{x_{1}^{2}}} $$
@@ -62,10 +63,12 @@ So the THD got worse!  Well, does this actually make sense?  Let's look at it 
 
 I know the fourier transform of a sine wave is $$\mathcal{F}\left\{sin(\omega_0 t)\right\} = j\sqrt{\frac{\pi}{2}}\delta (\omega -\omega_0)-j\sqrt{\frac{\pi}{2}}\delta (\omega +\omega_0)$$.  For simplicity, instead of multiplying by a pure square-wave, let's just say we only have the the harmonics '1', '3', and '5'.  Given that, and normalizing the amplitudes to an arbitrary value of 'A', we can plot these signals in the frequency domain below. 
 
+{: .center}
 [![sine_fourier_transform]({{ site.baseurl }}{{ site.image_path }}/sine_fourier_transform-1024x880.png)]({{ site.baseurl }}{{ site.image_path }}/sine_fourier_transform.png)
 
 Given this, if I convolve these two waveforms (remember, multiplication in the time-domain is convolution in the frequency-domain!), I will get the following plot (the math is very straight-forward so I'll omit it here).
 
+{: .center}
 [![mixed_fourier_transform]({{ site.baseurl }}{{ site.image_path }}/mixed_fourier_transform-1024x403.png)]({{ site.baseurl }}{{ site.image_path }}/mixed_fourier_transform.png)
 
 Now, if we sum up the squares of the harmonics and divide by the square of the component at DC, we will have $$\left(\frac{2}{10}\right)^2+\left(\frac{2}{15}\right)^2+\left(\frac{2}{3}\right)^2\approx 0.502 $$.  When we take the square root, we get $$THD\% \approx 70.85%$$.  Which is larger than our exactly calculated value by $$3.5\%$$ despite only including two harmonics outside of the fundamental.  As more harmonics are added into the square-wave approximation, the previous harmonic will decrease in amplitude (ie. the component at $$6\omega_0$$ will go from $$\frac{1}{10}$$ to $$\frac{1}{35}$$).

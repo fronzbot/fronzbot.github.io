@@ -21,4 +21,4 @@ matrix:
       install: pip3 install -r ./script/pyscripts/requirements.txt
       script:
         - python3 ./script/pyscripts/check_frontmatter.py feature_key tags
-        - python3 ./script/pyscripts/post_linter.py --ignore iframe sup
+        - python3 ./script/pyscripts/post_linter.py --center-images --ignore iframe sup

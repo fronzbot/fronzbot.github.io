@@ -23,6 +23,7 @@ $$ e_{n}^{2} = 2.42\times 10^{-10} V^{2} \\ i_{n}^{2} = 1.28\times 10^{-16} A^{2
 
 Now we can create a noise model for the opamp. We will have voltage noises due to the resistors, an input-referred voltage noise source on one pin (calculated above) and TWO input-referred current noise sources (again, calculated above). Note that R2 is placed specifically to lower noise, and we'll analyze the effects of taking it out to show why it's necessary. The resistor values were chosen to exacerbate the noise problem.
 
+{: .center}
 [![Opamp Noise Model]({{ site.baseurl }}{{ site.image_path }}/opamp_noise_model.png)]({{ site.baseurl }}{{ site.image_path }}/opamp_noise_model.png)
 
 Our process will be the same as in the [BJT case]({{ site.baseurl }}/blogcircuit-noise-analysis/) where we will analyze the contributions of each source at the output and then find the total input-referred noise from all sources.

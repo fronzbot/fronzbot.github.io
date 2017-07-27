@@ -51,10 +51,12 @@ Given the assumptions laid above, we can plot $$\frac{g_m}{I_D}$$, $$I_D$$ and $
 
 Sansen's rule: an inversion coefficient of '1' is typically the most optimal point for speed, noise, and power. 
 
+{: .center}
 [![inversion_coefficient_constant_gm]({{ site.baseurl }}{{ site.image_path }}/inversion_coefficient.gif)]({{ site.baseurl }}{{ site.image_path }}/inversion_coefficient.gif)
 
 In the Fall 2015 edition of "IEEE Solid-State Circuits Magazine", Sansen published the following flowchart, illustrating a design flow using the inversion coefficient where the designer only needs to make two choices: the actual inversion coefficient, and the length of the device [4].  All other parameters will fall out of the equations.
 
+{: .center}
 [![sansen_design_method_inversion_coefficient]({{ site.baseurl }}{{ site.image_path }}/design_method.png)]({{ site.baseurl }}{{ site.image_path }}/design_method.png)
 
 Let's do a little exercise to see this methodology work.  Say we are asked to design a simple 5T OTA with a required DC Gain of 40dB, GBW of 100 MHz and a load capacitance of 1 pF.
@@ -80,10 +82,12 @@ So our final list of design parameters for the input pair of our 5T OTA is:
 
 I went ahead and put a schematic in cadence using a PDK I have access to and got the following result using stability analysis.  We hit our desired 40dB gain target and are quite close to the GBW requirement of 100 MHz (it turns out, the trans-conductance is a bit low in the simulation due to a mismatch between the actual transistor $$\mu C_{ox}$$ and what we used as an approximation). 
 
+{: .center}
 [![example_design_results]({{ site.baseurl }}{{ site.image_path }}/example_design_results.png)]({{ site.baseurl }}{{ site.image_path }}/example_design_results.png)
 
 Instead of haphazardly choosing the inversion coefficient, we could also sweep this value to try and find an optimum point for our application.  Below is a plot of the drain current and width-to-length ratio versus a sweep of the inversion coefficient.  Using a plot like this would allow for an optimization of area and power given the GBW and load capacitance requirements. 
 
+{: .center}
 [![design_optimization_matlab]({{ site.baseurl }}{{ site.image_path }}/design_optimization_matlab.png)]({{ site.baseurl }}{{ site.image_path }}/design_optimization_matlab.png)
 
 ## Conclusion

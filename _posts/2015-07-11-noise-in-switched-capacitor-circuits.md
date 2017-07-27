@@ -22,6 +22,7 @@ Neat. Now what?
 
 Well, first you need to recognize that the closed-loop output impedance of a unity gain buffer is roughly given by $$ \frac{1}{G_M}$$ where $$ G_M$$ is the trans-conductance of the amplifier whose DC open-loop gain transfer function approximates to $$ G_MR_{out}$$. Also, since we are only interested in what the noise looks like right before the switch opens (ie. we just took a sample), we can approximate the switch as an effective resistance $$ R_{SW}$$. So now we have two resistors, each with independent noise sources, and one capacitor, as shown in the equivalent small-signal model below. From here, it's just a matter of solving each circuit with only one of the independent noise sources active and then summing the ensuing expressions. 
 
+{: .center}
 [![Noise Model]({{ site.baseurl }}{{ site.image_path }}/sampled_noise_equivalent_model.png)]({{ site.baseurl }}{{ site.image_path }}/sampled_noise_equivalent_model.png)
 
 The first noise source, $$ i_{n1}^2$$, is the equivalent output noise current of the amplifier. You can also use the equivalent output noise voltage by putting the noise source in series with the resistor, rather than in parallel. After removing the noise source associated with the switch resistance (and setting the positive plate of the capacitor as out output node), we can generate a transfer function in the Laplace domain of:
