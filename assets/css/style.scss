@@ -64,8 +64,6 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
-
-
 /**
  * Basic styling
  */
@@ -103,6 +101,11 @@ img {
     vertical-align: middle;
 }
 
+/* To center images */
+.center {
+    float: center;
+    text-align: center;
+}
 
 
 /**

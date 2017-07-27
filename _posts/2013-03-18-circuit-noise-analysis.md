@@ -16,7 +16,7 @@ feature: false
 
 A really interesting topic in analog circuit design is noise analysis. Noise is everywhere and can be a pain to deal with. There are many types of noise, but the three most common are:
 
-*   <span style="line-height: 14px;">Thermal Noise</span>
+*   Thermal Noise
 *   Shot Noise
 *   1/f Noise (Flicker Noise)
 

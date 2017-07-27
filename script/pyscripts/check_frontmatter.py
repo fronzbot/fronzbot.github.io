@@ -1,28 +1,38 @@
+"""
+check_frontmatter.py
+Author: Kevin Fronczak
+Date: July 25, 2017
+
+Usage:
+    python3 check_frontmatter.py [tests]
+
+Implemented tests:
+    - tags  :  Checks for valid tags in each post_vars
+    - feature_key  :  Checks that 'feature_image' key is set in a post if it's marked to be featured
+
+"""
+
 import os
 import glob
 import sys
-from colorama import init, Fore
+import helpers
+from helpers import (PRINT_OK, PRINT_FAIL, COLOR)
+from helpers import print_errors as ERRPRINT
 
-init(autoreset=True)
-
-PATH = './_posts/'
-EXT = '.md'
 
 VALID_TAGS = ['analog', 'theory', 'systems', 'circuits', 'projects', 'university project', 'fun',
               'python', 'scripts', 'MATLAB', 'device physics', 'admin', 'home automation', 'noise',
               'signals', 'digital'
-             ]
-
+             ]           
+             
 PRINT_FILE_STRING = None
-PRINT_OK = Fore.GREEN + 'OK'
-PRINT_FAIL = Fore.RED + 'FAIL'   
        
 def main():
     errCount = 0
-    for filename in glob.glob('{}*{}'.format(PATH, EXT)):
+    file_list = helpers.get_posts()
+    for filename in file_list:
         test_array = list()
-        print('')
-        PRINT_FILE_STRING = Fore.WHITE + filename
+        PRINT_FILE_STRING = COLOR.colorize(filename, 'text')
         print(PRINT_FILE_STRING, end=" - ")
         for arg in sys.argv[1:]:
             (test_errs, test_err_list) = run_test(filename, arg)
@@ -32,17 +42,13 @@ def main():
         for error in test_err_list:
             print(error)
             
-
-    if errCount > 0:
-        print(Fore.RED + 'FAILED :( with {} total errors'.format(errCount))
-        sys.exit(1)
-    else:
-        print(Fore.GREEN + 'PASSED :)')
+    ERRPRINT(errCount, completion=True)
 
     return(0)
 
     
 def run_test(filename, test_name):
+    '''Runs given test by first extracting frontmatter from file.'''
     errCount = 0
     frontmatter = get_frontmatter(filename)
     if test_name == 'feature_key':
@@ -52,12 +58,13 @@ def run_test(filename, test_name):
         (test_err, error_list) = check_tags(frontmatter)
         errCount += test_err
     else:
-        print(Fore.RED + 'Unknown test "{}"'.format(test_name))
+        print(COLOR.colorize('Unknown test "{}"'.format(test_name), 'error'))
         sys.exit(1)
 
     return (errCount, error_list)
 
 def get_frontmatter(filename):
+    '''Extracts frontmatter from post for further processing.'''
     post_vars = dict()
     start_read = False
     with open(filename, 'r') as file:
@@ -83,25 +90,27 @@ def get_frontmatter(filename):
 
 
 def check_tags(frontmatter):
+    '''Checks tags in frontmatter against VALID_TAGS list.'''
     errCount = 0
     error_list = list()
     try:
         if not frontmatter['tags']:
-            error_list.append(Fore.YELLOW + 'WARNING: "tag" list empty in frontmatter')
+            error_list.append(COLOR.colorize('WARNING: "tag" list empty in frontmatter', 'warn'))
         for tag in frontmatter['tags']:
             if tag not in VALID_TAGS:
                 errCount += 1
-                error_list.append(Fore.RED + 'ERROR: {} is not a valid tag'.format(tag))
+                error_list.append(COLOR.colorize('ERROR: {} is not a valid tag'.format(tag), 'error'))
     except KeyError:
         errCount += 1
-        error_list.append(Fore.RED + 'ERROR: "tag" key not found in frontmatter')
+        error_list.append(COLOR.colorize('ERROR: "tag" key not found in frontmatter', 'error'))
 
-    print_errors('tags', errCount)
+    ERRPRINT(errCount, test_name='tags')
     
     return (errCount, error_list)
 
     
 def check_feature_key(frontmatter):
+    '''Verifies feature_image set if the post is set to be featured.'''
     errCount = 0
     error_list = list()
 
@@ -111,34 +120,28 @@ def check_feature_key(frontmatter):
             is_featured = frontmatter['feature']
         except KeyError:
             is_featured = False
-            error_list.append(Fore.RED + 'ERROR: "feature" key not found')
+            error_list.append(COLOR.colorize('ERROR: "feature" key not found', 'error'))
             errCount += 1
             
         try:
             if is_featured == 'true':
                 feature_image = frontmatter['feature_image']
         except KeyError:
-            error_list.append(Fore.RED + 'ERROR: "feature_image" key not found and "feature" is set to {}'.format(is_featured))
+            error_list.append(COLOR.colorize('ERROR: "feature_image" key not found and "feature" is set to {}'.format(is_featured), 'error'))
             errCount += 1
         except IndexError:
-            error_list.append(Fore.RED + 'ERROR: Marked as a project but the "feature" key is not set')
+            error_list.append(COLOR.colorize('ERROR: Marked as a project but the "feature" key is not set', 'error'))
     else:
         errCount += 1
-        error_list.append('ERROR: Missing "project" key')
+        error_list.append(COLOR.colorize('ERROR: Missing "project" key', 'error'))
 
-    print_errors('feature_key', errCount)
+    ERRPRINT(errCount, test_name='feature_key')
 
     return (errCount, error_list)
 
-def print_errors(test_name, errCount):
-    if errCount > 0:
-        print('{}: {}'.format(test_name, PRINT_FAIL), end='  ')
-    else:
-        print('{}: {}'.format(test_name, PRINT_OK), end='  ')
-
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print(Fore.RED + 'ERROR: Requires test argument')
+        print(COLOR.colorize('ERROR: Requires test argument', 'error'))
         sys.exit(1)
     main()
     
