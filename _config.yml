@@ -31,6 +31,16 @@ exclude:
   - ".asset-cache"
   - vendor
 
+# Sharing options
+social:
+  icons: /assets/icons
+  twitter: true
+  twitter_username: fronzbot
+  facebook: true
+  gplus: true
+  linkedin: true
+  reddit: true
+  
 # kramdown options
 kramdown:
   input: GFM

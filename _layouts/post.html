@@ -4,19 +4,27 @@ layout: default
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline"><a class="post-title-link"  href="{{site.baseurl}}{{page.url}}">{{ page.title }}</a></h1>
-  <center>  <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">Written by <a class="post-title-link"  href="{{site.baseurl}}/about">{{ page.author }}</a> on {{ page.date | date: "%b %-d, %Y" }}</time></p>
-   </center>
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">Written by <a class="post-title-link"  href="{{site.baseurl}}/about">{{ page.author }}</a> on {{ page.date | date: "%b %-d, %Y" }}</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
-      <div class="postTag">
-  Tags:&nbsp;
-  {% for tag in page.tags %}
-     {{tag}}&nbsp;
-  {% endfor %}
+    <div class="post-col-wrapper">
+      <div class="post-col post-col-1">
+        {% if site.social %}
+          {% include /posts/sharing.html %}
+        {% endif %}
+      </div>
+      <div class="postTag post-col post-col-2">
+        <br>
+        Tags:&nbsp;
+        {% for tag in page.tags %}
+           {{tag}}&nbsp;
+        {% endfor %}
+      </div>
+    </div>
   </div>
-  </div>
+  
   <footer class="postNavigation">
   {% if page.previous.url %}
     <a class="postPrev" href="{{ site.baseurl }}{{page.previous.url}}">
