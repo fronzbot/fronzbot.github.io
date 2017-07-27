@@ -17,7 +17,9 @@ I've been busy (understatement of the year).  I've been working on multiple p
 
 Now, let's begin...
 
-In order to perform matrix manipulations, three functions were created called **rotate_3D**, **translate_3D**, and **dilate_3D**.  These functions, along with the script used to generate all of the following plots, can be found at the end of this document. [![{{site.baseurl}}]({{ site.baseurl }}{{ site.image_path }}/Unmodified_Airplane.jpg)]({{ site.baseurl }}{{ site.image_path }}/Unmodified_Airplane.jpg) 
+In order to perform matrix manipulations, three functions were created called **rotate_3D**, **translate_3D**, and **dilate_3D**.  These functions, along with the script used to generate all of the following plots, can be found at the end of this document. 
+
+[![{{site.baseurl}}]({{ site.baseurl }}{{ site.image_path }}/Unmodified_Airplane.jpg)]({{ site.baseurl }}{{ site.image_path }}/Unmodified_Airplane.jpg) 
 
 First, the aircraft shown in Figure 1 was dilated by 1.5.  This was done by pre-multiplying the aircraft’s matrix (which can be a 3 x n sized matrix) by
 
@@ -77,12 +79,8 @@ Thus it is easy to see mathematically that the order of multiplications does, in
 
 ## MATLAB CODE 
 
-[Main Code (with Airplane instantiation)]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/airplane.m)
-
-[dilate_3D function]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/dilate_3D.m)
-
-[rotate_3D function]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/rotate_3D.m)
-
-[translate_3D function]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/translate_3D.m)
-
-[plot_3D_object function]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/plot_3D_object.m)
+* [Main Code (with Airplane instantiation)]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/airplane.m)
+* [dilate_3D function]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/dilate_3D.m)
+* [rotate_3D function]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/rotate_3D.m)
+* [translate_3D function]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/translate_3D.m)
+* [plot_3D_object function]({{ site.baseurl }}{{ site.code_path }}/MATLAB/airplane/plot_3D_object.m)

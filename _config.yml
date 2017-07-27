@@ -22,7 +22,7 @@ gems:
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+highlighter: pygments
 encoding: UTF-8
 permalink: /blog/:title
 include: 
@@ -34,7 +34,7 @@ exclude:
 # kramdown options
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
+  syntax_highlighter: pygments
   syntax_highlighter_opts:
     css_class: 'highlight'
     span:

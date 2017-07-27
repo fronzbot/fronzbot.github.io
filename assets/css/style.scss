@@ -225,7 +225,6 @@ code {
 }
 
 pre {
-    border: solid 1px #ddd; /* DISABLE THIS if border funky */
     overflow-x: auto;
     padding: 0;
     line-height: 23px;
@@ -242,6 +241,7 @@ pre {
 }
 .highlight td {
     padding: 8px 15px;
+    border: 1px solid #ddd;
 }
 
 .gl { 
