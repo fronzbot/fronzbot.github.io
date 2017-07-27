@@ -2,12 +2,6 @@
 layout: default
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <head>
-    {% if page.use_math %}
-      {% include mathjax_support %}
-    {% endif %}
-  </head>
-
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline"><a class="post-title-link"  href="{{site.baseurl}}{{page.url}}">{{ page.title }}</a></h1>
   <center>  <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">Written by <a class="post-title-link"  href="{{site.baseurl}}/about">{{ page.author }}</a> on {{ page.date | date: "%b %-d, %Y" }}</time></p>
@@ -25,12 +19,12 @@ layout: default
   </div>
   <footer class="postNavigation">
   {% if page.previous.url %}
-    <a class="postPrev" href="{{page.previous.url}}">
+    <a class="postPrev" href="{{ site.baseurl }}{{page.previous.url}}">
         &laquo; {{page.previous.title}}
     </a>
   {% endif %}
   {% if page.next.url %}
-    <a class="postNext" href="{{page.next.url}}">
+    <a class="postNext" href="{{ site.baseurl }}{{page.next.url}}">
         {{page.next.title}} &raquo;
     </a>
   {% endif %}
