@@ -12,7 +12,7 @@ layout: default
   <div  class="postDateArchive"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d" }}</time>
   </div>
   <div class="postArchive">
-    <a class='postLink' href="{{site.url}}{{site.baseurl}}{{post.url}}">{{post.title}}</a>
+    <a class='postLink' href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
   </div>
   <div class="postExt">
     {{ post.excerpt | strip_html | truncate:200 }} <a href="{{ site.baseurl }}{{post.url}}">Read more</a>

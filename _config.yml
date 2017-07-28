@@ -1,8 +1,7 @@
 title: Kevin Fronczak
 description: Analog Circuit Designer
 email: kfronczak@gmail.com
-baseurl: "https://fronzbot.github.io"
-#url: "https://fronzbot.github.io"
+baseurl: "https://kevinfronczak.com"
 twitter_username:
 github_username: fronzbot
 linkedin_username: kfronczak
@@ -65,11 +64,16 @@ assets:
   digest: true
   assets:
     - "*.png"
+    - "*.PNG"
+    - "*.jpg"
+    - "*.bmp"
     - "bundle.css"
+    - "*.pdf"
   sources:
     - assets/css
     - assets/images
     - assets/images/features
+    - assets/docs
   features:
     liquid: false
     integrity: false
