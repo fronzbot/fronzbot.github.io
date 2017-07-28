@@ -25,7 +25,7 @@ from helpers import print_errors as ERRPRINT
 
 VALID_TAGS = ['analog', 'theory', 'systems', 'circuits', 'projects', 'university project', 'fun',
               'python', 'scripts', 'MATLAB', 'device physics', 'admin', 'home automation', 'noise',
-              'signals', 'digital'
+              'signals', 'digital', 'website'
              ]
 
 PRINT_FILE_STRING = None

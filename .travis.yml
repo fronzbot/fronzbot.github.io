@@ -20,5 +20,5 @@ matrix:
       python: 3.4.2
       install: pip3 install -r ./script/pyscripts/requirements.txt
       script:
-        - python3 ./script/pyscripts/check_frontmatter.py feature-key tags --skip=README.md
+        - python3 ./script/pyscripts/check_frontmatter.py feature-key tags --skip=README.md,post-template.md
         - python3 ./script/pyscripts/post_linter.py --center-images --center-eqs --ignore iframe sup
