@@ -8,14 +8,16 @@ Usage:
     python3 check_frontmatter.py [tests]
 
 Implemented tests:
+    --skip=item1,item2  :  Sets files to be skipped
     - tags  :  Checks for valid tags in each post_vars
-    - feature_key  :  Checks that 'feature_image' key is set in a post if it's marked to be featured
+    - feature-key  :  Checks that 'feature_image' key is set in a post if it's marked to be featured
 
 """
 
 import os
 import glob
 import sys
+import re
 import helpers
 from helpers import (PRINT_OK, PRINT_FAIL, COLOR)
 from helpers import print_errors as ERRPRINT
@@ -28,20 +30,22 @@ VALID_TAGS = ['analog', 'theory', 'systems', 'circuits', 'projects', 'university
 
 PRINT_FILE_STRING = None
 
-def main():
+def main(test_args, skip_list):
     errCount = 0
     file_list = helpers.get_posts()
     for filename in file_list:
-        test_array = list()
-        PRINT_FILE_STRING = COLOR.colorize(filename, 'text')
-        print(PRINT_FILE_STRING, end=" - ")
-        for arg in sys.argv[1:]:
-            (test_errs, test_err_list) = run_test(filename, arg)
-            errCount += test_errs
-            test_array.append(test_err_list)
-        print('')
-        for error in test_err_list:
-            print(error)
+        if re.sub(helpers.PATH, '', filename) not in skip_list:
+            test_array = list()
+            PRINT_FILE_STRING = COLOR.colorize(filename, 'text')
+            print(PRINT_FILE_STRING, end=" - ")
+            test_err_list = list()
+            for arg in test_args:
+                (test_errs, test_err_list) = run_test(filename, arg)
+                errCount += test_errs
+                test_array.append(test_err_list)
+            print('')
+            for error in test_err_list:
+                print(error)
 
     ERRPRINT(errCount, completion=True)
 
@@ -52,7 +56,7 @@ def run_test(filename, test_name):
     '''Runs given test by first extracting frontmatter from file.'''
     errCount = 0
     frontmatter = get_frontmatter(filename)
-    if test_name == 'feature_key':
+    if test_name == 'feature-key':
         (test_err, error_list) = check_feature_key(frontmatter)
         errCount += test_err
     elif test_name == 'tags':
@@ -141,7 +145,17 @@ def check_feature_key(frontmatter):
     return (errCount, error_list)
 
 if __name__ == '__main__':
+    test_args = list()
+    skip_list = list()
     if len(sys.argv) < 2:
         print(COLOR.colorize('ERROR: Requires test argument', 'error'))
         sys.exit(1)
-    main()
+    else:
+        for arg in sys.argv[1:]:
+            if '--skip=' in arg:
+                comma_list = arg.split('--skip=')
+                skip_list = comma_list[1].split(',')
+            else:
+                test_args.append(arg)
+
+    main(test_args, skip_list)

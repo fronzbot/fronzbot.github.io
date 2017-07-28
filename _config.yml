@@ -1,6 +1,7 @@
 title: Kevin Fronczak
 description: Analog Circuit Designer
 email: kfronczak@gmail.com
+domain: 'kevinfronczak.com'
 baseurl: "https://kevinfronczak.com"
 url: "https://kevinfronczak.com"
 twitter_username:
@@ -30,6 +31,8 @@ include:
 exclude:
   - ".asset-cache"
   - vendor
+
+google_analytics_id: UA-28009801-1
 
 # Sharing options
 social:

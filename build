@@ -8,7 +8,8 @@ if [[ $* == *--lint* ]]; then
 else
   rm _config_dev.yml
   cp _config.yml _config_dev.yml
-  sed -i -e 's/https\:\/\/kevinfronczak\.com//g' _config_dev.yml
+  sed -i -e 's/kevinfronczak\.com//g' _config_dev.yml
+  sed -i -e 's/https\:\/\///g' _config_dev.yml
   bundle exec jekyll build --config _config_dev.yml
   bundle exec jekyll serve --config _config_dev.yml
 fi
