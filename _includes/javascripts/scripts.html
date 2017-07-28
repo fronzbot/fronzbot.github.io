@@ -1,1 +1,3 @@
-{% include javascripts/google_analytics.html %}
+{% if site.google_analytics_id %}
+  {% include javascripts/google_analytics.html %}
+{% endif %}
