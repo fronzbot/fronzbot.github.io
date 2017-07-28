@@ -234,7 +234,7 @@ pre {
     overflow-x: auto;
     padding: 0;
     line-height: 23px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     white-space: pre;
     overflow-x: auto;
     word-break: inherit;
@@ -245,16 +245,22 @@ pre {
         padding-left: 0;
     }
 }
+
+.highlighter-rouge {
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+/*
 .highlight td {
     padding: 8px 15px;
-    border: 1px solid #ddd;
 }
 
 .gl {
   background: #fafafa;
   border-right: 1px solid #ddd;
   color: #999;
-  /* Stop line numbers being visually selected */
+  /* Stop line numbers being visually selected
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -262,7 +268,7 @@ pre {
   -ms-user-select: none;
   user-select: none;
 }
-
+*/
 
 /**
  * Share buttons
@@ -767,7 +773,7 @@ ul.share-buttons img{
 * Other style
 */
 .resumeAlignCenter {
-  text-align: center; 
+  text-align: center;
   color: gray;
   font-size: 90%;
 }
