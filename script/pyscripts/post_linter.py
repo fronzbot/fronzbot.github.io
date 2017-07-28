@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 post_linter.py
 Author: Kevin Fronczak
@@ -5,12 +6,13 @@ Date: July 27, 2017
 
 Usage:
     python3 check_images.py [opts]
-    
+
 Options:
     --ignore [list]  :  Allow tags given in 'list'
     --skip-html      :  Skips checking html
     --center-images  :  Verifies markdown tag to center images exists in file
-    
+    --center-eqs     :  Verifies non-inline equations are centered
+
 Runs through posts to find image tags and throws error if html tags are found
 
 """
@@ -31,34 +33,75 @@ def main(ignore_list, extra_args):
     non_centered = dict()
     errCount = 0
     if 'skip-html' not in extra_args:
-        print(COLOR.colorize('Checking for errant HTML tags', 'info'), end='\n\n')
+        print(COLOR.colorize('Checking for errant HTML tags', 'info'), end=' ')
         for filename in file_list:
             (html_found, errs) = get_html(filename, ignore_list)
             html_strings = helpers.merge_dicts(html_strings, html_found)
             errCount += errs
+        if errs > 0:
+            print(PRINT_FAIL)
         for key, entry in html_strings.items():
             if entry:
                 print('{}\n{}'.format(key, PRINT_ERROR))
                 for element in entry:
                     print('{}: {}'.format(element[0], element[1]))
                 print('')
-    
+        if errs == 0:
+            print(PRINT_OK)
+
     if 'center-image' in extra_args:
-        print(COLOR.colorize('\nVerifying images are centered', 'info'), end='\n\n')
+        print(COLOR.colorize('\nVerifying images are centered', 'info'), end=' ')
         for filename in file_list:
             (found, errs) = check_image_centering(filename)
             non_centered = helpers.merge_dicts(found, non_centered)
             errCount += errs
+        if errs > 0:
+            print(PRINT_FAIL)
         for key, entry in non_centered.items():
             if entry:
                 print('{}\n{}'.format(key, PRINT_ERROR))
                 for element in entry:
                     print('{}: {}'.format(element[0], element[1]), end='')
+        if errs == 0:
+            print(PRINT_OK)
+
+    if 'center-eqs' in extra_args:
+        non_centered = dict()
+        print(COLOR.colorize('\nVerifying equations are centered', 'info'), end=' ')
+        for filename in file_list:
+            (found, errs) = check_eq_centering(filename)
+            non_centered = helpers.merge_dicts(found, non_centered)
+            errCount += errs
+        if errs > 0:
+            print(PRINT_FAIL)
+        for key, entry in non_centered.items():
+            if entry:
+                print('{}\n{}'.format(key, PRINT_ERROR))
+                for element in entry:
+                    print('{}: {}'.format(element[0], element[1], end=''))
+        if errs == 0:
+            print(PRINT_OK)
+
     print('\n')
     ERRPRINT(errCount, completion=True)
-    
+
     return(0)
-    
+
+def check_eq_centering(filename):
+    errs = 0
+    line_num = 0
+    entries = list()
+    with open(filename, 'r') as file:
+        for line in file:
+            line_num += 1
+            match = re.findall('^\$\$.*?\$\$\.$', line)
+            if match and '<!-- lint-disable -->' not in line:
+                errs += 1
+                lnum = COLOR.colorize(str(line_num), 'linenum')
+                entry = COLOR.colorize(line, 'error')
+                entries.append([lnum, entry])
+    return({filename: entries}, errs)
+
 def check_image_centering(filename):
     errs = 0
     line_num = 0
@@ -74,7 +117,7 @@ def check_image_centering(filename):
                     entry = COLOR.colorize(line, 'error')
                     entries.append([lnum, entry])
             last_line = line
-            
+
     return ({filename: entries}, errs)
 
 def get_html(filename, ignore_list):
@@ -113,6 +156,9 @@ if __name__ == "__main__":
             if arg == '--skip-html':
                 get_ignore_list = False
                 extra_args.append('skip-html')
+            if arg == '--center-eqs':
+                get_ignore_list = False
+                extra_args.append('center-eqs')
             if get_ignore_list:
                 ignore_list.append(arg)
             if arg == '--ignore':

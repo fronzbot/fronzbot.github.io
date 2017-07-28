@@ -28,19 +28,33 @@ Now we can create a noise model for the opamp. We will have voltage noises due t
 
 Our process will be the same as in the [BJT case]({{ site.baseurl }}/blogcircuit-noise-analysis/) where we will analyze the contributions of each source at the output and then find the total input-referred noise from all sources.
 
-**1) Thermal Noise from R1** $$ e_{n1}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(10\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-9} V^{2}$$ Since it is an inverting amplifier and we are on the '-' pin of the amp, gain is just $$ A = \frac{RF}{R1} = 10 \frac{V}{V}$$. Therfore, $$ e_{n1,o}^{2} = (1.328 \times 10^{-9})(10)^{2} = 1.328 \times 10^{-7}$$.
+**1) Thermal Noise from R1**
 
-**2) Input Referred Voltage Noise ** This will simply be the value we already calculated times the square of the gain, or $$ e_{n2,o}^{2} = (2.42\times 10^{-10})(100) = 2.42\times 10^{-8} V^{2}$$. You should be able to see why this is a low-power amp. Clearly, the thermal noise of the resistance is going to be a larger factor since it is an order of magnitude larger than the noise inherent to the internals of the opamp itself.
+<!-- lint-disable -->$$ e_{n1}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(10\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-9} V^{2}$$ Since it is an inverting amplifier and we are on the '-' pin of the amp, gain is just $$ A = \frac{RF}{R1} = 10 \frac{V}{V}$$. Therefore, $$ e_{n1,o}^{2} = (1.328 \times 10^{-9})(10)^{2} = 1.328 \times 10^{-7}$$.
 
-**3) Thermal Noise from R2** $$ e_{n3}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(10\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-9} V^{2}$$. Since we are on the non-inverting side, we need to calculated the non-inverting gain which is just $$ A = 1+\frac{RF}{R1} = 11$$ so $$ e_{n3,o}^{2} = (1.328\times 10^{-9})(11)^{2} = 1.607 \times 10^{-7} V^{2}$$.
+**2) Input Referred Voltage Noise**
 
-**4) Input Referred Current Noise ('minus' pin)** First, we need to convert our already calculated current noise value into a voltage. This requires us to look at the equivalent resistance that this source sees. It should be obvious that we'll see R1 in parallel with the input common-mode resistance; since $$ R_{in,cm} >> R1$$, we can approximate the equivalent resistance as $$ 10k\Omega$$. Thus, $$ e_{n4}^{2} = (1.28\times 10^{-16})(10\times 10^{3})^{2} = 1.28 \times 10^{-8}$$. It follows that $$ e_{n4,o}^{2} = (1.28 \times 10^{-8})(10)^{2} = 1.28 \times 10^{-6} V^{2}$$.
+This will simply be the value we already calculated times the square of the gain, or $$ e_{n2,o}^{2} = (2.42\times 10^{-10})(100) = 2.42\times 10^{-8} V^{2}$$. You should be able to see why this is a low-power amp. Clearly, the thermal noise of the resistance is going to be a larger factor since it is an order of magnitude larger than the noise inherent to the internals of the opamp itself.
 
-**5) Input Referred Current Noise ('plus' pin)** Obviously, the calculation here will be the same as the previous with the only modification being the gain (11 as opposed to 10). Thus, $$ e_{n5,o}^{2} = (1.28 \times 10^{-8})(11)^{2} = 1.549 \times 10^{-6} V^{2}$$ 
+**3) Thermal Noise from R2**
 
-**6) Thermal Noise from RF** $$ e_{n6,o}^{2} = e_{n6}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(100\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-8} V^{2}$$.
+<!-- lint-disable -->$$ e_{n3}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(10\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-9} V^{2}$$. Since we are on the non-inverting side, we need to calculated the non-inverting gain which is just $$ A = 1+\frac{RF}{R1} = 11$$ so $$ e_{n3,o}^{2} = (1.328\times 10^{-9})(11)^{2} = 1.607 \times 10^{-7} V^{2}$$.
 
-**Total Noise** Summing all of these values up yields and output noise of $$ e_{no,total}^{2} = 3.16\times 10^{-6} V^{2}$$ which, when dividing by the square of the gain yields an input noise of $$ e_{ni,total}^{2} = 3.16 \times 10^{-8} V^{2}$$. Converting this to more friendly units yields our final answer of: $$ e_{ni, total} = 62.85 \frac{nV}{\sqrt{Hz}}$$. This means that _just by adding resistors_ the opamp's noise increased by a staggering 1043% (not _totally_ true. We're also taking into account the input current noise which is a HUGE fraction of the noise figure)!
+**4) Input Referred Current Noise ('minus' pin)**
+
+First, we need to convert our already calculated current noise value into a voltage. This requires us to look at the equivalent resistance that this source sees. It should be obvious that we'll see R1 in parallel with the input common-mode resistance; since $$ R_{in,cm} >> R1$$, we can approximate the equivalent resistance as $$ 10k\Omega$$. Thus, $$ e_{n4}^{2} = (1.28\times 10^{-16})(10\times 10^{3})^{2} = 1.28 \times 10^{-8}$$. It follows that $$ e_{n4,o}^{2} = (1.28 \times 10^{-8})(10)^{2} = 1.28 \times 10^{-6} V^{2}$$.
+
+**5) Input Referred Current Noise ('plus' pin)**
+
+Obviously, the calculation here will be the same as the previous with the only modification being the gain (11 as opposed to 10). Thus, $$ e_{n5,o}^{2} = (1.28 \times 10^{-8})(11)^{2} = 1.549 \times 10^{-6} V^{2}$$
+
+**6) Thermal Noise from RF**
+
+<!-- lint-disable -->$$ e_{n6,o}^{2} = e_{n6}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(100\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-8} V^{2}$$.
+
+**Total Noise**
+
+Summing all of these values up yields and output noise of $$ e_{no,total}^{2} = 3.16\times 10^{-6} V^{2}$$ which, when dividing by the square of the gain yields an input noise of $$ e_{ni,total}^{2} = 3.16 \times 10^{-8} V^{2}$$. Converting this to more friendly units yields our final answer of: $$ e_{ni, total} = 62.85 \frac{nV}{\sqrt{Hz}}$$. This means that _just by adding resistors_ the opamp's noise increased by a staggering 1043% (not _totally_ true. We're also taking into account the input current noise which is a HUGE fraction of the noise figure)!
 
 **So what's with R2?**
 

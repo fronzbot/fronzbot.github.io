@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 check_frontmatter.py
 Author: Kevin Fronczak
@@ -23,10 +24,10 @@ from helpers import print_errors as ERRPRINT
 VALID_TAGS = ['analog', 'theory', 'systems', 'circuits', 'projects', 'university project', 'fun',
               'python', 'scripts', 'MATLAB', 'device physics', 'admin', 'home automation', 'noise',
               'signals', 'digital'
-             ]           
-             
+             ]
+
 PRINT_FILE_STRING = None
-       
+
 def main():
     errCount = 0
     file_list = helpers.get_posts()
@@ -41,12 +42,12 @@ def main():
         print('')
         for error in test_err_list:
             print(error)
-            
+
     ERRPRINT(errCount, completion=True)
 
     return(0)
 
-    
+
 def run_test(filename, test_name):
     '''Runs given test by first extracting frontmatter from file.'''
     errCount = 0
@@ -72,7 +73,7 @@ def get_frontmatter(filename):
             if line.strip() == '---' and start_read:
                 start_read = False
                 break
-            
+
             if start_read:
                 line_split = line.split(':')
                 if line_split[0] == 'tags':
@@ -105,10 +106,10 @@ def check_tags(frontmatter):
         error_list.append(COLOR.colorize('ERROR: "tag" key not found in frontmatter', 'error'))
 
     ERRPRINT(errCount, test_name='tags')
-    
+
     return (errCount, error_list)
 
-    
+
 def check_feature_key(frontmatter):
     '''Verifies feature_image set if the post is set to be featured.'''
     errCount = 0
@@ -122,7 +123,7 @@ def check_feature_key(frontmatter):
             is_featured = False
             error_list.append(COLOR.colorize('ERROR: "feature" key not found', 'error'))
             errCount += 1
-            
+
         try:
             if is_featured == 'true':
                 feature_image = frontmatter['feature_image']
@@ -144,4 +145,3 @@ if __name__ == '__main__':
         print(COLOR.colorize('ERROR: Requires test argument', 'error'))
         sys.exit(1)
     main()
-    
