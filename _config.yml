@@ -71,13 +71,15 @@ assets:
     - "*.PNG"
     - "*.jpg"
     - "*.bmp"
-    - "bundle.css"
+    - "style.css"
     - "*.pdf"
   sources:
     - assets/css
     - assets/images
     - assets/images/features
     - assets/docs
+    - assets/scripts
+    - assets/fonts
   features:
     liquid: false
     integrity: false
