@@ -11,11 +11,69 @@ youtube_username: kevinfronczak
 google_plus_username: 112051215299289480804
 paginate: 5
 excerpt_separator: "<!-- more -->"
+image_path: /assets/images
+doc_path: /assets/docs
+code_path: /assets/code
 
-gems: [jekyll-paginate, kramdown]
+gems: 
+  - jekyll-paginate
+  - kramdown
+  - jekyll-assets
 
 # Build settings
 markdown: kramdown
+highlighter: pygments
 encoding: UTF-8
 permalink: /blog/:title
-include: ["_pages"]
+include: 
+  - "_pages"
+exclude:
+  - ".asset-cache"
+  - vendor
+
+# Sharing options
+social:
+  icons: /assets/icons
+  twitter: true
+  twitter_username: fronzbot
+  facebook: true
+  gplus: true
+  linkedin: true
+  reddit: true
+  
+# kramdown options
+kramdown:
+  input: GFM
+  syntax_highlighter: pygments
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+  
+# Asset compression
+assets:
+  compress:
+    css: true
+    js: true
+  autowrite: true
+  cache: .asset-cache
+  cache_type: filesystem
+  prefix: "/assets"
+  digest: true
+  assets:
+    - "*.png"
+    - "bundle.css"
+  sources:
+    - assets/css
+    - assets/images
+    - assets/images/features
+  features:
+    liquid: false
+    integrity: false
+    # This will add height and width attributes for an img tag.
+    automatic_img_size: true
+    # This will add the digest path as an alt attribute for an img tag.
+    automatic_img_alt : true

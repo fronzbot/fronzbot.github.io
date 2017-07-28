@@ -16,7 +16,7 @@ layout: default
       {{post.tag}}
     </div>
     <br>
-    <div class="postTitle">
+    <div class="postArchive">
     <a class='postLink' href="{{site.url}}{{site.baseurl}}{{post.url}}">{{post.title}}</a>
     </div>
     <div class="postExt">
@@ -29,7 +29,7 @@ layout: default
   {% if paginator.total_pages > 1 %}
     <nav class="pagination">
       {% if paginator.previous_page %}
-        <a class="paginationLink" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+        <a class="paginationLink" href="{{ site.baseurl }}{{ paginator.previous_page_path | replace: '//', '/' }}">&laquo; Prev</a>
       {% endif %}
 
     {% for page in (1..paginator.total_pages) %}
@@ -38,12 +38,12 @@ layout: default
       {% elsif page == 1 %}
         <a class="paginationLink" href="/">{{ page }}</a>
       {% else %}
-        <a class="paginationLink" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        <a class="paginationLink" href="{{ site.baseurl }}{{ site.paginate_path | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
       {% endif %}
     {% endfor %}
 
     {% if paginator.next_page %}
-      <a class="paginationLink" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+      <a class="paginationLink" href="{{ site.baseurl }}{{ paginator.next_page_path | replace: '//', '/' }}">Next &raquo;</a>
     {% endif %}
     </nav>
   {% endif %}

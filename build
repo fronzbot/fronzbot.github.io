@@ -1,6 +1,14 @@
 #!/bin/bash
-rm _config_dev.yml
-cp _config.yml _config_dev.yml
-sed -i -e 's/https\:\/\/fronzbot\.github\.io//g' _config_dev.yml
-bundle exec jekyll build --config _config_dev.yml
-bundle exec jekyll serve --config _config_dev.yml
+if [[ $* == *--clean* ]]; then
+  rm -rf ./_site
+fi
+
+if [[ $* == *--lint* ]]; then
+  ./script/cibuild --clean
+else
+  rm _config_dev.yml
+  cp _config.yml _config_dev.yml
+  sed -i -e 's/https\:\/\/fronzbot\.github\.io//g' _config_dev.yml
+  bundle exec jekyll build --config _config_dev.yml
+  bundle exec jekyll serve --config _config_dev.yml
+fi
