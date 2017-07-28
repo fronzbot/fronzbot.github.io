@@ -8,10 +8,9 @@ email: kfronczak@gmail.com
 tags:
   - website
   - scripts
-use_math: false   # Does this page have LaTeX elements?
-project: false    # Is this a project post?
-feature: false    # If a project, should this be featured at the top of the project page?
-
+use_math: false
+project: false
+feature: false
 ---
 
 ## Why Jekyll?
@@ -133,11 +132,11 @@ The `sed` command is used to replace the url set within `_config.yml` with an em
 
 ## Adding SSL to my custom domain
 
-Unfortunately, github-pages doesn't allow for SSL/TLS on custom domains.  A workaround is to use Cloudflare which will encrypt the link between the user and Cloudflare and the the link between Cloudflare and Github is also encrypted since, by default, Github encrypts all `USER.github.io` domains.  Kind of hacky, but it works.  Here's an [article from Cloudflare](https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/) on the subject.
+Unfortunately, github-pages doesn't allow for SSL/TLS on custom domains.  A workaround is to use Cloudflare which will encrypt the link between the user and Cloudflare and the link between Cloudflare and Github is also encrypted since, by default, Github encrypts all `USER.github.io` domains.  Kind of hacky, but it works.  Here's an [article from Cloudflare](https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/) on the subject.
 
 ## Speeding Up the Site
 
-Once everything was fairly settled, I made a conscious effort to improve my score on Google's [PageSpeed Insights](https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/).  My first iteration gave me a mobile score of **74** and a desktop score of **91**.  The primary problem was *Render-blocking Javascript and CSS in above-the-fold content*.  To fix this, I used a [Critical CSS Path](https://jonassebastianohlsson.com/criticalpathcssgenerator/) tool to find my cricital CSS and place it in-line within my `_includes/head.html` file.  I also removed the call to `style.css` and placed it in a javascript call such that it loads asynchronously (i.e. it doesn't block rendering of the webpage):
+Once everything was fairly settled, I made a conscious effort to improve my score on Google's [PageSpeed Insights](https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/).  My first iteration gave me a mobile score of **74** and a desktop score of **91**.  The primary problem was *Render-blocking Javascript and CSS in above-the-fold content*.  To fix this, I used a [Critical CSS Path](https://jonassebastianohlsson.com/criticalpathcssgenerator/) tool to find my critical CSS and place it in-line within my `_includes/head.html` file.  I also removed the call to `style.css` and placed it in a javascript call such that it loads asynchronously (i.e. it doesn't block rendering of the webpage):
 
 ```javascript
 <script type="text/javascript">
