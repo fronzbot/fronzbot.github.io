@@ -3,148 +3,149 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      -webkit-font-feature-settings: 'kern' 1;
-    }
+  body {
+    -webkit-font-feature-settings: 'kern' 1;
+  }
 
-    a {
-      text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 
-    .wrapper {
-      margin-right: auto;
-      margin-left: auto;
-    }
+  .wrapper {
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-    .landing {
-      font-family: 'Source Sans Pro';
-      font-size: 18px;
-      font-weight: 300;
-      padding-top: 1em;
-    }
+  .landing {
+    font-family: 'Source Sans Pro';
+    font-size: 18px;
+    font-weight: 300;
+    padding-top: 1em;
+  }
 
-    .post {
-      font-family: 'Source Sans Pro';
-      font-size: 18px;
-      font-weight: 300;
-      padding-top: 0px;
-    }
+  .post {
+    font-family: 'Source Sans Pro';
+    font-size: 18px;
+    font-weight: 300;
+    padding-top: 0px;
+  }
 
-    .home {
-      padding-bottom: 5em;
-    }
+  .home {
+    padding-bottom: 5em;
+  }
 
-    .site-title {
-      font-size: 64px;
-      font-family: 'PT Sans';
-      text-transform: capitalize;
-      font-weight: 500;
-      margin-top: 1em;
-    }
+  .site-title {
+    font-size: 64px;
+    font-family: 'PT Sans';
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-top: 1em;
+  }
 
-    .site-description {
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-indent: 6px;
-      font-family: 'Josefin Sans';
-    }
+  .site-description {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-indent: 6px;
+    font-family: 'Josefin Sans';
+  }
 
-    .site-navigation {
-      color: rgb(85, 85, 85);
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-indent: 6px;
-      font-family: 'Josefin Sans';
-      font-weight: 300;
-      padding-top: 5em;
-      text-align: center;
-    }
+  .site-navigation {
+    color: rgb(85, 85, 85);
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-indent: 6px;
+    font-family: 'Josefin Sans';
+    font-weight: 300;
+    padding-top: 5em;
+    text-align: center;
+  }
 
-    .page-link {
-      color: rgb(170, 170, 170);
-    }
+  .page-link {
+    color: rgb(170, 170, 170);
+  }
 
-    .page-content {
-      padding: 0px;
-    }
+  .page-content {
+    padding: 0px;
+  }
 
-    @font-face {
-      font-family: 'Josefin Sans';
-      font-style: normal;
-      font-weight: 300;
-      src: local(Josefin Sans Light), local(JosefinSans-Light), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-300.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-300.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-300.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-300.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-300.svg#JosefinSans) format('svg');
-    }
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local(Josefin Sans Light), local(JosefinSans-Light), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-300.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-300.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-300.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-300.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-300.svg#JosefinSans) format('svg');
+  }
 
-    @font-face {
-      font-family: 'Josefin Sans';
-      font-style: normal;
-      font-weight: 400;
-      src: local(Josefin Sans), local(JosefinSans), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-regular.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-regular.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-regular.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-regular.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-regular.svg#JosefinSans) format('svg');
-    }
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local(Josefin Sans), local(JosefinSans), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-regular.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-regular.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-regular.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-regular.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-regular.svg#JosefinSans) format('svg');
+  }
 
-    @font-face {
-      font-family: 'Josefin Sans';
-      font-style: normal;
-      font-weight: 600;
-      src: local(Josefin Sans SemiBold), local(JosefinSans-SemiBold), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-600.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-600.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-600.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-600.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-600.svg#JosefinSans) format('svg');
-    }
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local(Josefin Sans SemiBold), local(JosefinSans-SemiBold), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-600.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-600.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-600.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-600.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-600.svg#JosefinSans) format('svg');
+  }
 
-    @font-face {
-      font-family: 'Josefin Sans';
-      font-style: normal;
-      font-weight: 700;
-      src: local(Josefin Sans Bold), local(JosefinSans-Bold), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-700.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-700.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-700.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-700.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/josefin-sans-v9-latin-700.svg#JosefinSans) format('svg');
-    }
+  @font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local(Josefin Sans Bold), local(JosefinSans-Bold), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-700.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-700.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-700.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-700.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/josefin-sans-v9-latin-700.svg#JosefinSans) format('svg');
+  }
 
-    @font-face {
-      font-family: 'PT Sans';
-      font-style: normal;
-      font-weight: 400;
-      src: local(PT Sans), local(PTSans-Regular), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-regular.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-regular.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-regular.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-regular.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-regular.svg#PTSans) format('svg');
-    }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local(PT Sans), local(PTSans-Regular), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-regular.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-regular.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-regular.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-regular.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-regular.svg#PTSans) format('svg');
+  }
 
-    @font-face {
-      font-family: 'PT Sans';
-      font-style: italic;
-      font-weight: 400;
-      src: local(PT Sans Italic), local(PTSans-Italic), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-italic.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-italic.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-italic.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-italic.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-italic.svg#PTSans) format('svg');
-    }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local(PT Sans Italic), local(PTSans-Italic), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-italic.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-italic.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-italic.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-italic.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-italic.svg#PTSans) format('svg');
+  }
 
-    @font-face {
-      font-family: 'PT Sans';
-      font-style: normal;
-      font-weight: 700;
-      src: local(PT Sans Bold), local(PTSans-Bold), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-700.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-700.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-700.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-700.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/pt-sans-v8-latin-700.svg#PTSans) format('svg');
-    }
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local(PT Sans Bold), local(PTSans-Bold), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-700.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-700.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-700.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-700.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/pt-sans-v8-latin-700.svg#PTSans) format('svg');
+  }
 
-    @font-face {
-      font-family: 'Source Sans Pro';
-      font-style: normal;
-      font-weight: 200;
-      src: local(Source Sans Pro ExtraLight), local(SourceSansPro-ExtraLight), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-200.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-200.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-200.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-200.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-200.svg#SourceSansPro) format('svg');
-    }
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 200;
+    src: local(Source Sans Pro ExtraLight), local(SourceSansPro-ExtraLight), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-200.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-200.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-200.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-200.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-200.svg#SourceSansPro) format('svg');
+  }
 
-    @font-face {
-      font-family: 'Source Sans Pro';
-      font-style: normal;
-      font-weight: 300;
-      src: local(Source Sans Pro Light), local(SourceSansPro-Light), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-300.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-300.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-300.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-300.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-300.svg#SourceSansPro) format('svg');
-    }
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: local(Source Sans Pro Light), local(SourceSansPro-Light), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-300.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-300.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-300.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-300.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-300.svg#SourceSansPro) format('svg');
+  }
 
-    @font-face {
-      font-family: 'Source Sans Pro';
-      font-style: normal;
-      font-weight: 400;
-      src: local(Source Sans Pro Regular), local(SourceSansPro-Regular), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-regular.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-regular.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-regular.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-regular.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-regular.svg#SourceSansPro) format('svg');
-    }
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local(Source Sans Pro Regular), local(SourceSansPro-Regular), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-regular.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-regular.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-regular.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-regular.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-regular.svg#SourceSansPro) format('svg');
+  }
 
-    @font-face {
-      font-family: 'Source Sans Pro';
-      font-style: normal;
-      font-weight: 700;
-      src: local(Source Sans Pro Bold), local(SourceSansPro-Bold), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-700.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-700.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-700.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-700.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source/source-sans-pro-v10-latin-700.svg#SourceSansPro) format('svg');
-    }
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: local(Source Sans Pro Bold), local(SourceSansPro-Bold), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-700.eot?#iefix) format('embedded-opentype'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-700.woff2) format('woff2'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-700.woff) format('woff'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-700.ttf) format('truetype'), url({{ site.baseurl }}/assets/fonts/source-sans-pro-v10-latin-700.svg#SourceSansPro) format('svg');
+  }
+
   </style>
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">

@@ -6,10 +6,10 @@ navbar: true
 ---
 
 Analog circuit designer with experience implementing creative designs for Touch and Biometric ASICs
-{: style="text-align: center; color: gray; font-size: 90%;"}
+{: .resumeAlignCenter}
 
 [Download PDF Version]({{ site.baseurl }}/assets/docs/Fronczak_Resume.pdf "Resume")
-{: style="text-align: right; color: gray; font-size: 90%;"}
+{: .resumeAlignRight}
 
 -----
 
@@ -23,7 +23,7 @@ Analog circuit designer with experience implementing creative designs for Touch 
 - Designed low-noise, high-bandwidth current-mode capacitive Analog Front End for low-cost fingerprint sensors
 - Implemented a novel current-mode mixer topology to improve SNR
 - Architected and designed a experimental low-area, ultra-low power reference architecture to reduce standby current by an order of magnitude without reducing performance
-- Designed small area and high-performance baseline correction circuit for Touch and TDDI chips 
+- Designed small area and high-performance baseline correction circuit for Touch and TDDI chips
 - Circuit design and system-level experience in touch sensing front-ends, display drivers, and fingerprint sensing front-ends
 - Designed a sub 1-V bandgap reference with an innovative base-cancellation circuit that generates multiple configurable references for next-generation TDDI products.  Currently in mass production on multiple ASICs
 - Responsible for the design of critical low-noise, high-performance touch sensing circuits for analog front-end including demodulator, filter, and various amplifiers for TDDI products currently in mass production
