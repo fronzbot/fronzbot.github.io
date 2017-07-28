@@ -3,4 +3,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: {{ site.baseurl }}/blog/feed.xml
+Sitemap: {{ site.baseurl }}/feed.xml
