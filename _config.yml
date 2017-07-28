@@ -15,17 +15,17 @@ image_path: /assets/images
 doc_path: /assets/docs
 code_path: /assets/code
 
-gems: 
+gems:
   - jekyll-paginate
   - kramdown
   - jekyll-assets
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 encoding: UTF-8
 permalink: /blog/:title
-include: 
+include:
   - "_pages"
 exclude:
   - ".asset-cache"
@@ -40,11 +40,11 @@ social:
   gplus: true
   linkedin: true
   reddit: true
-  
+
 # kramdown options
 kramdown:
   input: GFM
-  syntax_highlighter: pygments
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
     css_class: 'highlight'
     span:
@@ -52,7 +52,7 @@ kramdown:
     block:
       line_numbers: true
       start_line: 1
-  
+
 # Asset compression
 assets:
   compress:
