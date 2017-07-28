@@ -6,7 +6,7 @@ layout: default
   <div class="wrapper">
     {% include landing.html %}
   </div>
-  
+
 
   {% for post in paginator.posts%}
   <div class="post postContent">
@@ -17,7 +17,7 @@ layout: default
     </div>
     <br>
     <div class="postArchive">
-    <a class='postLink' href="{{site.url}}{{site.baseurl}}{{post.url}}">{{post.title}}</a>
+    <a class='postLink' href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
     </div>
     <div class="postExt">
       {{ post.excerpt | strip_html | truncate:200 }} <a href="{{ site.baseurl }}{{post.url}}">Read more</a>

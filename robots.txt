@@ -1,0 +1,6 @@
+---
+---
+User-agent: *
+Disallow:
+
+Sitemap: {{ site.baseurl }}/blog/feed.xml
