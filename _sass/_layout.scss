@@ -1,6 +1,17 @@
 /**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $base-font-weight;
+}
+
+/**
  * End of Post
  */
+.post-col-wrapper {
+  margin: auto;
+  @extend %clearfix;
+}
 .post-col {
   float: left;
   margin-bottom: $spacing-unit / 2;
@@ -21,6 +32,14 @@
  * Wrapper
  */
 .wrapper {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+    @extend %clearfix;
+
     @include media-query($on-laptop) {
         max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
         max-width:         calc(#{$content-width} - (#{$spacing-unit}));
