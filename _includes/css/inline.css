@@ -1,0 +1,222 @@
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+/**
+ * End of Post
+ */
+.post-col-wrapper {
+  margin: auto;
+  @extend %clearfix;
+}
+.post-col {
+  float: left;
+  margin-bottom: 30px / 2;
+  padding-left: 30px / 2;
+}
+.post-col-1 {
+  width: calc(50% - (#{30px} / 2));
+  text-align: left
+}
+.post-col-2 {
+  width: calc(50% - (#{30px} / 2));
+  text-align: right
+}
+
+/**
+ * Wrapper
+ */
+.wrapper {
+    max-width:         calc(#{800px} - (#{30px} * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+    @extend %clearfix;
+}
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+  border-top: 1px solid #828282;
+  padding: 30px 0;
+}
+.footer-heading {
+  font-size: 18px;
+  margin-bottom: 30px / 2;
+}
+.contact-list,
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+}
+.small-site-title {
+  font-family: "PT Sans";
+}
+.footer-col-wrapper {
+  font-size: 15px;
+  color: #828282;
+  margin: auto;
+  @extend %clearfix;
+}
+.footer-content {
+  font-family: "Josefin Sans";
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.footer-col {
+  float: left;
+  margin-bottom: 30px / 2;
+  padding-left: 30px / 2;
+}
+.footer-col-1 {
+  width: calc(33% - (#{30px} / 2));
+  text-align: left;
+}
+.footer-col-2 {
+  width: calc(33% - (#{30px} / 2));
+  text-align: center;
+}
+.footer-col-3 {
+  width: calc(33% - (#{30px} / 2));
+  text-align: right;
+}
+
+/**
+ * Basic styling
+ */
+body {
+    font: 400 #16px/#1.5 "PT Sans", Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fdfdfd;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: 30px / 2;
+}
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+/**
+ * Links
+ */
+a {
+    color: #CD6155 !important;
+    text-decoration: none;
+}
+/**
+ * Site header
+ */
+.site-header {
+  border-top: 5px solid  #828282;
+  border-bottom: 1px solid  #828282;
+  min-height: 56px;
+  // Positioning context for the mobile navigation icon
+  position: relative;
+}
+.site-title {
+  font-size: 64px;
+  font-weight: 100;
+  font-family: 'PT Sans';
+  text-transform: capitalize;
+  font-weight: 500;
+  margin-top: 1em;
+  &,
+  &:visited {
+    color:  #828282;
+  }
+}
+.site-description {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-indent: 6px;
+  font-family: 'Josefin Sans';
+}
+.exclamationMark {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.site-navigation {
+  color: #555;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-indent: 6px;
+  font-family: 'Josefin Sans';
+  font-weight: 300;
+  padding-top: 5em;
+  text-align: center;
+}
+.page-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-indent: 2px;
+  font-family: "PT Sans";
+  font-size: 12px;
+  text-align:center;
+}
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+/**
+ * Wrapper
+ */
+.wrapper {
+    max-width: -webkit-calc(#{800px} - (#{30px} * 2));
+    max-width:         calc(#{800px} - (#{30px} * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+    @extend %clearfix;
+}
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
