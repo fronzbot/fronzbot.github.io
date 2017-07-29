@@ -1,0 +1,114 @@
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $base-font-weight;
+}
+
+/**
+ * End of Post
+ */
+.post-col-wrapper {
+  margin: auto;
+  @extend %clearfix;
+}
+.post-col {
+  float: left;
+  margin-bottom: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+}
+.post-col-1 {
+  width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+  width: calc(50% - (#{$spacing-unit} / 2));
+  text-align: left
+}
+.post-col-2 {
+  width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+  width: calc(50% - (#{$spacing-unit} / 2));
+  text-align: right
+}
+
+/**
+ * Wrapper
+ */
+.wrapper {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+    @extend %clearfix;
+
+    @include media-query($on-laptop) {
+        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+        padding-right: $spacing-unit / 2;
+        padding-left: $spacing-unit / 2;
+    }
+}
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+  border-top: 1px solid $grey-color-light;
+  padding: $spacing-unit 0;
+}
+.footer-heading {
+  font-size: 18px;
+  margin-bottom: $spacing-unit / 2;
+}
+.contact-list,
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+}
+.small-site-title {
+  font-family: "PT Sans";
+}
+.footer-col-wrapper {
+  font-size: 15px;
+  color: $grey-color;
+  /*margin-left: -$spacing-unit / 2;*/
+  margin: auto;
+  @extend %clearfix;
+}
+.footer-content {
+  font-family: "Josefin Sans";
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.footer-col {
+  float: left;
+  margin-bottom: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+}
+.footer-col-1 {
+  width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+  width: calc(33% - (#{$spacing-unit} / 2));
+  text-align: left
+}
+.footer-col-2 {
+  width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+  width: calc(33% - (#{$spacing-unit} / 2));
+  text-align: center
+}
+.footer-col-3 {
+  width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+  width: calc(33% - (#{$spacing-unit} / 2));
+  text-align: right
+}

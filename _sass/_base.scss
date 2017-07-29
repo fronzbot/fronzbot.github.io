@@ -1,0 +1,557 @@
+// base
+//
+// Initial setup for the page
+
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+
+@include media-query($on-laptop) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+    width: calc(50% - (#{$spacing-unit} / 2));
+  }
+  .footer-col-3 {
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width: calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+@include media-query($on-palm) {
+  .footer-col {
+    float: none;
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width: calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+/**
+ * Basic styling
+ */
+body {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    color: $text-color;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/* To center images */
+.center {
+    float: center;
+    text-align: center;
+}
+
+/* For video */
+.h_iframe        {position:relative; padding-top: 56%;}
+.h_iframe iframe {position:absolute;top:0;left:0;width:100%; height:100%;}
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: $spacing-unit;
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+/**
+ * Links
+ */
+a {
+    color: $link-color !important;
+    text-decoration: none;
+
+    &:visited {
+        color: darken($brand-color, 15%);
+    }
+
+    &:hover {
+        color: $link-color !important;
+        border-bottom: 1px solid $link-color ;
+    }
+
+    &.page-link{
+      color: #555 !important;
+      border-bottom: none;
+      &:hover {
+          color: $link-color !important;
+          border-bottom: 1px solid $link-color ;
+      }
+    }
+    &.postLink{
+      color: black !important;
+      font-weight: 500;
+      border-bottom: none;
+      &:hover {
+          color: $link-color !important;
+          border-bottom: none;
+      }
+
+      &:visited {
+          color: "crimson" !important;
+      }
+    }
+    &.post-title-link{
+      color: black !important;
+      border-bottom: none;
+      &:hover {
+
+          border-bottom: 1px dotted black !important ;
+      }
+
+      &:visited {
+          color: "crimson" !important;
+      }
+    }
+}
+
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    color: $grey-color;
+    border-left: 4px solid $grey-color-light;
+    padding-left: $spacing-unit / 2;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+/**
+ * Share buttons
+ */
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+ul.share-buttons .sr-only{
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+ul.share-buttons img{
+  width: 32px;
+}
+
+/**
+ * Icons
+ */
+.icon {
+
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+
+        path {
+            fill: $grey-color;
+        }
+    }
+}
+
+.landing {
+  font-family: "Source Sans Pro";
+  font-size: 18px;
+  font-weight: 300;
+  padding-top: 1.0em;
+}
+
+.post {
+  font-family: "Source Sans Pro";
+  font-size: 18px;
+  font-weight: 300;
+  padding-top: 0;
+}
+.home{
+  padding-bottom: 5em;
+}
+.download {
+  padding: 10px;
+}
+.authorKeyword {
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-indent: 2px;
+  padding-top:0.5em;
+}
+.writtenBy {
+  letter-spacing: 0;
+  text-indent: 0;
+  text-transform: uppercase;
+}
+.archive-intro {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-indent: 2px;
+}
+.archiveIntro {
+  text-align: center;
+}
+.hint {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-indent: 2px;
+}
+.example {
+  font-family: 'Menlo';
+  padding: 10px;
+}
+.manual {
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-indent: 2px;
+}
+.postContent {
+  padding-top: 3.5em;
+  text-align: left;
+}
+.postDate {
+  float: left;
+  text-transform: uppercase;
+  font-family: "Source Sans Pro";
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-indent: 2px;
+}
+
+.postTag {
+  float: right;
+}
+.postTitle {
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-indent: 3px;
+}
+.postDateArchive {
+  font-weight: 300;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-indent: 2px;
+}
+.postArchive {
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-indent: 3px;
+}
+
+/**
+ * Site header
+ */
+.site-header {
+  border-top: 5px solid $grey-color-dark;
+  border-bottom: 1px solid $grey-color-light;
+  min-height: 56px;
+  // Positioning context for the mobile navigation icon
+  position: relative;
+}
+.site-title {
+  font-size: 64px;
+  font-weight: 100;
+  font-family: 'PT Sans';
+  text-transform: capitalize;
+  font-weight: 500;
+  margin-top: 1em;
+  &,
+  &:visited {
+    color: $grey-color-dark;
+  }
+}
+.site-description {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-indent: 6px;
+  font-family: 'Josefin Sans';
+}
+.exclamationMark {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.site-navigation {
+  color: #555;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-indent: 6px;
+  font-family: 'Josefin Sans';
+  font-weight: 300;
+  padding-top: 5em;
+  text-align: center;
+}
+.page-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-indent: 2px;
+  font-family: "PT Sans";
+  font-size: 12px;
+  text-align:center;
+}
+.page-tagline {
+  font-size: 18px;
+  font-family: "PT Sans";
+  color: rgb(170, 170, 170);
+  text-align: center;
+  text-transform: lowercase;
+}
+.page-link {
+  color: rgb(170, 170, 170);
+}
+.site-nav {
+  .page-link {
+    color: $text-color;
+    line-height: $base-line-height;
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  @include media-query($on-palm) {
+    position: absolute;
+    top: 9px;
+    right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $grey-color-light;
+    border-radius: 5px;
+    text-align: right;
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      padding-top: 10px;
+      text-align: center;
+      > svg {
+        width: 18px;
+        height: 15px;
+        path {
+          fill: $grey-color-dark;
+        }
+      }
+    }
+    .trigger {
+      clear: both;
+      display: none;
+    }
+    &:hover .trigger {
+      display: block;
+      padding-bottom: 5px;
+    }
+    .page-link {
+      display: block;
+      padding: 5px 10px;
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+  }
+}
+
+/**
+ * Page content
+ */
+.page-content {
+  padding: 0;
+}
+.page-heading {
+  font-size: 20px;
+}
+.post-list {
+  margin-left: 0;
+  list-style: none;
+  > li {
+    margin-bottom: $spacing-unit;
+  }
+}
+.post-meta {
+  font-size: $small-font-size;
+  color: $grey-color;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+}
+.post-link {
+  display: block;
+  font-size: 24px;
+}
+/**
+ * Posts
+ */
+.post-header {
+  margin-bottom: $spacing-unit;
+}
+.post-title {
+  font-size: 62px;
+
+  text-align: center;
+  font-family: "PT Sans";
+  font-weight: 900;
+  @include media-query($on-laptop) {
+    font-size: 36px;
+  }
+}
+.post-content {
+  margin-bottom: $spacing-unit;
+  padding-bottom: 3em !important;
+  p {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 32px;
+    @include media-query($on-laptop) {
+      font-size: 28px;
+    }
+  }
+  h3 {
+    font-size: 26px;
+    @include media-query($on-laptop) {
+      font-size: 22px;
+    }
+  }
+  h4 {
+    font-size: 20px;
+    @include media-query($on-laptop) {
+      font-size: 18px;
+    }
+  }
+}
+
+/**
+ * Pagination
+ */
+ .pagination {
+     padding-top: 3.5em;
+     text-align: center;
+ }
+ .paginationLink {
+     border: 0;
+     display: inline-block;
+     padding: 5px;
+     text-decoration: none;
+     transition: color 200ms ease-out;
+
+     &:hover,
+     &:active,
+     &:focus {
+         border: 0;
+     }
+ }
+ .paginationLinkCurrent {
+     font-style: normal;
+ }
+
+.postNavigation {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3em;
+
+    a:only-child {
+        width: 100%;
+    }
+}
+.postPrev,
+.postNext {
+    display: inline-block;
+    width: 49%;
+    &:hover,
+    &:active,
+    &:focus {
+        border: 0;
+    }
+}
+.postNext {
+    text-align: right;
+}
+
+/**
+* Other style
+*/
+.resumeAlignCenter {
+  text-align: center;
+  color: gray;
+  font-size: 90%;
+}
+.resumeAlignRight {
+  text-align: right;
+  color: gray;
+  font-size: 90%;
+}
