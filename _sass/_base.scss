@@ -3,17 +3,6 @@
 // Initial setup for the page
 
 
-/**
- * Reset some basic elements
- */
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
-    margin: 0;
-    padding: 0;
-}
-
-
 @include media-query($on-laptop) {
   .footer-col-1,
   .footer-col-2 {
@@ -40,12 +29,6 @@ body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
     background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
 }
 
 /**
@@ -61,16 +44,6 @@ ul, ol, dl, figure,
 /**
  * Images
  */
-img {
-    max-width: 100%;
-    vertical-align: middle;
-}
-
-/* To center images */
-.center {
-    float: center;
-    text-align: center;
-}
 
 /* For video */
 .h_iframe        {position:relative; padding-top: 56%;}
@@ -79,9 +52,6 @@ img {
 /**
  * Figures
  */
-figure > img {
-    display: block;
-}
 
 figcaption {
     font-size: $small-font-size;
@@ -217,19 +187,6 @@ ul.share-buttons img{
     }
 }
 
-.landing {
-  font-family: "Source Sans Pro";
-  font-size: 18px;
-  font-weight: 300;
-  padding-top: 1.0em;
-}
-
-.post {
-  font-family: "Source Sans Pro";
-  font-size: 18px;
-  font-weight: 300;
-  padding-top: 0;
-}
 .home{
   padding-bottom: 5em;
 }
@@ -290,13 +247,7 @@ ul.share-buttons img{
 .postTag {
   float: right;
 }
-.postTitle {
-  font-weight: 400;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-indent: 3px;
-}
+
 .postDateArchive {
   font-weight: 300;
   text-align: left;
@@ -334,35 +285,7 @@ ul.share-buttons img{
     color: $grey-color-dark;
   }
 }
-.site-description {
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-indent: 6px;
-  font-family: 'Josefin Sans';
-}
-.exclamationMark {
-  padding-left: 2em;
-  padding-right: 2em;
-}
-.site-navigation {
-  color: #555;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-indent: 6px;
-  font-family: 'Josefin Sans';
-  font-weight: 300;
-  padding-top: 5em;
-  text-align: center;
-}
-.page-title {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-indent: 2px;
-  font-family: "PT Sans";
-  font-size: 12px;
-  text-align:center;
-}
+
 .page-tagline {
   font-size: 18px;
   font-family: "PT Sans";
@@ -428,12 +351,6 @@ ul.share-buttons img{
 /**
  * Page content
  */
-.page-content {
-  padding: 0;
-}
-.page-heading {
-  font-size: 20px;
-}
 .post-list {
   margin-left: 0;
   list-style: none;
@@ -444,13 +361,6 @@ ul.share-buttons img{
 .post-meta {
   font-size: $small-font-size;
   color: $grey-color;
-  text-transform: uppercase;
-  font-size: 16px;
-  text-align: center;
-}
-.post-link {
-  display: block;
-  font-size: 24px;
 }
 /**
  * Posts
@@ -459,11 +369,6 @@ ul.share-buttons img{
   margin-bottom: $spacing-unit;
 }
 .post-title {
-  font-size: 62px;
-
-  text-align: center;
-  font-family: "PT Sans";
-  font-weight: 900;
   @include media-query($on-laptop) {
     font-size: 36px;
   }
