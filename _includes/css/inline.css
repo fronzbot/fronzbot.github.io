@@ -1,21 +1,9 @@
-
-/**
- * Reset some basic elements
- */
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
-    margin: 0;
-    padding: 0;
-}
-
 /**
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
-
 
 /**
  * Site header
@@ -60,20 +48,26 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 5em;
   text-align: center;
 }
-.page-title {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-indent: 2px;
-  font-family: "PT Sans";
-  font-size: 12px;
-  text-align:center;
-}
 .landing {
   font-family: "Source Sans Pro";
   font-size: 18px;
   font-weight: 300;
   padding-top: 1.0em;
 }
+
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
 /**
  * Wrapper
  */
@@ -87,22 +81,54 @@ h1, h2, h3, h4, h5, h6 {
     @extend %clearfix;
 }
 
-.post {
-  font-family: "Source Sans Pro";
-  font-size: 18px;
-  font-weight: 300;
-  padding-top: 0;
-}
-.postTitle {
-  font-weight: 400;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-indent: 3px;
-}
 /**
- * Basic styling
+ * Titles
  */
+.page-title {
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   text-indent: 2px;
+   font-family: "PT Sans";
+   font-size: 12px;
+   text-align:center;
+ }
+.postTitle {
+   font-weight: 400;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   text-indent: 3px;
+ }
+.post-header {
+   margin-bottom: $spacing-unit;
+ }
+.post-title {
+   font-size: 62px;
+
+   text-align: center;
+   font-family: "PT Sans";
+   font-weight: 900;
+ }
+ /**
+  * Images
+  */
+  figure > img {
+      display: block;
+  }
+
+ .center {
+      float: center;
+      text-align: center;
+  }
+
+ img {
+     max-width: 100%;
+     vertical-align: middle;
+ }
+
+/**
+* Content
+*/
 body {
     font: 400 #16px/#1.5 "PT Sans", Helvetica, Arial, sans-serif;
     color: #111;
@@ -114,15 +140,74 @@ body {
     font-feature-settings: "kern" 1;
     font-kerning: normal;
 }
-/**
- * Page content
- */
+.post {
+  font-family: "Source Sans Pro";
+  font-size: 18px;
+  font-weight: 300;
+  padding-top: 0;
+}
 .page-content {
   padding: 0;
 }
 .page-heading {
   font-size: 20px;
 }
+
+/**
+* Links
+*/
+a {
+    color: #111 !important;
+    text-decoration: none;
+
+    &:visited {
+        color: #111;
+    }
+
+    &:hover {
+        color: #111 !important;
+        border-bottom: 1px solid #111 ;
+    }
+
+    &.page-link{
+      color: #555 !important;
+      border-bottom: none;
+      &:hover {
+          color: #111 !important;
+          border-bottom: 1px solid #111 ;
+      }
+    }
+    &.postLink{
+      color: black !important;
+      font-weight: 500;
+      border-bottom: none;
+      &:hover {
+          color: #111 !important;
+          border-bottom: none;
+      }
+
+      &:visited {
+          color: "black" !important;
+      }
+    }
+    &.post-title-link{
+      color: black !important;
+      border-bottom: none;
+      &:hover {
+
+          border-bottom: 1px dotted black !important ;
+      }
+
+      &:visited {
+          color: #111 !important;
+      }
+    }
+}
+
+/**
+ * Page content
+ */
+
 .post-list {
   margin-left: 0;
   list-style: none;
@@ -144,16 +229,7 @@ body {
 /**
  * Posts
  */
-.post-header {
-  margin-bottom: $spacing-unit;
-}
-.post-title {
-  font-size: 62px;
 
-  text-align: center;
-  font-family: "PT Sans";
-  font-weight: 900;
-}
 /**
  * Headings
  */
@@ -184,19 +260,6 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
-/**
  * Set `margin-bottom` to maintain vertical rhythm
  */
 h1, h2, h3, h4, h5, h6,
@@ -204,4 +267,69 @@ p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: 30px / 2;
+}
+
+/**
+ * Site footer
+ */
+.site-footer {
+  border-top: 1px solid #828282;
+  padding: 30px 0;
+}
+.footer-heading {
+  font-size: 18px;
+  margin-bottom: 30px / 2;
+}
+.contact-list,
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+}
+.small-site-title {
+  font-family: "PT Sans";
+}
+.footer-col-wrapper {
+  font-size: 15px;
+  color: #828282;
+  margin: auto;
+  @extend %clearfix;
+}
+.footer-content {
+  font-family: "Josefin Sans";
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.footer-col {
+  float: left;
+  margin-bottom: 30px / 2;
+  padding-left: 30px / 2;
+}
+.footer-col-1 {
+  width: calc(33% - (#{30px} / 2));
+  text-align: left;
+}
+.footer-col-2 {
+  width: calc(33% - (#{30px} / 2));
+  text-align: center;
+}
+.footer-col-3 {
+  width: calc(33% - (#{30px} / 2));
+  text-align: right;
+}
+
+/**
+ * Images
+ */
+ figure > img {
+     display: block;
+ }
+
+.center {
+     float: center;
+     text-align: center;
+ }
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
 }
