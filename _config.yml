@@ -54,9 +54,14 @@ kramdown:
 # Sass options
 sass:
   style: compressed
-  
+
 
 # Asset compression
+compress_html:
+  clippings: all
+  comments: ["<!--", "-->"]
+  endings: all
+
 assets:
   compress:
     css: true
