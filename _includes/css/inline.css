@@ -1,3 +1,14 @@
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
 /**
  * Headings
  */
@@ -5,139 +16,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
-/**
- * End of Post
- */
-.post-col-wrapper {
-  margin: auto;
-  @extend %clearfix;
-}
-.post-col {
-  float: left;
-  margin-bottom: 30px / 2;
-  padding-left: 30px / 2;
-}
-.post-col-1 {
-  width: calc(50% - (#{30px} / 2));
-  text-align: left
-}
-.post-col-2 {
-  width: calc(50% - (#{30px} / 2));
-  text-align: right
-}
 
-/**
- * Wrapper
- */
-.wrapper {
-    max-width:         calc(#{800px} - (#{30px} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 30px;
-    padding-left: 30px;
-    @extend %clearfix;
-}
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
-/**
- * Site footer
- */
-.site-footer {
-  border-top: 1px solid #828282;
-  padding: 30px 0;
-}
-.footer-heading {
-  font-size: 18px;
-  margin-bottom: 30px / 2;
-}
-.contact-list,
-.social-media-list {
-  list-style: none;
-  margin-left: 0;
-}
-.small-site-title {
-  font-family: "PT Sans";
-}
-.footer-col-wrapper {
-  font-size: 15px;
-  color: #828282;
-  margin: auto;
-  @extend %clearfix;
-}
-.footer-content {
-  font-family: "Josefin Sans";
-  font-weight: 300;
-  letter-spacing: 1px;
-}
-.footer-col {
-  float: left;
-  margin-bottom: 30px / 2;
-  padding-left: 30px / 2;
-}
-.footer-col-1 {
-  width: calc(33% - (#{30px} / 2));
-  text-align: left;
-}
-.footer-col-2 {
-  width: calc(33% - (#{30px} / 2));
-  text-align: center;
-}
-.footer-col-3 {
-  width: calc(33% - (#{30px} / 2));
-  text-align: right;
-}
-
-/**
- * Basic styling
- */
-body {
-    font: 400 #16px/#1.5 "PT Sans", Helvetica, Arial, sans-serif;
-    color: #111;
-    background-color: #fdfdfd;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-}
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-    margin-bottom: 30px / 2;
-}
-
-/**
- * Images
- */
-img {
-    max-width: 100%;
-    vertical-align: middle;
-}
-/**
- * Links
- */
-a {
-    color: #CD6155 !important;
-    text-decoration: none;
-}
 /**
  * Site header
  */
@@ -189,12 +68,11 @@ a {
   font-size: 12px;
   text-align:center;
 }
-
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
+.landing {
+  font-family: "Source Sans Pro";
+  font-size: 18px;
+  font-weight: 300;
+  padding-top: 1.0em;
 }
 /**
  * Wrapper
@@ -209,6 +87,102 @@ h1, h2, h3, h4, h5, h6 {
     @extend %clearfix;
 }
 
+.post {
+  font-family: "Source Sans Pro";
+  font-size: 18px;
+  font-weight: 300;
+  padding-top: 0;
+}
+.postTitle {
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-indent: 3px;
+}
+/**
+ * Basic styling
+ */
+body {
+    font: 400 #16px/#1.5 "PT Sans", Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fdfdfd;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+/**
+ * Page content
+ */
+.page-content {
+  padding: 0;
+}
+.page-heading {
+  font-size: 20px;
+}
+.post-list {
+  margin-left: 0;
+  list-style: none;
+  > li {
+    margin-bottom: $spacing-unit;
+  }
+}
+.post-meta {
+  font-size: $small-font-size;
+  color: $grey-color;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+}
+.post-link {
+  display: block;
+  font-size: 24px;
+}
+/**
+ * Posts
+ */
+.post-header {
+  margin-bottom: $spacing-unit;
+}
+.post-title {
+  font-size: 62px;
+
+  text-align: center;
+  font-family: "PT Sans";
+  font-weight: 900;
+}
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+/**
+ * End of Post
+ */
+.post-col-wrapper {
+  margin: auto;
+  @extend %clearfix;
+}
+.post-col {
+  float: left;
+  margin-bottom: 30px / 2;
+  padding-left: 30px / 2;
+}
+.post-col-1 {
+  width: calc(50% - (#{30px} / 2));
+  text-align: left
+}
+.post-col-2 {
+  width: calc(50% - (#{30px} / 2));
+  text-align: right
+}
+
+
 /**
  * Clearfix
  */
@@ -219,4 +193,15 @@ h1, h2, h3, h4, h5, h6 {
         display: table;
         clear: both;
     }
+}
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: 30px / 2;
 }
