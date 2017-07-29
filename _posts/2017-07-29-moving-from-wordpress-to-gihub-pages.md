@@ -136,32 +136,7 @@ Unfortunately, github-pages doesn't allow for SSL/TLS on custom domains.  A work
 
 ## Speeding Up the Site
 
-Once everything was fairly settled, I made a conscious effort to improve my score on Google's [PageSpeed Insights](https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/).  My first iteration gave me a mobile score of **74** and a desktop score of **91**.  The primary problem was *Render-blocking Javascript and CSS in above-the-fold content*.  To fix this, I used a [Critical CSS Path](https://jonassebastianohlsson.com/criticalpathcssgenerator/) tool to find my critical CSS and place it in-line within my `_includes/head.html` file.  I also removed the call to `style.css` and placed it in a javascript call such that it loads asynchronously (i.e. it doesn't block rendering of the webpage):
-
-```javascript
-<script type="text/javascript">
-  var giftofspeed = document.createElement('link');
-  giftofspeed.rel = 'stylesheet';
-  giftofspeed.href = '{{ site.baseurl }}/assets/css/style.css';
-  giftofspeed.type = 'text/css';
-  var godefer = document.getElementsByTagName('link')[0];
-  godefer.parentNode.insertBefore(giftofspeed, godefer);
-</script>
-<noscript>
-  <link rel="stylesheet" type="text/css" href='{{ site.baseurl }}/assets/css/style.css' />
-</noscript>
-```
-
-This javascript file was then called within my `_includes/footer.html` file like so:
-
-```html
-<footer class="site-footer">
-  <!-- Bunch of stuff -->
-  {% include javascripts/defer_css.html %}
-</footer>
-```
-
-This, along with some other improvements (caching via Cloudflare, minify, compression, locally serving google-analytics, locally serving fonts, etc) bumped my Mobile score to **97** and my desktop score to **96**.  Not bad for a guy who has never dealt with css/javascript/html before!
+Once everything was fairly settled, I made a conscious effort to improve my score on Google's [PageSpeed Insights](https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/).  My first iteration gave me a mobile score of **74** and a desktop score of **91**.  The primary problem was *Render-blocking Javascript and CSS in above-the-fold content*.  To fix this, I used a [Critical CSS Path](https://jonassebastianohlsson.com/criticalpathcssgenerator/) tool to find my critical CSS and place it in-line within my `_includes/head.html` file.  This, along with some other improvements (caching via Cloudflare, minify, compression, locally serving google-analytics, locally serving fonts, etc) bumped my Mobile score to **97** and my desktop score to **96**.  HOWEVER, I also ran into a "Flash of unstyles content" (FOUC) issue where the initial load would be all messed up (wrong fonts, colors, element locations) before fixing itself once the final style call happened.  This was distracting and almost worse than a slow site, so I found a happy medium where I improved my speed while minimizing the FOUC that occured (there's still some, but it's not nearly as distracting as it was at first).
 
 ## Continuous Integration
 
