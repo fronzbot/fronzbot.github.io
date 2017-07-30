@@ -9,20 +9,28 @@ layout: default
 
 
   {% for post in paginator.posts%}
-  <div class="post postContent">
-    <div  class="postDate"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
+  <article class="post" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <div class="postContent">
+    <div class="postDate"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
     </div>
-    <div class="postTag">
-      {{post.tag}}
-    </div>
-    <br>
     <div class="postArchive">
-    <a class='postLink' href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
+    <a class='postLink' href="{{site.baseurl}}{{post.url}}" itemprop="url"><span itemprop="name">{{post.title}}</span></a>
     </div>
-    <div class="postExt">
+    <meta itemprop="keywords" content="{{ post.tags | join: ',' }}" />
+    <meta itemprop="author" content="{{ post.author }}" />
+    <meta itemprop="publisher" content="{{ post.author }}" />
+    <meta itemprop="image" content="{{ site.baseurl }}{{ site.image_path }}/kevin.jpg" />
+    <meta itemprop="headline" content="{{ post.description }}" />
+    {% if post.date_modified %}
+      <meta itemprop="dateModified" content="{{ post.date_modified }}" />
+    {% else %}
+      <meta itemprop="dateModified" content="{{ post.date }}" />
+    {% endif %}
+    <div class="postExt" itemprop="description">
       {{ post.excerpt | strip_html | truncate:200 }} <a href="{{ site.baseurl }}{{post.url}}">Read more</a>
     </div>
   </div>
+</article>
 
   {% endfor %}
 
@@ -49,5 +57,5 @@ layout: default
   {% endif %}
 
   {% include structured_data/home.html %}
-  {% include structured_data/blog_items.html %}
+
 </div>
