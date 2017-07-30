@@ -5,8 +5,14 @@
       <div class="footer-col footer-col-1">
         {% include social.html %}
       </div>
-      <div class="footer-col footer-col-2">
-        &copy;2012-2017 {{ site.title }}
+      <div class="footer-col footer-col-2 contact-list">
+        <li>
+        <a href="{{ site.baseurl }}">Home</a><span> /</span>
+        <a href="{{ site.baseurl }}/resume">Resume</a><span> /</span>
+        <a href="{{ site.baseurl }}/sitemap">Sitemap</a>
+
+        </li>
+                <li>&copy;2012-2017 {{ site.title }}</li>
       </div>
       <div class="footer-col footer-col-3">
         {% include disclaimer.html %}
