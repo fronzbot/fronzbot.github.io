@@ -43,10 +43,6 @@
       "width": 1123,
       "url":"{{ site.baseurl }}"
    },
-   "mainEntityOfPage":{
-      "@type":"WebPage",
-      "@id":"{{ site.baseurl }}{{ include.link }}"
-   },
    "articleBody":"{{ include.content | strip_html | xml_escape | normalize_whitepace | strip_newlines | strip }}"
 }
 </script>
