@@ -13,6 +13,7 @@ layout: default
     <div class="postDate"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
     </div>
     <meta itemprop="keywords" content="{{ post.tags | join: ',' }}" />
+    <br>
     <div class="postArchive">
     <a class='postLink' href="{{site.baseurl}}{{post.url}}" itemprop="url"><span itemprop="name">{{post.title}}</span></a>
     </div>
