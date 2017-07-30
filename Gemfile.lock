@@ -40,6 +40,7 @@ GEM
       jekyll-relative-links (= 0.4.1)
       jekyll-sass-converter (= 1.5.0)
       jekyll-seo-tag (= 2.2.3)
+      jekyll-sitemap (= 1.0.0)
       jekyll-swiss (= 0.4.0)
       jekyll-theme-architect (= 0.0.4)
       jekyll-theme-cayman (= 0.0.4)
@@ -211,7 +212,6 @@ DEPENDENCIES
   github-pages
   html-proofer
   jekyll
-  jekyll-sitemap
 
 BUNDLED WITH
    1.15.3
