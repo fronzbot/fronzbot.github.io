@@ -19,13 +19,16 @@ layout: default
     <div class="postExt">
       {{ post.excerpt | strip_html | truncate:200 }} <a href="{{ site.baseurl }}{{post.url}}">Read more</a>
     </div>
+    {% assign words = post.title | downcase | split: " " %}
+    {% assign excerpt = {{ post.content | strip_html | truncate:100 }} %}
+    {% assign my_link = /blog/{{ post.title | join:'-' | escape }} %}
     {%
       include structured_data/posts.html
       headline=post.title
       genre=post.category
       keywords=post.tags
-      content=post.content
-      link=post.permalink
+      content=excerpt
+      link=my_link
       date=post.date
     %}
   </div>
