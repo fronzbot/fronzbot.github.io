@@ -47,18 +47,7 @@ layout: default
     {% endif %}
     </nav>
   {% endif %}
-  <!--<ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta-main">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-        <h2>
-          <a class="post-link-main" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>-->
-
-
-
+  {% include structured_data/home.html %}
+  {% include structured_data/blog_items.html %}
 </div>

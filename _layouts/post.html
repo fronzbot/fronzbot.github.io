@@ -24,7 +24,7 @@ layout: default
       </div>
     </div>
   </div>
-  
+
   <footer class="postNavigation">
   {% if page.previous.url %}
     <a class="postPrev" href="{{ site.baseurl }}{{page.previous.url}}">
@@ -38,5 +38,14 @@ layout: default
   {% endif %}
   </footer>
 
+  {%
+    include structured_data/posts.html
+    headline=page.title
+    genre=page.category
+    keywords=page.tags
+    content=page.content
+    link=page.permalink
+    date=page.date
+  %}
 
 </article>

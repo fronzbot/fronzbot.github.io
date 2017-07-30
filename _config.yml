@@ -12,7 +12,7 @@ youtube_username: kevinfronczak
 google_plus_username: 112051215299289480804
 paginate: 5
 excerpt_separator: "<!-- more -->"
-image_path: /assets/images
+image_path: /images
 doc_path: /assets/docs
 code_path: /assets/code
 
@@ -81,8 +81,8 @@ assets:
     - "*.pdf"
   sources:
     - assets/css
-    - assets/images
-    - assets/images/features
+    - images
+    - images/features
     - assets/docs
     - assets/scripts
     - assets/fonts

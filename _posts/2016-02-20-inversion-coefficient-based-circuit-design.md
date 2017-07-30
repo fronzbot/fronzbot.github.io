@@ -49,7 +49,7 @@ Given the assumptions laid above, we can plot $$\frac{g_m}{I_D}$$, $$I_D$$ and $
 *   As we go deeper into weak inversion, we lose speed for no power beneift
 *   We can optimize for speed or power by keeping the device operating in moderate inversion
 
-Sansen's rule: an inversion coefficient of '1' is typically the most optimal point for speed, noise, and power. 
+Sansen's rule: an inversion coefficient of '1' is typically the most optimal point for speed, noise, and power.
 
 {: .center}
 [![inversion_coefficient_constant_gm]({{ site.baseurl }}{{ site.image_path }}/inversion_coefficient.gif)]({{ site.baseurl }}{{ site.image_path }}/inversion_coefficient.gif)
@@ -80,12 +80,12 @@ So our final list of design parameters for the input pair of our 5T OTA is:
 *   $$\frac{W}{L} = \frac{97 \mu m}{0.5 \mu m}$$
 *   $$g_m = 630 \mu S$$
 
-I went ahead and put a schematic in cadence using a PDK I have access to and got the following result using stability analysis.  We hit our desired 40dB gain target and are quite close to the GBW requirement of 100 MHz (it turns out, the trans-conductance is a bit low in the simulation due to a mismatch between the actual transistor $$\mu C_{ox}$$ and what we used as an approximation). 
+I went ahead and put a schematic in cadence using a PDK I have access to and got the following result using stability analysis.  We hit our desired 40dB gain target and are quite close to the GBW requirement of 100 MHz (it turns out, the trans-conductance is a bit low in the simulation due to a mismatch between the actual transistor $$\mu C_{ox}$$ and what we used as an approximation).
 
 {: .center}
 [![example_design_results]({{ site.baseurl }}{{ site.image_path }}/example_design_results.png)]({{ site.baseurl }}{{ site.image_path }}/example_design_results.png)
 
-Instead of haphazardly choosing the inversion coefficient, we could also sweep this value to try and find an optimum point for our application.  Below is a plot of the drain current and width-to-length ratio versus a sweep of the inversion coefficient.  Using a plot like this would allow for an optimization of area and power given the GBW and load capacitance requirements. 
+Instead of haphazardly choosing the inversion coefficient, we could also sweep this value to try and find an optimum point for our application.  Below is a plot of the drain current and width-to-length ratio versus a sweep of the inversion coefficient.  Using a plot like this would allow for an optimization of area and power given the GBW and load capacitance requirements.
 
 {: .center}
 [![design_optimization_matlab]({{ site.baseurl }}{{ site.image_path }}/design_optimization_matlab.png)]({{ site.baseurl }}{{ site.image_path }}/design_optimization_matlab.png)
