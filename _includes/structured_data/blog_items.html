@@ -2,7 +2,7 @@
   <h1 itemprop="name">Blog</h1>
   {% for post in site.posts %}
     <article class="post" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
-      <h2><a href="{{ post.url }}" itemprop="url"><span itemprop="name">{{ post.title }}</span></a></h2>
+      <h2><a href="{{ site.baseurl }}{{ post.url }}" itemprop="url"><span itemprop="name">{{ post.title }}</span></a></h2>
       <meta itemprop="keywords" content="{{ post.tags | join: ',' }}" />
       <div class="entry" itemprop="description">
         {{ post.content | strip_html | truncatewords: 40 }}
