@@ -22,20 +22,25 @@
       ]
    },
    "publisher": {
-      "@type": "Person",
+      "@type": "Organization",
       "name": "Kevin Fronczak",
       "sameAs": [
           "https://github.com/fronzbot",
           "https://plus.google.com/112051215299289480804",
           "https://www.linkedin.com/in/kfronczak/",
           "https://scholar.google.com/citations?user=NmzmakYAAAAJ&hl=en"
-      ]
+      ],
+      "logo": {
+          "@type": "ImageObject",
+          "contentUrl": "{{ site.baseurl }}/favicon.png",
+          "url": "{{ site.baseurl }}"
+      }
    },
    "image":{
       "@type":"ImageObject",
-      "contentUrl":"{{ site.baseurl }}/favicon.png",
-      "height": 64,
-      "width": 64,
+      "contentUrl":"{{ site.baseurl }}{{ site.image-path }}/kevin.jpg",
+      "height": 1289,
+      "width": 1123,
       "url":"{{ site.baseurl }}"
    },
    "mainEntityOfPage":{
