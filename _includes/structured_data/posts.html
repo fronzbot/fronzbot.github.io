@@ -8,12 +8,12 @@
    "genre":"{{ include.category }}",
    "keywords":"{{ include.keywords }}",
    "wordCount":"{{ wordcount }}",
-   "url":"{{ site.baseurl }}{{ include.link }}",
+   "url":"{{ site.url }}{{ include.link }}",
    "datePublished":"{{ include.date | | date: '%Y-%m-%d' }}",
    "author": {
       "@type": "Person",
       "name": "Kevin Fronczak",
-      "image": "{{ site.baseurl }}{{ site.image_path }}/kevin.jpg",
+      "image": "{{ site.url }}{{ site.image_path }}/kevin.jpg",
       "sameAs": [
           "https://github.com/fronzbot",
           "https://plus.google.com/112051215299289480804",
@@ -32,16 +32,16 @@
       ],
       "logo": {
           "@type": "ImageObject",
-          "contentUrl": "{{ site.baseurl }}/favicon.png",
-          "url": "{{ site.baseurl }}"
+          "contentUrl": "{{ site.url }}/favicon.png",
+          "url": "{{ site.url }}"
       }
    },
    "image":{
       "@type":"ImageObject",
-      "contentUrl":"{{ site.baseurl }}{{ site.image-path }}/kevin.jpg",
+      "contentUrl":"{{ site.url }}{{ site.image-path }}/kevin.jpg",
       "height": 1289,
       "width": 1123,
-      "url":"{{ site.baseurl }}"
+      "url":"{{ site.url }}"
    },
    "articleBody":"{{ include.content | strip_html | xml_escape | normalize_whitepace | strip_newlines | strip }}"
 }

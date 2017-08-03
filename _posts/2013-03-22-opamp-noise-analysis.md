@@ -13,7 +13,7 @@ use_math: true
 project: false
 feature: false
 ---
-Continuing with the theme [from my last post]({{ site.baseurl }}/blog/circuit-noise-analysis/), I have some more neat noise analysis; this time looking at an Opamp. _Most_ people would probably end up using this type of analysis rather than looking at a circuit transistor-by-transistor. Here you can grab the datasheet for you opamp and calculate the output noise you'd end up seeing. Here I'm going to look at [Analog Device's OP27](http://www.analog.com/static/imported-files/data_sheets/OP27.pdf). Before we move on, we'll need to extract some very important parameters from the datasheet: Input Noise Voltage, Input Noise Current, Gain Bandwidth Product, and Common Mode Input Resistance. (Note that the worst-case values were used where multiple values were presented. All values from the OP27A/E column.):
+Continuing with the theme [from my last post]({{ site.url }}/blog/circuit-noise-analysis/), I have some more neat noise analysis; this time looking at an Opamp. _Most_ people would probably end up using this type of analysis rather than looking at a circuit transistor-by-transistor. Here you can grab the datasheet for you opamp and calculate the output noise you'd end up seeing. Here I'm going to look at [Analog Device's OP27](http://www.analog.com/static/imported-files/data_sheets/OP27.pdf). Before we move on, we'll need to extract some very important parameters from the datasheet: Input Noise Voltage, Input Noise Current, Gain Bandwidth Product, and Common Mode Input Resistance. (Note that the worst-case values were used where multiple values were presented. All values from the OP27A/E column.):
 
 $$ e_{n} = 5.5 \frac{nV}{\sqrt{Hz}} \\ i_{n} = 4.0 \frac{pA}{\sqrt{Hz}} \\ GBW = 8.0 MHz \\ R_{in,cm} = 3 G\Omega \\ $$
 
@@ -24,9 +24,9 @@ $$ e_{n}^{2} = 2.42\times 10^{-10} V^{2} \\ i_{n}^{2} = 1.28\times 10^{-16} A^{2
 Now we can create a noise model for the opamp. We will have voltage noises due to the resistors, an input-referred voltage noise source on one pin (calculated above) and TWO input-referred current noise sources (again, calculated above). Note that R2 is placed specifically to lower noise, and we'll analyze the effects of taking it out to show why it's necessary. The resistor values were chosen to exacerbate the noise problem.
 
 {: .center}
-[![Opamp Noise Model]({{ site.baseurl }}{{ site.image_path }}/opamp_noise_model.png)]({{ site.baseurl }}{{ site.image_path }}/opamp_noise_model.png)
+[![Opamp Noise Model]({{ site.url }}{{ site.image_path }}/opamp_noise_model.png)]({{ site.url }}{{ site.image_path }}/opamp_noise_model.png)
 
-Our process will be the same as in the [BJT case]({{ site.baseurl }}/blogcircuit-noise-analysis/) where we will analyze the contributions of each source at the output and then find the total input-referred noise from all sources.
+Our process will be the same as in the [BJT case]({{ site.url }}/blogcircuit-noise-analysis/) where we will analyze the contributions of each source at the output and then find the total input-referred noise from all sources.
 
 **1) Thermal Noise from R1**
 

@@ -15,15 +15,15 @@ feature: true
 feature_image: /images/features/gene-crossover.png
 ---
 
-Over this past summer as I was wrapping up [my Master's thesis]({{ site.baseurl }}/blog/stability-analysis-of-boost-converters-for-ics/), I was taking a class involving the study of AI algorithms. Due to my thesis work involved switched DC-DC converters, I had the idea of implementing a Genetic Algorithm in order to design a Boost Converter (this was a graduate class so it was very research-based and each student had to come up with a project to pursue and then present at the end of the class). I ended up scaling back my original idea due to time constraints (10-week schedule plus I needed to revise my thesis and prepare for my defense) so I decided to focus on implementing both a Genetic Algorithm (GA) and Particle Swarm Optimization (PSO) in order to design an optimal controller for a Boost Converter. The paper ([which can be found here]({{ site.baseurl }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf)) I wrote will go into the implementation details much more thoroughly, but I'll give an overview in this post. I also have my [MATLAB code up on my github page](http://github.com/fronzbot/aidc) if anyone wants to play around with it.
+Over this past summer as I was wrapping up [my Master's thesis]({{ site.url }}/blog/stability-analysis-of-boost-converters-for-ics/), I was taking a class involving the study of AI algorithms. Due to my thesis work involved switched DC-DC converters, I had the idea of implementing a Genetic Algorithm in order to design a Boost Converter (this was a graduate class so it was very research-based and each student had to come up with a project to pursue and then present at the end of the class). I ended up scaling back my original idea due to time constraints (10-week schedule plus I needed to revise my thesis and prepare for my defense) so I decided to focus on implementing both a Genetic Algorithm (GA) and Particle Swarm Optimization (PSO) in order to design an optimal controller for a Boost Converter. The paper ([which can be found here]({{ site.url }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf)) I wrote will go into the implementation details much more thoroughly, but I'll give an overview in this post. I also have my [MATLAB code up on my github page](http://github.com/fronzbot/aidc) if anyone wants to play around with it.
 
 **The Problem**
 
-Depending on the architecture of a given Boost Converter (or any switched-converter for that matter) is that the design of the controller that is in the feedback loop has to be approached _very_ carefully [this is the part circled in red in the schematic below]. The reason is rather obvious: feedback = potential for instability - thus it's important to design a compensation network that provides a good balance between speed (bandwidth) and stability (phase-margin) but that can also maintain a very precise output voltage (gain). There are many possibilities, but the classical approaches are to use a Lag, Lead, or PID controller which all have well-understood equations pertaining to pole and zero placement (again, for more information you can [read my paper]({{ site.baseurl }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf) on this project or read one of the MANY papers I referenced).
+Depending on the architecture of a given Boost Converter (or any switched-converter for that matter) is that the design of the controller that is in the feedback loop has to be approached _very_ carefully [this is the part circled in red in the schematic below]. The reason is rather obvious: feedback = potential for instability - thus it's important to design a compensation network that provides a good balance between speed (bandwidth) and stability (phase-margin) but that can also maintain a very precise output voltage (gain). There are many possibilities, but the classical approaches are to use a Lag, Lead, or PID controller which all have well-understood equations pertaining to pole and zero placement (again, for more information you can [read my paper]({{ site.url }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf) on this project or read one of the MANY papers I referenced).
 
 {: .center}
 {: .center}
-[![Boost Circuit Schematic]({{ site.baseurl }}{{ site.image_path }}/boost_circuit_ideal_hl.png)]({{ site.baseurl }}{{ site.image_path }}/boost_circuit_ideal_hl.png)
+[![Boost Circuit Schematic]({{ site.url }}{{ site.image_path }}/boost_circuit_ideal_hl.png)]({{ site.url }}{{ site.image_path }}/boost_circuit_ideal_hl.png)
 
 **The Plan**
 
@@ -31,22 +31,22 @@ Step one was to understand how I wanted to implement my algorithm. I primarily f
 
 {: .center}
 {: .center}
-[![Boost Circuit Schematic]({{ site.baseurl }}{{ site.image_path }}/crossover.png)]({{ site.baseurl }}{{ site.image_path }}/crossover.png)
+[![Boost Circuit Schematic]({{ site.url }}{{ site.image_path }}/crossover.png)]({{ site.url }}{{ site.image_path }}/crossover.png)
 
 {: .center}
 {: .center}
-[![Boost Circuit Schematic]({{ site.baseurl }}{{ site.image_path }}/QBGA_Flowchart.png)]({{ site.baseurl }}{{ site.image_path }}/QBGA_Flowchart.png)
+[![Boost Circuit Schematic]({{ site.url }}{{ site.image_path }}/QBGA_Flowchart.png)]({{ site.url }}{{ site.image_path }}/QBGA_Flowchart.png)
 
 A bee's genes consisted of transfer function coefficients which could then be used to calculate the phase margin, gain, etc (which, unsurprisingly, I used as my fitness function). **The Implementation** I quickly discovered that my original plan had a few problems with convergence. In order to alleviate this, I implemented a parabolic fitness function with penalties applied if a solution exceeds some predefined bounds whose equation is shown below where $$ \alpha_i $$ is a coefficient for a fitness variable $$ \theta_i $$.
 
 $$F = \sum_{i=1}^N -\alpha_i(N(\theta_i) - 1)^2 + \alpha_i - P(\theta_i) $$
 
-$$ N(\theta_i) $$ is a normalization function and $$ P(\theta_i) $$ is a penalty function. I also implemented age behavior for the queen bee. Essentially, as the queen maintains her position as queen of the hive, the gene mutation rate begins to increase in order to try and prevent convergence on a local optima. If, however, the queen is _already_ the global-best solution, the extra mutation will have no impact on the solution so it could ONLY help. As it turns out, it doubled the accuracy of the algorithm ([more details in my paper]({{ site.baseurl }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf)). Below is the comparison between this QBGA implementation and three different forms of PSO (none of which I've covered in this post). The three PSO algorithms are a constriction PSO, Chaotic Decreasing Intertial Weight (CDIW) and Chaotic Random Intertial Weight (CRIW). More information can be found in [my paper]({{ site.baseurl }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf) (surprise!).
+$$ N(\theta_i) $$ is a normalization function and $$ P(\theta_i) $$ is a penalty function. I also implemented age behavior for the queen bee. Essentially, as the queen maintains her position as queen of the hive, the gene mutation rate begins to increase in order to try and prevent convergence on a local optima. If, however, the queen is _already_ the global-best solution, the extra mutation will have no impact on the solution so it could ONLY help. As it turns out, it doubled the accuracy of the algorithm ([more details in my paper]({{ site.url }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf)). Below is the comparison between this QBGA implementation and three different forms of PSO (none of which I've covered in this post). The three PSO algorithms are a constriction PSO, Chaotic Decreasing Intertial Weight (CDIW) and Chaotic Random Intertial Weight (CRIW). More information can be found in [my paper]({{ site.url }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf) (surprise!).
 
 {: .center}
-[![Boost Circuit Schematic]({{ site.baseurl }}{{ site.image_path }}/fit_converge.png)]({{ site.baseurl }}{{ site.doc_path }}/aidc/fit_converge.png)
+[![Boost Circuit Schematic]({{ site.url }}{{ site.image_path }}/fit_converge.png)]({{ site.url }}{{ site.doc_path }}/aidc/fit_converge.png)
 
 Links:
 
-* [Final Paper [PDF]]({{ site.baseurl }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf)
-* [Final Presentation [PDF]]({{ site.baseurl }}{{ site.doc_path }}/Fronczak_AI_Presentation.pdf) [AIDC Code](http://github.com/fronzbot/aidc)
+* [Final Paper [PDF]]({{ site.url }}{{ site.doc_path }}/Fronczak_Comparison_of_Optimization_Algorithms_for_Boost_Converter_Controller_Design_2013.pdf)
+* [Final Presentation [PDF]]({{ site.url }}{{ site.doc_path }}/Fronczak_AI_Presentation.pdf) [AIDC Code](http://github.com/fronzbot/aidc)

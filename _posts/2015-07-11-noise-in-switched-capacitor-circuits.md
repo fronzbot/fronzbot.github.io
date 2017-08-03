@@ -14,7 +14,7 @@ project: false
 feature: false
 ---
 
-I've previously covered the topic of [noise in circuits]({{ site.baseurl }}/blog/circuit-noise-analysis/) and figured I'd elaborate even further. Many ICs use some sort of switched-capacitor circuit for SOME reason (sample-and-hold, for example) and the noise associated with such a circuit is not as straight-forward as you would initially assume. A lot of engineers will just approximate the noise variance of a sample-and-hold circuit as $$ \frac{kT}{C} $$ which is a bad assumption in most cases. In fact, it's so commonly overlooked that Richard Schreier (of Analog Devices fame) wrote a great paper on this very subject [1].
+I've previously covered the topic of [noise in circuits]({{ site.url }}/blog/circuit-noise-analysis/) and figured I'd elaborate even further. Many ICs use some sort of switched-capacitor circuit for SOME reason (sample-and-hold, for example) and the noise associated with such a circuit is not as straight-forward as you would initially assume. A lot of engineers will just approximate the noise variance of a sample-and-hold circuit as $$ \frac{kT}{C} $$ which is a bad assumption in most cases. In fact, it's so commonly overlooked that Richard Schreier (of Analog Devices fame) wrote a great paper on this very subject [1].
 
 So how can we determine the noise of the above circuit? Well, you do the same thing you'd do with any other circuit: math. To get the RMS noise of any circuit you need the noise transfer function. To get the noise transfer function (NTF) of a circuit who's signal transfer function (STF) is $$\lvert H(s)\rvert $$ you have to integrate the square of the STF such that:
 
@@ -29,7 +29,7 @@ Neat. Now what?
 Well, first you need to recognize that the closed-loop output impedance of a unity gain buffer is roughly given by $$ \frac{1}{G_M}$$ where $$ G_M$$ is the trans-conductance of the amplifier whose DC open-loop gain transfer function approximates to $$ G_MR_{out}$$. Also, since we are only interested in what the noise looks like right before the switch opens (ie. we just took a sample), we can approximate the switch as an effective resistance $$ R_{SW}$$. So now we have two resistors, each with independent noise sources, and one capacitor, as shown in the equivalent small-signal model below. From here, it's just a matter of solving each circuit with only one of the independent noise sources active and then summing the ensuing expressions.
 
 {: .center}
-[![Noise Model]({{ site.baseurl }}{{ site.image_path }}/sampled_noise_equivalent_model.png)]({{ site.baseurl }}{{ site.image_path }}/sampled_noise_equivalent_model.png)
+[![Noise Model]({{ site.url }}{{ site.image_path }}/sampled_noise_equivalent_model.png)]({{ site.url }}{{ site.image_path }}/sampled_noise_equivalent_model.png)
 
 The first noise source, $$ i_{n1}^2$$, is the equivalent output noise current of the amplifier. You can also use the equivalent output noise voltage by putting the noise source in series with the resistor, rather than in parallel. After removing the noise source associated with the switch resistance (and setting the positive plate of the capacitor as out output node), we can generate a transfer function in the Laplace domain of:
 

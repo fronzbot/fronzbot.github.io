@@ -13,14 +13,14 @@ use_math: true
 project: false
 feature: false
 ---
-Building off of my previous post [Circuit Design Interview Questions: Part I]({{ site.baseurl }}/blog/electrical-engineering/circuit-design-interview-questions-part-i), we'll now explore some slightly more advanced questions (still, they should be solvable by any EE graduate with some basic analog circuit knowledge).
+Building off of my previous post [Circuit Design Interview Questions: Part I]({{ site.url }}/blog/electrical-engineering/circuit-design-interview-questions-part-i), we'll now explore some slightly more advanced questions (still, they should be solvable by any EE graduate with some basic analog circuit knowledge).
 
 #### **Question 5**
 
 If a constant, temperature invariant, current $$ I_O $$ is fed into the collector of a BJT, as shown below, what happens to $$ V_O $$ as the temperature is increased? 
 
 {: .center}
-[![Interview Question 5]({{ site.baseurl }}{{ site.image_path }}/interview_bjt.png)]({{ site.baseurl }}{{ site.image_path }}/interview_bjt.png)
+[![Interview Question 5]({{ site.url }}{{ site.image_path }}/interview_bjt.png)]({{ site.url }}{{ site.image_path }}/interview_bjt.png)
 
 #### **Solution**
 
@@ -31,7 +31,7 @@ This question is good as it tests basic BJT temperature dependance understanding
 Given the circuit below, what is $$ I_O$$? 
 
 {: .center}
-[![Interview Question 6]({{ site.baseurl }}{{ site.image_path }}/interview_current_mirror.png)]({{ site.baseurl }}{{ site.image_path }}/interview_current_mirror.png)
+[![Interview Question 6]({{ site.url }}{{ site.image_path }}/interview_current_mirror.png)]({{ site.url }}{{ site.image_path }}/interview_current_mirror.png)
 
 #### **Solution**
 
@@ -42,7 +42,7 @@ The answer is clearly $$ 1\,mA $$ since it's just a basic current mirror. Howeve
 Given the circuit below, find $$ I_O $$: 
 
 {: .center}
-[![Interview Question 7]({{ site.baseurl }}{{ site.image_path }}/interview_current_source.png)]({{ site.baseurl }}{{ site.image_path }}/interview_current_source.png)
+[![Interview Question 7]({{ site.url }}{{ site.image_path }}/interview_current_source.png)]({{ site.url }}{{ site.image_path }}/interview_current_source.png)
 
 #### **Solution**
 
@@ -53,13 +53,13 @@ This question is nice as it combines basic Op Amp and basic current mirror under
 What is the voltage gain of the following circuit? 
 
 {: .center}
-[![Interview Question 8]({{ site.baseurl }}{{ site.image_path }}/interview_common_drain.png)]({{ site.baseurl }}{{ site.image_path }}/interview_common_drain.png)
+[![Interview Question 8]({{ site.url }}{{ site.image_path }}/interview_common_drain.png)]({{ site.url }}{{ site.image_path }}/interview_common_drain.png)
 
 #### **Solution**
 
 This particular amplifier is a common-drain (or source-follower). Typically, the voltage gain is simply approximated to be equal to 1, but that's not what we're looking for here. We want the expression for the voltage gain- granted, with some reasonable assumptions, the expression IS approximately equal to 1 but let's get the expression first, shall we? First, let's draw the small-signal model: 
 
 {: .center}
-[![Common Drain Small Signal]({{ site.baseurl }}{{ site.image_path }}/interview_common_drain_small_signal.png)]({{ site.baseurl }}{{ site.image_path }}/interview_common_drain_small_signal.png)
+[![Common Drain Small Signal]({{ site.url }}{{ site.image_path }}/interview_common_drain_small_signal.png)]({{ site.url }}{{ site.image_path }}/interview_common_drain_small_signal.png)
 
 Here we have a resistance, $$ R_S$$, in parallel with a dependent current source with a series resistance, $$ \frac{1}{g_m} $$. This means that the expression for the output voltage should be: $$ v_o = g_m(v_{in} - v_o)R_S $$ Thus, the expression for the small-signal voltage gain is: $$ \frac{v_o}{v_{in}} = \frac{g_mR_S}{1+g_mR_S} $$

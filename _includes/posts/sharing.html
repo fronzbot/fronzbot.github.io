@@ -1,18 +1,18 @@
 <ul class="share-buttons">
   Share this post! <br>
   {% if site.social.facebook %}
-    <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkevinfronczak.com&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="{{ site.baseurl }}{{ site.social.icons }}/Facebook.svg" /></a></li>
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkevinfronczak.com&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="{{ site.url }}{{ site.social.icons }}/Facebook.svg" /></a></li>
   {% endif %}
   {% if site.social.twitter %}
-    <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fkevinfronczak.com&text=:%20http%3A%2F%2Fkevinfronczak.com&via={{ site.social.twitter_username }}" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="{{ site.baseurl }}{{ site.social.icons }}/Twitter.svg" /></a></li>
+    <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fkevinfronczak.com&text=:%20http%3A%2F%2Fkevinfronczak.com&via={{ site.social.twitter_username }}" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="{{ site.url }}{{ site.social.icons }}/Twitter.svg" /></a></li>
   {% endif %}
   {% if site.social.gplus %}
-    <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fkevinfronczak.com" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Google+" src="{{ site.baseurl }}{{ site.social.icons }}/Google+.svg" /></a></li>
+    <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fkevinfronczak.com" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Google+" src="{{ site.url }}{{ site.social.icons }}/Google+.svg" /></a></li>
   {% endif %}
   {% if site.social.reddit %}
-    <li><a href="http://www.reddit.com/submit?url=http%3A%2F%2Fkevinfronczak.com&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img alt="Submit to Reddit" src="{{ site.baseurl }}{{ site.social.icons }}/Reddit.svg" /></a></li>
+    <li><a href="http://www.reddit.com/submit?url=http%3A%2F%2Fkevinfronczak.com&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img alt="Submit to Reddit" src="{{ site.url }}{{ site.social.icons }}/Reddit.svg" /></a></li>
   {% endif %}
   {% if site.social.linkedin %}
-    <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fkevinfronczak.com&title=&summary=&source=http%3A%2F%2Fkevinfronczak.com" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img alt="Share on LinkedIn" src="{{ site.baseurl }}{{ site.social.icons }}/LinkedIn.svg" /></a></li>
+    <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fkevinfronczak.com&title=&summary=&source=http%3A%2F%2Fkevinfronczak.com" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img alt="Share on LinkedIn" src="{{ site.url }}{{ site.social.icons }}/LinkedIn.svg" /></a></li>
   {% endif %}
 </ul>

@@ -18,12 +18,12 @@ I came across a simple but interesting noise problem today dealing with the desi
 Let's face it: we live in a very noisy world.  No signal or waveform that we want to manipulate will ever be unaffected from noise in our environments.  But how can we receive relatively clean signals when all this noise is around us?  For an example, just take a look at the plot below!  You can see what the signal should be: a nice, clean, sinusoidal waveform.  But when we take into account noise, look at what happens- it's barely discernible as a sine wave let alone a waveform at all!  What can we do?!
 
 {: .center}
-[![{{site.baseurl}}]({{ site.baseurl }}{{ site.image_path }}/noiseandsignal.png)]({{ site.baseurl }}{{ site.image_path }}/noiseandsignal.png)
+[![{{site.url}}]({{ site.url }}{{ site.image_path }}/noiseandsignal.png)]({{ site.url }}{{ site.image_path }}/noiseandsignal.png)
 
 Well, let's look at the background information we need first.  Let's say that the nice sine wave is the information we need to receive, but we end up getting all that blue stuff.  Clearly, we need a way to filter all that noise out.  There are many, many ways to do this, but let's keep it simple and just pass our signal through a low-pass filter.  Filter choice is largely dependent on the application, but let's just pretend that a low pass filter will get us the information we want.  Ok?  Ok. First, we need to define what a low-pass filter is.  We'll just use a passive filter in order to simplify our calculations (and our ensuing transfer function).  The circuit below is a low-pass filter (that is, it passes low frequencies while attenuating higher ones).  Pretty easy so far!
 
 {: .center}
-[![{{site.baseurl}}]({{ site.baseurl }}{{ site.image_path }}/lpf.jpg)]({{ site.baseurl }}{{ site.image_path }}/lpf.jpg)
+[![{{site.url}}]({{ site.url }}{{ site.image_path }}/lpf.jpg)]({{ site.url }}{{ site.image_path }}/lpf.jpg)
 
 Now, lets say we have a sinusoidal input defined as
 
@@ -58,7 +58,7 @@ $$-3 = 20\log(x)$$ which yields a value of $$\frac{1}{\sqrt{2}}$$
 To help visualize this a bit better, refer to the following graph (ignore the x-axis values- they are arbitrary and were just used to help generate the plot):
 
 {: .center}
-[![{{site.baseurl}}]({{ site.baseurl }}{{ site.image_path }}/lpf_freqeuncy_response.png)]({{ site.baseurl }}{{ site.image_path }}/lpf_freqeuncy_response.png)
+[![{{site.url}}]({{ site.url }}{{ site.image_path }}/lpf_freqeuncy_response.png)]({{ site.url }}{{ site.image_path }}/lpf_freqeuncy_response.png)
 
 So now that we have a magnitude value for our transfer function at the -3dB point, let's solve for an expression in terms of R and C:
 
@@ -69,7 +69,7 @@ $$\frac{1}{\sqrt{2}} = \frac{1}{\sqrt{1+\omega_{3db}^{2}R^{2}C^{2}}} \\
 Now that we have all of that out of the way, we can start the design of our filter. First we need to determine what our output will look like after passing through our filter.   This is illustrated in the figure below, but I'll explain it as well.  There are two things that the filter will do to our original signal.  First, it will change the amplitude of the signal based on what the response is at a given frequency.  The next is that it will have a phase change due to the phase at a given frequency.
 
 {: .center}
-[![{{site.baseurl}}]({{ site.baseurl }}{{ site.image_path }}/matchedFilterSystem.png)]({{ site.baseurl }}{{ site.image_path }}/matchedFilterSystem.png)
+[![{{site.url}}]({{ site.url }}{{ site.image_path }}/matchedFilterSystem.png)]({{ site.url }}{{ site.image_path }}/matchedFilterSystem.png)
 
 We already know that the average Power of our input $$X(t)$$ is equal to $$\frac{A^{2}}{2}$$.  Since out output will be scaled by the magintude of the Transfer Function we know that:
 

@@ -17,11 +17,11 @@ navbar: true
         </div>
         <br>
         <div class="postArchive">
-          <a class='postLink' href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
+          <a class='postLink' href="{{site.url}}{{post.url}}">{{post.title}}</a>
         </div>
         <div class="postExt">
-          <a class='postLink' href="{{site.baseurl}}{{post.url}}"><img src="{{ site.baseurl }}{{ post.feature_image }}" height="45%" width="45%" alt="{{ post.title }}"></a><br>
-          {{ post.excerpt | strip_html | truncate:300  }} <a href="{{ site.baseurl }}{{post.url}}">Read more</a>
+          <a class='postLink' href="{{site.url}}{{post.url}}"><img src="{{ site.url }}{{ post.feature_image }}" height="45%" width="45%" alt="{{ post.title }}"></a><br>
+          {{ post.excerpt | strip_html | truncate:300  }} <a href="{{ site.url }}{{post.url}}">Read more</a>
         </div>
       </div>
     {% else if post.project == true %}
@@ -39,11 +39,11 @@ navbar: true
     </div>
     <br>
     <div class="postArchive">
-      <a class='postLink' href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
+      <a class='postLink' href="{{site.url}}{{post.url}}">{{post.title}}</a>
     </div>
     
     <div class="postExt">
-      {{ post.excerpt | strip_html | truncate:200  }} <a href="{{ site.baseurl }}{{post.url}}">Read more</a>
+      {{ post.excerpt | strip_html | truncate:200  }} <a href="{{ site.url }}{{post.url}}">Read more</a>
     </div>
   </div>    
 {% endfor %}

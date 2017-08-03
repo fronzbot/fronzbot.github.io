@@ -8,7 +8,7 @@ navbar: true
 Analog circuit designer with experience implementing creative designs for Touch and Biometric ASICs
 {: .resumeAlignCenter}
 
-[Download PDF Version]({{ site.baseurl }}/assets/docs/Fronczak_Resume.pdf "Resume")
+[Download PDF Version]({{ site.url }}/assets/docs/Fronczak_Resume.pdf "Resume")
 {: .resumeAlignRight}
 
 -----

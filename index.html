@@ -15,10 +15,10 @@ layout: default
     <meta itemprop="keywords" content="{{ post.tags | join: ',' }}" />
     <br>
     <div class="postArchive">
-    <a class='postLink' href="{{site.baseurl}}{{post.url}}" itemprop="url"><span itemprop="name">{{post.title}}</span></a>
+    <a class='postLink' href="{{site.url}}{{post.url}}" itemprop="url"><span itemprop="name">{{post.title}}</span></a>
     </div>
     <div class="postExt">
-      {{ post.excerpt | strip_html | truncate:200 }} <a href="{{ site.baseurl }}{{post.url}}">Read more</a>
+      {{ post.excerpt | strip_html | truncate:200 }} <a href="{{ site.url }}{{post.url}}">Read more</a>
     </div>
     {% assign words = post.title | downcase | split: " " %}
     {% assign excerpt = {{ post.content | strip_html | truncate:100 }} %}
@@ -39,7 +39,7 @@ layout: default
   {% if paginator.total_pages > 1 %}
     <nav class="pagination">
       {% if paginator.previous_page %}
-        <a class="paginationLink" href="{{ site.baseurl }}{{ paginator.previous_page_path | replace: '//', '/' }}">&laquo; Prev</a>
+        <a class="paginationLink" href="{{ site.url }}{{ paginator.previous_page_path | replace: '//', '/' }}">&laquo; Prev</a>
       {% endif %}
 
     {% for page in (1..paginator.total_pages) %}
@@ -48,12 +48,12 @@ layout: default
       {% elsif page == 1 %}
         <a class="paginationLink" href="/">{{ page }}</a>
       {% else %}
-        <a class="paginationLink" href="{{ site.baseurl }}{{ site.paginate_path | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        <a class="paginationLink" href="{{ site.url }}{{ site.paginate_path | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
       {% endif %}
     {% endfor %}
 
     {% if paginator.next_page %}
-      <a class="paginationLink" href="{{ site.baseurl }}{{ paginator.next_page_path | replace: '//', '/' }}">Next &raquo;</a>
+      <a class="paginationLink" href="{{ site.url }}{{ paginator.next_page_path | replace: '//', '/' }}">Next &raquo;</a>
     {% endif %}
     </nav>
   {% endif %}
