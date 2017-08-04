@@ -5,4 +5,4 @@ if [[ $* == *--clean* ]]; then
 fi
 
 bundle exec jekyll build  -d _site
-bundle exec htmlproofer ./_site --check-favicon --check-html --file-ignore ./_site/google2600d5f104e52ac8.html
+bundle exec htmlproofer ./_site --only-4xx --check-favicon --check-html --file-ignore ./_site/google2600d5f104e52ac8.html
