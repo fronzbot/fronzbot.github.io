@@ -13,7 +13,7 @@ use_math: true
 project: false
 feature: false
 ---
-  One of the forums I attended this year at ISSCC 2016 was entitled "Advanced IC Design for Ultra Low-Noise Sensing".  There were a variety of great speakers, but the presentation given by Professor [Willy Sansen](http://www.esat.kuleuven.be/micas/index.php/people-mainmenu-26/13-people/staff/12-willy-sansen) was particularly interesting because it introduced me to a design methodology I was not familiar with: designing via the "inversion coefficient" of a MOSFET.
+  One of the forums I attended this year at ISSCC 2016 was entitled "Advanced IC Design for Ultra Low-Noise Sensing".  There were a variety of great speakers, but the presentation given by Professor [Willy Sansen](https://www.linkedin.com/in/willy-sansen-a8649610/?ppe=1) was particularly interesting because it introduced me to a design methodology I was not familiar with: designing via the "inversion coefficient" of a MOSFET.
 
 ## What is an Inversion Coefficient?
 

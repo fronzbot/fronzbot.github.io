@@ -23,7 +23,7 @@ This was a rather tedious process, but made much easier with the `jekyll-import`
 
 # Create Github Page
 
-The first thing I did was create a repo on github called [fronzbot.github.io](https://github.com/fronzbot/fronzbot.github.io) which holds the source code for this website.  Next, I ran the following command to clone the repo into my workarea `git clone git@github.com:YOUR-USERNAME/YOUR-REPO-NAME.git`.  As a note, I have a virtual machine running debian that I do all my development on (including for [Home Assistant](https://github.com/home-assistant/home-assistant)) so my directions also assume you're working on Linux.  From here I had to create an index file and push to my repo so Github knew to create a webpage:
+The first thing I did was create a repo on github called [fronzbot.github.io](http://github.com/fronzbot/fronzbot.github.io) which holds the source code for this website.  Next, I ran the following command to clone the repo into my workarea `git clone git@github.com:YOUR-USERNAME/YOUR-REPO-NAME.git`.  As a note, I have a virtual machine running debian that I do all my development on (including for [Home Assistant](http://github.com/home-assistant/home-assistant)) so my directions also assume you're working on Linux.  From here I had to create an index file and push to my repo so Github knew to create a webpage:
 
 ```
 cd fronzbot.github.io
@@ -143,10 +143,10 @@ Once everything was fairly settled, I made a conscious effort to improve my scor
 I opted to use [travis-ci](https://travis-ci.org/) for continuous integration, since I've used it before on other projects.  Here, I run a few tests:
 
 * Check that the site can be built via [cibuild](https://github.com/fronzbot/fronzbot.github.io/script/cibuild)
-* Check HTML to make sure no linking errors via `htmlproofer` call in [cibuild](https://github.com/fronzbot/fronzbot.github.io/script/cibuild)
-* Verify frontmatter in posts have valid tags (for future tag linking) via [check_frontmatter.py](https://github.com/fronzbot/fronzbot.github.io/script/pyscripts/check_frontmatter.py)
+* Check HTML to make sure no linking errors via `htmlproofer` call in [cibuild](http://github.com/fronzbot/fronzbot.github.io/script/cibuild)
+* Verify frontmatter in posts have valid tags (for future tag linking) via [check_frontmatter.py](http://github.com/fronzbot/fronzbot.github.io/script/pyscripts/check_frontmatter.py)
 * Verify any posts that are set to be featured on the [project](https://kevinfronczak.com/projects/) page have the required `feature_image` key via [check_frontmatter.py](https://github.com/fronzbot/fronzbot.github.io/script/pyscripts/check_frontmatter.py)
-* Check that all posts are markdown only (no html) and both equations and images are properly centered on the page via [post_linter.py](https://github.com/fronzbot/fronzbot.github.io/script/pyscripts/post_linter.py)
+* Check that all posts are markdown only (no html) and both equations and images are properly centered on the page via [post_linter.py](http://github.com/fronzbot/fronzbot.github.io/script/pyscripts/post_linter.py)
 
 The first two tests (in `cibuild`) are what is recommended by [Jekyll](http://jekyllrb.com/).  All of the python tests are custom implementations that helped me quickly iterate through changes I needed to make while working on porting the Wordpress site over to Github Pages.
 
