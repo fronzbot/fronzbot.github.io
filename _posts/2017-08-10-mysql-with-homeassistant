@@ -14,6 +14,9 @@ feature: false
 https://community.home-assistant.io/t/large-homeassistant-database-files/4201/71
 ALL steps
 ```
+# Stop home assistant
+sudo systemctl stop home-assistant.service
+
 # Remove completely
 sudo service mysql stop  #or mysqld
 sudo killall -9 mysql
@@ -35,9 +38,9 @@ sudo apt-get install python-dev python3-dev
 # Create root password at prompt
  sudo apt-get update && sudo apt-get upgrade
 $ mysql -u root -p
-mysql> CREATE DATABASE hassdb;
-mysql> CREATE USER 'hassdb'@'localhost' IDENTIFIED BY '<YOURPASSWORD>';
-mysql> GRANT ALL PRIVILEGES ON hassdb.* TO 'hassuser'@'localhost';
+mysql> CREATE DATABASE hass_db;
+mysql> CREATE USER 'hassuser'@'localhost' IDENTIFIED BY '<YOURPASSWORD>';
+mysql> GRANT ALL PRIVILEGES ON hass_db.* TO 'hassuser'@'localhost';
 mysql> FLUSH PRIVILEGES;
 mysql> quit
 
@@ -45,11 +48,14 @@ mysql> quit
 sudo su -s /bin/bash hass
 $ source /srv/hass/hass_venv/bin/activate
 $ pip3 install --upgrade mysqlclient
+$ deactivate
+# Ctrl-d
+sudo systemctl start home-assistant.service
 ```
 
 In your configuration:
 
 ```yaml
 recorder:
-  db_url: mysql://hassdb:<YOURPASSWORD>@localhost/hassdb
+  db_url: mysql://hassuser:<YOURPASSWORD>@localhost/hass_db
 ```
