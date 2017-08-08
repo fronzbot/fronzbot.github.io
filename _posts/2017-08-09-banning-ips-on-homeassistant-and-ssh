@@ -1,0 +1,14 @@
+---
+layout: post
+title: 'Banning IPs from Home Assistant and SSH'
+date: 2017-08-09 09:00
+description: How I ban unathorized logins to Home Assistant and SSH
+author: Kevin Fronczak
+email: kfronczak@gmail.com
+tags:
+  - home automation
+  - scripts
+use_math: false
+project: false
+feature: false
+---
