@@ -1,0 +1,61 @@
+---
+layout: post
+title: 'MySQL with Home Assistant'
+date: 2017-08-10 09:00
+description: Using MySQL with Home Assitant and fixing things
+author: Kevin Fronczak
+email: kfronczak@gmail.com
+tags:
+  - home automation
+use_math: false
+project: false
+feature: false
+---
+https://community.home-assistant.io/t/large-homeassistant-database-files/4201/71
+ALL steps
+```
+# Stop home assistant
+sudo systemctl stop home-assistant.service
+
+# Remove completely
+sudo service mysql stop  #or mysqld
+sudo killall -9 mysql
+sudo killall -9 mysqld
+sudo dpkg --purge mysql # Do this until nothing else remains
+sudo apt-get remove --purge mysql-server mysql-client mysql-common
+sudo apt-get autoremove
+sudo apt-get autoclean
+sudo deluser mysql
+sudo rm -rf /var/lib/mysql
+sudo rm -rf /etc/mysql
+which mysql # Verify that it's gone
+sudo dpkg --configure -a
+sudo apt-get update
+
+# Now Install
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install python-dev python3-dev
+# Create root password at prompt
+ sudo apt-get update && sudo apt-get upgrade
+$ mysql -u root -p
+mysql> CREATE DATABASE hass_db;
+mysql> CREATE USER 'hassuser'@'localhost' IDENTIFIED BY '<YOURPASSWORD>';
+mysql> GRANT ALL PRIVILEGES ON hass_db.* TO 'hassuser'@'localhost';
+mysql> FLUSH PRIVILEGES;
+mysql> quit
+
+# Switch to venv (if using venv)
+sudo su -s /bin/bash hass
+$ source /srv/hass/hass_venv/bin/activate
+$ pip3 install --upgrade mysqlclient
+$ deactivate
+# Ctrl-d
+sudo systemctl start home-assistant.service
+```
+
+In your configuration:
+
+```yaml
+recorder:
+  db_url: mysql://hassuser:<YOURPASSWORD>@localhost/hass_db
+```
