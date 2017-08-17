@@ -20,7 +20,7 @@ I've gotten a lot of feedback regarding my [post last year outlining design usin
 This step only needs to be performed once at the beginning of a project for a new PDK. Basically, you just want to characterize a given device's current density requirement for a given gm/Id. First, we need to think about why we want to graph this (ie. what information will we gain?). If we can normalize the bias current of the device to the device's W/L ratio, we should be able to sweep this parameter $$\frac{I_D}{\Box}$$ which contains information on both the bias current and size of the device. Now, once we sweep this, we can plot two items: gm/Id and some figure of merit to determine the best bandwidth, which we will define as $$A_0\cdot GBW$$. In this method, one of either width or length will be a variable, so you can plot a family of curves for multiple lengths (or widths) and find any trends. The testbench to generate these results is very simple (see below).  Here we are forcing a current through both a PMOS and NMOS device which are diode connected to maintain saturation.  Most models I've ever worked with allows you to extract $$\frac{g_m}{I_d}$$ directly from simulation, so that's easy.  The next value we need is our FoM, which will just be: $$\frac{g_m}{g_{ds}}\cdot \frac{g_m}{2\pi c_{gg}}$$ where $$c_{gg}$$ is the total gate capacitance (typically available to extract in simulations).
 
 {: .center}
-[![{{site.url}}]({{ site.url }}{{ site.image_path }}/gm-id-testbench-1.png)]({{ site.url }}{{ site.image_path }}/gm-id-testbench-1.png)
+[![{{site.url}}]({{ site.url }}{{ site.image_path }}/gm-id-testbench-1.png)]({{ site.url }}{{ site.image_path }}/gm-id-testbench-1.png =60x)
 
 Below is an example output (I fudged numbers to create the plot so as to not disclose any process information from the PDKs I have access to).  Here I have three lines corresponding to three different devices sizes (width or length, irrelevant for this example) and I plot $$\frac{g_m}{I_D}$$ as well as the FoM defined earlier.
 
@@ -29,13 +29,13 @@ Below is an example output (I fudged numbers to create the plot so as to not dis
 
 ### Step 2: Create a Design Table
 
-Now I'm done.  I have characterized my device and never need to run this testbench again (as long as the PDK doesn't drastically change).  You can also run this over temperature and process corners and select a value based on your worst expected corner if you want.  So from this, what I do (actually, it's something my co-worker started to do that I adopted as well) is to create a simple table for a given $$\frac{g_m}{I_d}$$ and its corresponding current density.  I choose three values: one to represent weak-inversion, one for moderate,and another for strong.  For strong, I pick the value where the $$\frac{g_m}{I_d}$$ starts to curve; the above example is at roughly $$\frac{0.1\mu A}{\Box}$$.  The next for moderate will be the middle of the two 'knees' on the curve and for strong I choose roughly where the FoM peak occurs.  All of these points also correspond the what Dr. Sansen outlines as efficient operating points for power (weak inversion), speed (strong inversion) and an trade-off between speed and power (moderate).  All of this information can be found in [my previous post]({{ site.url }}/blog/inversion-coefficient-based-circuit-design/).  Thus, I end up with the following table:
+Now I'm done.  I have characterized my device and never need to run this testbench again (as long as the PDK doesn't drastically change).  You can also run this over temperature and process corners and select a value based on your worst expected corner if you want.  So from this, what I do (actually, it's something my co-worker started to do that I adopted as well) is to create a simple table for a given $$\frac{g_m}{I_d}$$ and its corresponding current density.  I choose three values: one to represent weak-inversion, one for moderate,and another for strong.  For strong, I pick the value where the $$\frac{g_m}{I_d}$$ starts to curve; the above example is at roughly $$\frac{0.1\mu A}{square}$$.  The next for moderate will be the middle of the two 'knees' on the curve and for strong I choose roughly where the FoM peak occurs.  All of these points also correspond the what Dr. Sansen outlines as efficient operating points for power (weak inversion), speed (strong inversion) and an trade-off between speed and power (moderate).  All of this information can be found in [my previous post]({{ site.url }}/blog/inversion-coefficient-based-circuit-design/).  Thus, I end up with the following table:
 
 $$
 \newcommand\t{\Rule{0pt}{1em}{.3em}}
 \begin{array}{| c || c |  c |  c |}
 \hline \frac{g_m}{I_d} & 30 & 15 & 5 \\ \hline
-\frac{\mu A}{\Box} & 0.1 & 10.0 & 50 \\ \hline
+\frac{\mu A}{square} & 0.1 & 10.0 & 50 \\ \hline
 \end{array}
 $$
 
