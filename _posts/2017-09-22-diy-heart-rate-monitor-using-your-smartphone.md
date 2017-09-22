@@ -13,6 +13,7 @@ tags:
 use_math: true
 project: true
 feature: true
+feature_image: /images/features/ppg.png
 ---
 
 Recently I've been quite interested in biomedical sensors, namely PPG sensors.  PPG is an initialism for for Photoplethysmogram and is generally associated with the use of a pulse oximeter.  Essentially, the skin (usually the finger for clinical devices) is illuminated by some source light and the response recorded by some photo-detector.  This same concept is used for heart-rate monitors in smart watches but relies on reflecting light off the skin rather than transmissive absorption.
@@ -90,5 +91,136 @@ for key in colors:
 
 # Plot Time-Series Data
 
+So now we've got a series of data that represents the change in absorption of the color red over every frame.  The first thing we want to do is plot it to ensure that we do, in fact, see a variation over time.  Let's set up the plot style first so that we can make our graphs pretty.  Here, I also set the `fps` variable which we will use to convert the frame to a unit of time.  Adjust this variable based on your camera's settings.
 
-# Examples
+```python
+import matplotlib.pyplot as plt
+plt.style.use('fivethirtyeight')
+fps = 30 # frames-per-second from video
+x = np.arange(len(colors['red'])) / fps
+```
+
+Next, we actually need to plot the graph.  Your output should look similar to the graph below.  Note that this is the result extracted from my Nexus 5X and is representative of my resting heart-rate.  Yours will look different, but the characteristic oscillations so be apparent (and have a period of about 1s... how surprising).
+
+```python
+plt.figure(figsize=(16,9))
+plt.plot(x, colors['red'], color='#fc4f30')
+plt.xlabel('Time [s]')
+plt.ylabel('Normalized Pixel Color')
+plt.title('Time-Series Red Channel Pixel Data')
+fig1 = plt.gcf()
+plt.show()
+plt.draw()
+fig1.savefig('./{}_time_series.png'.format(filename), dpi=200)
+```
+
+{: .center}
+![Resting Heart Rate in Time]({{site.url}}{{site.image_url}}/ppg/ppg-resting_time_series.png)
+
+# Filter the Data
+
+You'll notice that there are a few important features of the above plot.  First, we see those oscilaltions which should respresent our heart-rate; we're going to need a way to calculate our heartrate based on this time-series data.  The next thing you might notice is the fact that there is some extra low-frequency behavior (most noticeable towards the bottom peaks).  We are going to want to remove this low-frequency behavior and only inlcude the high-frequency stuff which suggests the use of a high-pass filter (given an input, only allow the high-frequency portion to pass through to the output).  Now, the time-series plot I have above doesn't have much low-frequency behavior, so you could even get away without filtering (but as I'll show later, different activity levels can produce very different results, so filtering can be required in other cases).
+
+Given that our setup is pretty rudimentary, we don't need anything too fancy for filtering- a simple derivative will work.  I ended up taking it a bit further to implement an actual simple HPF.  For me, it produced slightly cleaner results, but by all means experiment for yourself!
+
+```python
+colors['red_filt'] = list()
+colors['red_filt'] = np.append(colors['red_filt'], colors['red'][0])
+tau = 0.25 # HPF time constant in seconds
+fsample = fps # Sample rate
+alpha = tau / (tau + 2/fsample)
+for index, frame in enumerate(colors['red']):
+    if index > 0:
+        y_prev = colors['red_filt'][index - 1]
+        x_curr = colors['red'][index]
+        x_prev = colors['red'][index - 1]
+        colors['red_filt'] = np.append(colors['red_filt'], alpha * (y_prev + x_curr - x_prev))
+
+# Want to truncate data since beginning of series will be wonky
+x_filt = x[50:-1]
+colors['red_filt'] = colors['red_filt'][50:-1]
+
+```
+
+And now we can plot this derivative to see a more spiky-looking plot.
+
+```python
+plt.figure(figsize=(16,9))
+plt.plot(x_filt, colors['red_filt'], color='#fc4f30')
+plt.xlabel('Time [s]')
+plt.ylabel('Normalized Pixel Color')
+plt.title('Filtered Red Channel Pixel Data')
+fig2 = plt.gcf()
+plt.show()
+plt.draw()
+fig2.savefig('./{}_filtered.png'.format(filename), dpi=200)
+```
+
+{: .center}
+![Resting Heart Rate Filtered]){{site.url}}{{site.image_url}}/ppg/ppg-resting_filtered.png)
+
+
+# Extract Frequency Information
+
+Now, I have read some papers that indicate what I'm about to do degrades the heart-rate reading, but I don't care.  Those aforementioned papers seem to prefer implementing a peak-detection algorithm to count the peaks over a given time frame to extract the heart-rate (in essence, implementing a frequency counter).  I'm opting for an FFT.  Why?  It's super easy and gives a great visualization for the frequency components in the PPG reading.  We can simply find the peak of the FFT and that should correspond to the strongest spectral component: our heart-rate.  That statement will only be true thanks to our filtering in the previous step (otherwise some low frequency components may end up being more dominant, which is not what we want).
+
+Taking the fft is easy: we just use the fft function built into numpy.  The next step is to find the largest spectral component and figure out what frequency it occurs at.  Once we know which frequency it's at, we multiply by 60 seconds per minute to convert Hz to beats-per-minute (bpm).
+
+```python
+red_fft = np.absolute(np.fft.fft(colors['red_filt']))
+N = len(colors['red_filt'])
+freqs = np.arange(0,fsample/2,fsample/N)
+
+# Truncate to fs/2
+red_fft = red_fft[0:len(freqs)]
+
+# Get heartrate from FFT
+max_val = 0
+max_index = 0
+for index, fft_val in enumerate(red_fft):
+    if fft_val > max_val:
+        max_val = fft_val
+        max_index = index
+
+heartrate = round(freqs[max_index] * 60,1)
+print('Estimated Heartate: {} bpm'.format(heartrate))
+```
+`> Estimated Heartrate: 69.1 bpm`
+
+And we've got our heart-rate!  We can also plot the FFT to see what this looks like, spectrally.
+
+```python
+plt.figure(figsize=(16,9))
+plt.semilogx(freqs, red_fft, color='#fc4f30')
+plt.xlabel('Frequency [Hz]')
+plt.ylabel('FFT Energy')
+plt.title('Spectrum of Filtered Red Channel with HR = {} bpm'.format(heartrate))
+fig3 = plt.gcf()
+plt.show()
+plt.draw()
+fig3.savefig('./{}_fft.png'.format(filename), dpi=200)
+```
+
+{: .center}
+![Resting Heart Rate FFT]){{site.url}}{{site.image_url}}/ppg/ppg-resting_fft.png)
+
+## Heartrate After Cardio
+
+After waiting for my wife to leave the room, I started running around like an idiot in an attempt to elevate my heart-rate to ensure that the above code would work with a different looking PPG waveform.  After about 15 minutes, I took another video and recorded the response of my index finger.  After running it through the above code, I got the following plots:
+
+{: .center}
+![Active Heart Rate in Time]){{site.url}}{{site.image_url}}/ppg/ppg-active_time_series.png)
+
+{: .center}
+![Active Heart Rate Filtered]){{site.url}}{{site.image_url}}/ppg/ppg-active_filtered.png)
+
+{: .center}
+![Active Heart Rate FFT]){{site.url}}{{site.image_url}}/ppg/ppg-active_fft.png)
+
+As you can see from the first plot, removing the low-frequency component was pretty important as there was that very strong low frequency change every seven seconds or so.  That frequency component would have made it hard to extract the heart-rate.
+
+## Final Thoughts
+
+The idea of using your camera + flash as a heart-rate monitor isn't novel in any way.  In fact, there's even apps you can download that will do this that have been available for years.  However, this is a really easy way to get familiar with PPG sensing and what the characteristic waveforms look like with real examples.  The fact that the hardware barrier doesn't exist (seriously- who doesn't have a smartphone in 2017?!?) makes it a cool experiment anyone can perform in a couple hours on the weekend which is very cool.
+
+If you liked this post, don't be afraid to share it!
