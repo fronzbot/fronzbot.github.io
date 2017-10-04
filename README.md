@@ -8,7 +8,7 @@ This repo is covered under the [MIT license](LICENSE.md) with the exception of t
 
 `_posts/*`
 
-`assets/images/*`
+`images/*`
 
 `assets/docs/*`
 
