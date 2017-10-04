@@ -45,10 +45,10 @@ The `sed` command is used to replace the url set within `_config.yml` with an em
 
 I opted to use [travis-ci](https://travis-ci.org/) for continuous integration, since I've used it before on other projects.  Here, I run a few tests:
 
-* Check that the site can be built via [cibuild](https://github.com/fronzbot/fronzbot.github.io/script/cibuild)
-* Check HTML to make sure no linking errors via `htmlproofer` call in [cibuild](https://github.com/fronzbot/fronzbot.github.io/script/cibuild)
-* Verify frontmatter in posts have valid tags (for future tag linking) via [check_frontmatter.py](https://github.com/fronzbot/fronzbot.github.io/script/pyscripts/check_frontmatter.py)
-* Verify any posts that are set to be featured on the [project](https://kevinfronczak.com/projects/) page have the required `feature_image` key via [check_frontmatter.py](https://github.com/fronzbot/fronzbot.github.io/script/pyscripts/check_frontmatter.py)
-* Check that all posts are markdown only (no html) and both equations and images are properly centered on the page via [post_linter.py](https://github.com/fronzbot/fronzbot.github.io/script/pyscripts/post_linter.py)
+* Check that the site can be built via [cibuild](https://github.com/fronzbot/fronzbot.github.io/blob/master/script/cibuild)
+* Check HTML to make sure no linking errors via `htmlproofer` call in [cibuild](https://github.com/fronzbot/fronzbot.github.io/blob/master/script/cibuild)
+* Verify frontmatter in posts have valid tags (for future tag linking) via [check_frontmatter.py](https://github.com/fronzbot/fronzbot.github.io/blob/master/script/pyscripts/check_frontmatter.py)
+* Verify any posts that are set to be featured on the [project](https://kevinfronczak.com/projects/) page have the required `feature_image` key via [check_frontmatter.py](https://github.com/fronzbot/fronzbot.github.io/blob/master/script/pyscripts/check_frontmatter.py)
+* Check that all posts are markdown only (no html) and both equations and images are properly centered on the page via [post_linter.py](https://github.com/fronzbot/fronzbot.github.io/blob/master/script/pyscripts/post_linter.py)
 
 The first two tests (in `cibuild`) are what is recommended by [Jekyll](http://jekyllrb.com/).  All of the python tests are custom implementations that helped me quickly iterate through changes I needed to make while working on porting the Wordpress site over to Github Pages.
