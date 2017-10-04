@@ -97,7 +97,7 @@ For global find-and-replace (like links, or broken LaTeX syntax), I used
 $ sed -i 's/FIND/REPLACE/g' *
 ```
 
-Which would iterate over all files and replace the `FIND` string with `REPLACE`.  You can use regular expressions with `sed` so it's really powerful.  For example, a previous LaTeX plugin I used with Wordpress required `[latex] EQUATION [/latex]` to be wrapped around my equation, but [Mathjax](https://www.mathjax.org/) uses `$$ EQUATION $$`.  To replace this in all of my blog posts, I used (not the use of the escape character `\`):
+Which would iterate over all files and replace the `FIND` string with `REPLACE`.  You can use regular expressions with `sed` so it's really powerful.  For example, a previous LaTeX plugin I used with Wordpress required `[latex] EQUATION [/latex]` to be wrapped around my equation, but [Mathjax](https://www.mathjax.org/) uses `$$ EQUATION $$`.  To replace this in all of my blog posts, I used (note the use of the escape character `\`):
 
 ```
 $ sed -i s/\[latex\]/\$\$/g' _posts/*.md
@@ -142,11 +142,11 @@ Once everything was fairly settled, I made a conscious effort to improve my scor
 
 I opted to use [travis-ci](https://travis-ci.org/) for continuous integration, since I've used it before on other projects.  Here, I run a few tests:
 
-* Check that the site can be built via [cibuild](https://github.com/fronzbot/fronzbot.github.io/script/cibuild)
-* Check HTML to make sure no linking errors via `htmlproofer` call in [cibuild](https://github.com/fronzbot/fronzbot.github.io/script/cibuild)
-* Verify frontmatter in posts have valid tags (for future tag linking) via [check_frontmatter.py](https://github.com/fronzbot/fronzbot.github.io/script/pyscripts/check_frontmatter.py)
+* Check that the site can be built via [cibuild](https://github.com/fronzbot/fronzbot.github.io/blob/master/script/cibuild)
+* Check HTML to make sure no linking errors via `htmlproofer` call in [cibuild](https://github.com/fronzbot/fronzbot.github.io/blob/master/script/cibuild)
+* Verify frontmatter in posts have valid tags (for future tag linking) via [check_frontmatter.py](https://github.com/fronzbot/fronzbot.github.io/blob/master/script/pyscripts/check_frontmatter.py)
 * Verify any posts that are set to be featured on the [project](https://kevinfronczak.com/projects/) page have the required `feature_image` key via [check_frontmatter.py](https://github.com/fronzbot/fronzbot.github.io/script/pyscripts/check_frontmatter.py)
-* Check that all posts are markdown only (no html) and both equations and images are properly centered on the page via [post_linter.py](https://github.com/fronzbot/fronzbot.github.io/script/pyscripts/post_linter.py)
+* Check that all posts are markdown only (no html) and both equations and images are properly centered on the page via [post_linter.py](https://github.com/fronzbot/fronzbot.github.io/blob/master/script/pyscripts/post_linter.py)
 
 The first two tests (in `cibuild`) are what is recommended by [Jekyll](http://jekyllrb.com/).  All of the python tests are custom implementations that helped me quickly iterate through changes I needed to make while working on porting the Wordpress site over to Github Pages.
 
