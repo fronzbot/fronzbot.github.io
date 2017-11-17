@@ -19,19 +19,34 @@ Analog circuit designer with experience implementing creative designs for Touch 
 
 **Sr. Mixed Signal IC Design Engineer** <span style="color: gray">at</span> **Synaptics Inc** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> Feb 2014 to Present
 <br>
-- Experience in designing various analog circuits in deep-submicron process
-- Designed low-noise, high-bandwidth current-mode capacitive Analog Front End for low-cost fingerprint sensors
-- Implemented a novel current-mode mixer topology to improve SNR
-- Architected and designed a experimental low-area, ultra-low power reference architecture to reduce standby current by an order of magnitude without reducing performance
-- Designed small area and high-performance baseline correction circuit for Touch and TDDI chips
-- Circuit design and system-level experience in touch sensing front-ends, display drivers, and fingerprint sensing front-ends
-- Designed a sub 1-V bandgap reference with an innovative base-cancellation circuit that generates multiple configurable references for next-generation TDDI products.  Currently in mass production on multiple ASICs
-- Responsible for the design of critical low-noise, high-performance touch sensing circuits for analog front-end including demodulator, filter, and various amplifiers for TDDI products currently in mass production
-- Experience working with multi-functional teams in order to ensure smooth IC bring-up through to production
-- Responsible for driving completion of high-speed MIPI D-PHY SERDES architecture from transistor-level design through physical implementation, up to top-level verification and production testing.  
-- Experience with cadence design flow, as well as circuit modeling in VerilogA and MATLAB
-- Helped implement a top-level mixed-signal (AMS) design flow for next-generation fingerprint sensors in order to verify top-level functionality
-- Able to break down complex problems in a way that encourages creative design solutions and proper schedule maintenance
+
+### Fingerprint Sensing
+- Designed a small area, noise-optimized current-mode front-end which helped reduce die cost by nearly 50%
+- Designed an innovative multi-level mixing topology to improve SNR
+- Drove circuit and system implementation of a small area current-mode front-end in order to prove ability of the new technology to sense a fingerprint (stepping-stone for fingerprint sensor cost reduction)
+- Led efforts to evaluate, track, and debug new silicon for any potential issues that could require a metal or all-layer revision, allowing for efficient evaluation of benefits/risks of a potential spin
+- Designed a capacitive background cancellation circuit with sub-femtofarad resolution
+
+### Touch Sensing
+- Designed a small-area current-mode baseline correction circuit for TDDI (Touch and Display Driver IC) in order to reduce die cost and maintain competitive edge in TDDI market
+- Designed switched capacitor demodulator and sample-and-hold circuitry for TDDI analog front-ends
+
+### Low Power and Reference Circuits
+- Architected and led the implementation of an experimental small area, nano-Amp reference architecture (current mirrors, oscillators, etc) with the goal of reducing standby power without sacrificing performance
+- Designed a sub 1-V bandgap reference with innovative base-cancellation circuit for TDDI chips
+- Aided in development of a top-level mixed-signal verification flow for capacitive fingerprint sensors, allowing teams to efficiently catch system-level bugs before tapeout
+
+### Display Drivers
+- Experience with MIPI DSI from transistor-level design through top-level verification and production test
+- Experience designing high-voltage gate-line drivers
+
+### General
+- Experience working closely and effectively with multidisciplinary teams to ensure smooth silicon design and bring-up all the way through to production
+- Have designed circuits in 130nm and 55nm technologies
+- Very familiar and comfortable with Cadence design flow for IC design
+- Experience using MATLAB for both system design and for testing of ASICs
+- Focus on fundamental understanding of circuits for architectural comparisons is a strength (i.e. pencil-and-paper analysis)
+- Attended a week-long Continuous-Time Delta Sigma Converter course held by MEAD (taught by Drs. Pavan, Schreier, and Hanumolu).
 
 **Silicon Validation Contractor** <span style="color: gray">at</span> **Synaptics Inc** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> Jun 2013 to Feb 2014
 <br>
@@ -57,12 +72,9 @@ Thesis: ***Stability Analysis of Switched DC-DC Boost Converters for Integrated 
 
 -----
 
-# **SKILLS**
+# **PATENTS/PUBLICATIONS**
 
 -----
-- Experience defining tests and analyzing data to determine **root cause** of silicon failures
-- Experience performing **research** to determine new and more efficient circuit architectures
-- Experience with **subthreshold** circuit design for **low-power** applications
-- Implemented designs in **55nm** and **130nm** process nodes
-- Attended a **Continuous-Time Delta Sigma Converter** course held by MEAD at UC Santa Cruz in March 2015.  Course taught by Dr. Shanthi Pavan, Dr. Richard Schreier, and Dr. Pavan Hanumolu.
-- Member of **IEEE** since 2010, Member of **Solid State Circuits Society** since 2013
+- US 9,780,736 - Temperature compensated offset cancellation for high-speed amplifiers - Issued Oct. 3, 2017
+- US 9,817,428 - Current-mode Bandgap Reference with Proportional to Absolute Temperature Current and Zero Temperature Current -Generation - Issued Nov. 14, 2017
+- US 15/685,937 - Mixer Circuit - Pending Aug. 24, 2017
