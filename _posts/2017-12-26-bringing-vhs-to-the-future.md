@@ -8,7 +8,6 @@ email: kfronczak@gmail.com
 tags:
   - fun
   - server
-
 use_math: false
 project: false    # Is this a project post?
 feature: false    # If a project, should this be featured at the top of the project page?
