@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 python3 ./script/pyscripts/check_frontmatter.py feature-key tags --skip=README.md,post-template.md
 python3 ./script/pyscripts/post_linter.py --center-images --center-eqs --skip-html
+pytohn3 ./script/pyscripts/tag_gen.py --check

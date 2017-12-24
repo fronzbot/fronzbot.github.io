@@ -20,7 +20,7 @@ layout: default
         Tags:&nbsp;
         {% for tag in page.tags %}
             {% capture tag_name %}{{tag}}{% endcapture %}
-            <a href="/tag/{{tag_name}}"><code class="highlighter-rouge"><nobr>{{tag_name}}</nobr></code></a>
+            <a href="{{site.url}}/tag/{{tag_name}}"><code class="highlighter-rouge"><nobr>{{tag_name}}</nobr></code></a>
         {% endfor %}
       </div>
     </div>
