@@ -19,7 +19,8 @@ layout: default
         <br>
         Tags:&nbsp;
         {% for tag in page.tags %}
-           {{tag}}&nbsp;
+            {% capture tag_name %}{{tag}}{% endcapture %}
+            <a href="{{site.url}}/tag/{{tag_name}}"><code class="highlighter-rouge"><nobr>{{tag_name}}</nobr></code></a>
         {% endfor %}
       </div>
     </div>
