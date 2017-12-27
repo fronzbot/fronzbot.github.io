@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Bringing VHS to the Future!'
-date: 2017-12-26 09:00
+date: 2017-12-27777777 09:00
 description: Converting old VHS tapes to a digital format so people can actually enjoy them
 author: Kevin Fronczak
 email: kfronczak@gmail.com
@@ -32,7 +32,7 @@ Given that it's the year 2017, finding a working VCR was... difficult.  I finall
 
 ### Capturing the video
 
-Once I had the equipment, I needed to actually capture the video.  To do this, I fired up my Windows 10 virutal machine (again, running on [UnRaid](https://lime-technology.com)) and I used an awesome (and free) piece of software called [VirtualDub](http://virtualdub.org). After selecting `Capture AVI` in the menu and ensuring the correct capture device was selected, I began to capture the video.
+Once I had the equipment, I needed to actually capture the video.  To do this, I fired up my Windows 10 virtual machine (again, running on [UnRaid](https://lime-technology.com)) and I used an awesome (and free) piece of software called [VirtualDub](http://virtualdub.org). After selecting `Capture AVI` in the menu and ensuring the correct capture device was selected, I began to capture the video.
 
 But wait.
 
@@ -70,7 +70,7 @@ At first, I started manually separating clips which was, in a word, _painful_. A
 
 After installing the windows command-line version using their installation tool (v0.4, specifically), I had to decide how I wanted to split my videos.  `PySceneDetect` offers two modes:
 
-- Content-aware (Intellegent scene detection, but slow)
+- Content-aware (Intelligent scene detection, but slow)
 - Thresholding (Basically looks for 'black' screens in between cuts)
 
 I opted for thresholding since it was faster and less aggressive than content mode.  To use this, I opened a command prompt (`Windows Key + R`, type `cmd.exe`, hit `Enter`) and then used the `cd` command to navigate to where I stored my videos.  From here, assuming I had a video file called `home-movie.avi`, I ran the following command:
@@ -89,7 +89,7 @@ It took maybe around 10 minutes per video and, when it was complete, I verified 
 
 ### Using AVIDemux to Split Scenes
 
-For my early (i.e. _old_) VHS tapes, there almost always was a black frame between adjacent scenes. So my settings for `PySceneDetect` worked super well. In fact, they worked _so_ well that I decided to just run a batch script on Windows to split all my videos and move the original file to my UnRAID array for safe keeping.  Unfortunately, I ran this script before fixing the audio desync issues, so I'd have to go in and manually deskew each scene, rather than a whole video.  This doesn't take a _whole_ lot of work, so I wasn't too worried about it.
+For my early (i.e. _old_) VHS tapes, there almost always was a black frame between adjacent scenes. So my settings for `PySceneDetect` worked super well. In fact, they worked _so_ well that I decided to just run a batch script on Windows to split all my videos and move the original file to my UnRAID array for safe keeping.  Unfortunately, I ran this script before fixing the audio de-sync issues, so I'd have to go in and manually de-skew each scene, rather than a whole video.  This doesn't take a _whole_ lot of work, so I wasn't too worried about it.
 
 However...
 
