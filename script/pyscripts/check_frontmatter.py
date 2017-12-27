@@ -25,7 +25,7 @@ from helpers import print_errors as ERRPRINT
 
 VALID_TAGS = ['analog', 'theory', 'systems', 'circuits', 'projects', 'university project', 'fun',
               'python', 'scripts', 'MATLAB', 'device physics', 'admin', 'home automation', 'noise',
-              'signals', 'digital', 'website'
+              'signals', 'digital', 'website', 'server'
              ]
 
 PRINT_FILE_STRING = None
@@ -55,7 +55,10 @@ def main(test_args, skip_list):
 def run_test(filename, test_name):
     '''Runs given test by first extracting frontmatter from file.'''
     errCount = 0
-    frontmatter = get_frontmatter(filename)
+    frontmatter, errCount, errList = get_frontmatter(filename, errCount)
+    if errCount > 0:
+        return errCount, errList
+
     if test_name == 'feature-key':
         (test_err, error_list) = check_feature_key(frontmatter)
         errCount += test_err
@@ -68,30 +71,35 @@ def run_test(filename, test_name):
 
     return (errCount, error_list)
 
-def get_frontmatter(filename):
+def get_frontmatter(filename, errCount):
     '''Extracts frontmatter from post for further processing.'''
     post_vars = dict()
     start_read = False
-    with open(filename, 'r') as file:
-        for line in file:
-            if line.strip() == '---' and start_read:
-                start_read = False
-                break
+    errList = list()
+    try:
+        with open(filename, 'r') as file:
+            for line in file:
+                if line.strip() == '---' and start_read:
+                    start_read = False
+                    break
 
-            if start_read:
-                line_split = line.split(':')
-                if line_split[0] == 'tags':
-                    post_vars[line_split[0]] = list()
-                elif len(line_split) < 2 and 'tags' in post_vars.keys():
-                    tag_name = line_split[0].split('-')
-                    post_vars['tags'].append(tag_name[1].strip())
-                else:
-                    post_vars[line_split[0]] = line_split[1].strip()
+                if start_read:
+                    line_split = line.split(':')
+                    if line_split[0] == 'tags':
+                        post_vars[line_split[0]] = list()
+                    elif len(line_split) < 2 and 'tags' in post_vars.keys():
+                        tag_name = line_split[0].split('-')
+                        post_vars['tags'].append(tag_name[1].strip())
+                    else:
+                        post_vars[line_split[0]] = line_split[1].strip()
 
-            if line.strip() == '---' and not start_read:
-                start_read = True
+                if line.strip() == '---' and not start_read:
+                    start_read = True
+    except Exception as e:
+        errCount += 1
+        errList.append(COLOR.colorize("ERROR: {}".format(e), 'error'))
 
-    return post_vars
+    return post_vars, errCount, errList
 
 
 def check_tags(frontmatter):
@@ -108,6 +116,9 @@ def check_tags(frontmatter):
     except KeyError:
         errCount += 1
         error_list.append(COLOR.colorize('ERROR: "tag" key not found in frontmatter', 'error'))
+    except Exception as e:
+        errCount += 1
+        error_list.append(COLOR.colorize('ERROR: {}'.format(e), 'error'))
 
     ERRPRINT(errCount, test_name='tags')
 
@@ -135,7 +146,11 @@ def check_feature_key(frontmatter):
             error_list.append(COLOR.colorize('ERROR: "feature_image" key not found and "feature" is set to {}'.format(is_featured), 'error'))
             errCount += 1
         except IndexError:
+            errCount += 1
             error_list.append(COLOR.colorize('ERROR: Marked as a project but the "feature" key is not set', 'error'))
+        except Exception as e:
+            errCount += 1
+            error_list.append(COLOR.colorize('ERROR: {}'.format(e), 'error'))
     else:
         errCount += 1
         error_list.append(COLOR.colorize('ERROR: Missing "project" key', 'error'))
