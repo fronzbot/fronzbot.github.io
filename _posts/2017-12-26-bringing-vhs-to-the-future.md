@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Bringing VHS to the Future!'
-date: 2017-12-27777777 09:00
+date: 2017-12-26 22:00
 description: Converting old VHS tapes to a digital format so people can actually enjoy them
 author: Kevin Fronczak
 email: kfronczak@gmail.com
