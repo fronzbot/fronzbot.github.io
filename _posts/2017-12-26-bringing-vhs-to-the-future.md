@@ -13,15 +13,17 @@ project: false    # Is this a project post?
 feature: false    # If a project, should this be featured at the top of the project page?
 ---
 
-# Background
-
 A few months back I converted my desktop into a home media server using [UnRAID](https://lime-technology.com).  The details for that deserve its own post, but suffice to say that one reason for going this route is to take back control of my data.  Instead of relying on [Google Photos](https://photos.google.com) to serve as a backup location for my family's photos and movies, they would be stored locally on my server and accessible via [Plex](https://plex.tv).  On top of that, I utilize [Nextcloud](https://nextcloud.com) to automatically back up photos and movies from my phone and my wife's phone (which is smart about separating movies and photos and also adds a year/month file structure).
 
 Great!  But what happens if my server dies or, even worse, something happens to our house?  For this I rely on [Duplicati](https://duplicati.com) which creates encrypted backups that are stored on an [Amazon Cloud](https://amazon.com/clouddrive) instance.  I create nightly backups and retain the last month's worth in case I screw something up (ie. deleting a bunch of folders by accident which totally didn't happen...twice).
 
 So I have a way to store all my digital media locally, as well as create backups so I can retain the data in case of a disaster. What about media that is _not_ digital? What about all of those home videos from years past stored on... magnetic tape?
 
-# Transferring VHS to a Computer
+**Table of Contents**
+* TOC
+{:toc}
+
+## Transferring VHS to a Computer
 
 Yes, I'm talking about VHS.  My parents took **loads** of video on the ol' shoulder-mount and for two decades they have collected dust on a shelf in their basement. So I took it upon myself to take those VHS tapes and get them onto my server to save those memories... _forever_. 
 
@@ -100,7 +102,7 @@ Luckily, AVIDemux makes this pretty easy.  The only thing I really had to do (ou
 {: .center}
 ![AVIDemux]({{site.url}}{{site.image_path}}/vhs/avidemux.png)
 
-# Transferring Files
+## Transferring Files
 
 After spending a decent amount of time splitting video/fixing audio sync/renaming files, it was time to create some Christmas presents for my family.  As I was moving these tapes over to my server, it occurred to me that putting them on a USB stick to give to my parents and siblings as a Christmas present would be a pretty cool thing to do.  I ended up buying three 32GB USB sticks for this.  No way I had more than 32GB of _VHS_ tapes, right?
 
@@ -198,6 +200,6 @@ Bonus points if you can tell when I turned on my VMs... shouldn't be hard to fig
 
 The very final step was to copy the contents of the first USB stick to subsequent USB sticks.  I just used the `rsync` command in my script with the source as my first USB stick and the destination as my next USB stick.  That was much faster to transfer than transfer+compression, obviously.
 
-# Finally Finished
+## Finally Finished
 
 It was a relief to finally be finished, given I finished only two days before Christmas.  Now I get to do it all over again for my wife's remaining tapes, but at least I have the kinks out (and I'm not on a deadline)!

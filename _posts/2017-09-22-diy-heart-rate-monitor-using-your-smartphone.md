@@ -20,6 +20,10 @@ Recently I've been quite interested in biomedical sensors, namely Photoplethysmo
 
 This post will go over how to record your own heart-rate by using your phone's camera and flash to illuminate your finger and measure the change in light absorption.  Although the set up is similar to a reflective PPG, the actual response we record will more closely resemble a transmissive PPG.
 
+**Table of Contents**
+* TOC
+{:toc}
+
 ## Background
 
 In order to understand why this experiment works, we should look into a bit of the background of PPGs first.  As previously mentioned, PPG sensors rely on reflecting light off of the skin and observing the response on a photo-detector, or by observing the skin's absorption of light.  Now, why can this measure heart-rate?  Well, as the heart pumps blood through to the extremities (wrist, finger, etc) the volume of blood being moved ends up changing.  This change in blood volume ends up changing the way the skin absorbs and reflects light.  By measuring this change in light absorption, we can extract a measure of how quickly the volume of blood is changing and, thus, extract our heart-rate.
@@ -57,7 +61,7 @@ Before we can extract the heart-rate, we must record it.  This is the easy part.
 
 Now for the fun part: post-processing.  I'll post each step of the code with some explanation, and at the end of the post I'll give the full code.
 
-# Read in Video
+### Read in Video
 
 Step 1 is also pretty easy, we just need to read in the video.  This will use the aforementioned `ffmpeg` library to read through the video and store the red, green, and blue pixel data for every pixel in every frame.  Depending on the length of the video, this step can take a while to complete.  In my case, I had a 30s video recorded at 1920x1080 at 30 FPS which results in an uncompressed 5.6 GB of data (orders of magnitude smaller with mpeg compression, but you get my point: be patient).
 
@@ -68,7 +72,7 @@ import imageio
 video = imageio.get_reader('your_video.mp4', 'ffmpeg')
 ```
 
-# Extract Red/Green/Blue Channels
+### Extract Red/Green/Blue Channels
 
 This next part does a few very important things.  First, we iterate over the video frame by frame and, at each frame, we average every single pixel in the frame.  Why?  Well, ultimately, we don't care about the intensity of individual pixels.  What we care about is the total light change over the whole finger, so we get much better data when we average each pixel as we remove the variation of small localized areas and have a much larger area to work with.  Basically, we're using our expensive CMOS image sensor as a single photodiode.  Talk about overkill...
 
@@ -91,7 +95,7 @@ for key in colors:
     colors[key] = np.divide(colors[key], 255)
 ```
 
-# Plot Time-Series Data
+### Plot Time-Series Data
 
 So now we've got a series of data that represents the change in absorption of the color red over every frame.  The first thing we want to do is plot it to ensure that we do, in fact, see a variation over time.  Let's set up the plot style first so that we can make our graphs pretty.  Here, I also set the `fps` variable which we will use to convert the frame to a unit of time.  Adjust this variable based on your camera's settings.
 
@@ -119,7 +123,7 @@ fig1.savefig('./{}_time_series.png'.format(filename), dpi=200)
 {: .center}
 ![Resting Heart Rate in Time]({{site.url}}{{site.image_path}}/ppg/ppg_resting_time_series.png)
 
-# Filter the Data
+### Filter the Data
 
 You'll notice that there are a few important features of the above plot.  First, we see those oscillations which should represent our heart-rate; we're going to need a way to calculate our heart-rate based on this time-series data.  The next thing you might notice is the fact that there is some extra low-frequency behavior (most noticeable towards the bottom peaks).  This actually represents respiratory rate (among some other things) but we are going to want to remove this low-frequency behavior and only include the high-frequency stuff.  This suggests the use of a high-pass filter (given an input, only allow the high-frequency portion to pass through to the output).  Now, the time-series plot I have above doesn't have much low-frequency behavior, so you could even get away without filtering (but as I'll show later, different activity levels can produce very different results, so filtering can be required in other cases).
 
@@ -163,7 +167,7 @@ fig2.savefig('./{}_filtered.png'.format(filename), dpi=200)
 ![Resting Heart Rate Filtered]({{site.url}}{{site.image_path}}/ppg/ppg_resting_filtered.png)
 
 
-# Extract Frequency Information
+### Extract Frequency Information
 
 Now, I have read some papers that indicate what I'm about to do degrades the heart-rate reading, but I don't care.  Those aforementioned papers seem to prefer implementing a peak-detection algorithm to count the peaks over a given time frame to extract the heart-rate (in essence, implementing a frequency counter).  I'm opting for an FFT.  Why?  It's super easy and gives a great visualization for the frequency components in the PPG reading.  We can simply find the peak of the FFT and that should correspond to the strongest spectral component: our heart-rate.  That statement will only be true thanks to our filtering in the previous step (otherwise some low frequency components may end up being more dominant, which is not what we want).
 

@@ -14,10 +14,10 @@ feature: false
 
 Recently I decided to mess around with my [Home Assistant ](https://home-assistant.io) setup and accidentally borked my MySQL installation on my Raspberry Pi 3.  Getting it up and running again was a bit of a pain, so I decided to write a post on the exact steps I took in the hopes that someone will find it useful.
 
-# Why MySQL?
+## Why MySQL?
 By default, the database created by Home Assistant is an SQLite database.  For most people this is probably ok, but [my Home Assistant configuration](https://github.com/fronzbot/githass) began to grow and I found that the SQLite database just wasn't cutting it (too slow, for starters).  So I opted for MySQL.
 
-# Deleting an old MySQL installation
+## Deleting an old MySQL installation
 
 If you're starting fresh on a new Pi, you can skip these steps.  However, if you're like me and messed up your MySQL installation, here's how you can fix it (note, this *will* delete any old databases, so use this method with caution).
 
@@ -54,7 +54,7 @@ $ sudo dpkg --configure -a
 
 Which will regenerate the dpkg info.
 
-# Installing MySQL on Raspberry Pi
+## Installing MySQL on Raspberry Pi
 
 These instructions were originally found [here](https://community.home-assistant.io/t/large-homeassistant-database-files/4201/71).  I'm reproducing them for the sake of completeness.
 
@@ -71,7 +71,7 @@ $ sudo apt-get install libmysqlclient-dev
 $ sudo apt-get install python-dev python3-dev
 ```
 
-# Create MySQL Database for Home Assistant
+## Create MySQL Database for Home Assistant
 
 Now we can create our MySQL database for Home Assistant.  Open mysql via the `mysql -u root -p` command.  Then run the following commands within mysql:
 
@@ -94,7 +94,7 @@ $ deactivate
 
 Hit Ctrl+d to return to your default user.
 
-# Change Home Assistant Recorder to use MySQL
+## Change Home Assistant Recorder to use MySQL
 
 The last step is to add the `recorder` component into our `configuration.yaml` file so that Home Assistant knows it should be using the MySQL database instead of SQLite:
 

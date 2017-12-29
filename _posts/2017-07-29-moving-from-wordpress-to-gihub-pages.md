@@ -21,7 +21,7 @@ Before moving to [Jekyll](http://jekyllrb.com/) I had been using a [Wordpress](h
 
 This was a rather tedious process, but made much easier with the `jekyll-import` tool.  I mostly followed the [tutorial here](http://www.adamwadeharris.com/how-to-convert-a-wordpress-site-to-jekyll-with-github-pages/) but I'll go over my exact steps anyways (slightly different than the linked article):
 
-# Create Github Page
+### Create Github Page
 
 The first thing I did was create a repo on github called [fronzbot.github.io](https://github.com/fronzbot/fronzbot.github.io) which holds the source code for this website.  Next, I ran the following command to clone the repo into my workarea `git clone git@github.com:YOUR-USERNAME/YOUR-REPO-NAME.git`.  As a note, I have a virtual machine running debian that I do all my development on (including for [Home Assistant](https://github.com/home-assistant/home-assistant)) so my directions also assume you're working on Linux.  From here I had to create an index file and push to my repo so Github knew to create a webpage:
 
@@ -33,7 +33,7 @@ git commit -m "Initial commit"
 git push origin master
 ```
 
-# Install Jekyll
+### Install Jekyll
 
 Now that my Repo was set up I needed to install jekyll to begin development.  This involved running the following commands within my repo directory:
 
@@ -45,7 +45,7 @@ echo "source 'https://rubygems.org'" >> Gemfile
 echo "gem install github-pages, group :jekyll_plugins" >> Gemfile
 ```
 
-# Create files
+### Create files
 
 Now that jekyll was installed, I could create my configuration file: `touch _config.yml`.  In your editor of choice, you can open that file and put the following entries in to get started:
 
@@ -81,7 +81,7 @@ wordpress.xml
 
 I ended up using the contents of `_posts` and `assets`.  `_pages` may also be useful to you depending on what your old site looked like.
 
-# Fix Everything
+### Fix Everything
 
 Iterating through posts to fix image links (I wanted to redirect to a different location) and removing html (personal preference) was a bit of a pain.  Also, I wanted to thin out the frontmatter which also involved some legwork.  The following commands were INCREDIBLY helpful for this.
 

@@ -18,7 +18,7 @@ I like knowing what's happening on my home network, especially with how many thi
 
 Luckily, both of these tasks can be solved by using [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page)
 
-# Setting Up fail2ban for SSH
+## Setting Up fail2ban for SSH
 First we will want to install the service:
 ```bash
 $ sudo apt-get install fail2ban
@@ -44,7 +44,7 @@ maxretry = 5
 
 At this point, once we start the fail2ban service, we should be set and fail2ban will auto-ban IPs for us on failed SSH login attempts.  But I also want to be able to ban IPs trying to log into my Home Assistant front-end...
 
-# Setting up fail2ban with Home Assistant
+## Setting up fail2ban with Home Assistant
 I mostly took these instructions from [this page](https://home-assistant.io/cookbook/fail2ban/) with a couple small modifications.
 
 First, we need a filter to parse the home-assistant log and check for authorized login attempts.  This is done by creating the `/etc/fail2ban/filter.d/hass.local` file with the following contents:
@@ -82,13 +82,13 @@ $ sudo systemctl enable fail2ban
 $ sudo systemctl start fail2ban
 ```
 
-# Integrate into Home Assistant
+## Integrate into Home Assistant
 Right now, fail2ban operates in the background and logs any failed attempts to `/var/log/syslog`.  We can see failed Home Assistant attempts by looking that the log, but ssh attempts are transparent.  We can change this though.
 
 What I want is a sensor that I can display on my frontend showing any failed SSH or Hass attempts and also receive a notification with a timestamp when this happens.  I do this via a combination of the [command line sensor](https://home-assistant.io/components/sensor.command_line/), [file sensor](https://home-assistant.io/components/sensor.file/), and [notify](https://home-assistant.io/components/notify/) service.  Really, you could eliminate the file sensor altogether and do all of this within the command line sensor, but I found it to be more managable running a command, generating a json file, and using the file sensor to display the results.
 
 
-## Command-Line Sensor
+### Command-Line Sensor
 The first thing I want to do is parse the syslog file and only operate on the parts I care about.  I can do all of this in a python script (which we'll need to generate the json file used in the `sensor.file` component) but I opted for a bash script.
 
 To start, create a file under `.homeassistant/bin` called `gen_ban_list.sh`.
@@ -96,7 +96,7 @@ To start, create a file under `.homeassistant/bin` called `gen_ban_list.sh`.
 First, we need to find all the `fail2ban` entries in syslog and only dump the Ban/Unban events to a file:
 
 
-### Parse syslog
+#### Parse syslog
 
 ```bash
 more /var/log/syslog | grep fail2ban | grep WARNING > /home/hass/.homeassistant/ip_ban_list.log
@@ -111,7 +111,7 @@ Aug  8 12:34:26 raspberrypi fail2ban.action[6341]: WARNING [hass-iptables] Ban 1
 Those entries have a lot of useless information, so we need to strip this out.  I use `sed` with some regular expressions.
 
 
-### Prepare File for Processing
+#### Prepare File for Processing
 
 First, let's get rid of the string starting from `raspberrypi` all the way through `WARNING`:
 ```bash
@@ -142,7 +142,7 @@ sed -i 's/raspberrypi fail2ban\.actions\[[^]]*\]: WARNING//g;s/\[//g;s/\]//g;s/ 
 ```
 
 
-### Convert File to json
+#### Convert File to json
 
 Now we can use a small python script to take that log file and turn it into a json file that can be used with the file sensor in Home Assistant.  Create a file called `read_ban_list.py` in your `.homeassistant/bin` directory.  In it, paste the following code:
 
@@ -202,7 +202,7 @@ Finally, we need to remove the `ip_ban_list.log` file:
 rm /home/hass/.homeassistant/ip_ban_list.log
 ```
 
-### Putting it All Together
+#### Putting it All Together
 
 Your final `gen_ban_list.sh` script should look like the following:
 
@@ -276,6 +276,6 @@ action:
       {%raw%}{% endif %}{%endraw%}
 ```
 
-# Final Thoughts
+## Final Thoughts
 
 Perhaps there's a cleaner way to implement this (such as using the command line sensor only) but this is working reliably for me and is relatively easy to maintain.  My actual implementation differs somewhat from what I've listed, but you can check it out on my [GitHub Page](https://github.com/fronzbot/githass) where I have my whole Home Assistant configuration.
