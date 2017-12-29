@@ -326,6 +326,7 @@ As I mentioned, the default report sends back only wattage, but I want to access
 
 Now that I have the data, I needed to appropriately determine if the washer was running or not.  This was pretty easy to determine once I collected some data.  Below is a plot of the reported wattage consumed by my washing machine during a normal cycle (plotted with [Grafana](https://grafana.com)).  Despite those deep valleys, the power never quite reaches 0W, so I set my minimum threshold to 0.1W and placed an upper bound at 8191W (since I ran into an issue, at least once, where there was some sort of overflow causing my sensor to report back that my washer was consuming hundreds of mega-watts of power... it wasn't).
 
+{: .center}
 ![Washing Machine Power]({{site.url}}{{site.image_path}}/hass/washing-machine.png)
 
 And here is the associated template sensor:
