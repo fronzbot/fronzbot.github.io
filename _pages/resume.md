@@ -65,7 +65,7 @@ Analog circuit designer with experience implementing creative designs for Touch 
 
 **Rochester Institute of Technology** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> Sep 2008 to Aug 2013
 <br>
-**Master of Science** and Bachelor of Science <span style="color: gray">with a graduate</span> GPA <span style="color: gray">of</span> 4.0
+**Master of Science** and Bachelor of Science in **Electrical Engineering** <span style="color: gray">with a graduate</span> GPA <span style="color: gray">of</span> 4.0
 
 Thesis: ***Stability Analysis of Switched DC-DC Boost Converters for Integrated Circuits***
 - Investigated small-signal modeling and stability requirements for boost converters, as well as a variety of OTA-based controller topologies, in order to aid in the design and measurement of boost converter stability on an ASIC.  Also investigated use of genetic algorithms as a way to optimize controller design.
