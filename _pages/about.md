@@ -8,6 +8,10 @@ navbar: true
 
 Outside of work, I have many interests and hobbies.  Here are a few highlights:
 
+# Woodworking
+
+I enjoy woodworking, especially building custom furniture.  Check out my work at [make.kevinfronczak.com](http://make.kevinfronczak.com).
+
 # Home Automation
 
 This has been a big one lately.  I started off with a few Zigbee lightbulbs which quickly balooned into a rather large system, all built upon the back of the awesome open-source [Home Assistant](http://home-assistant.io).  I even wrote a few modules that are included in the software (the Blink camera system, as well as the Google Wifi sensor).  I've got a ridiculous amount of stuff running on home-assistant, including some pretty awesome automations.  I put all my configuration info up on [Github](http://github.com/fronzbot/githass) for anyone interested in checking it out.
@@ -26,6 +30,3 @@ I have been playing guitar since I was 9 years old and, although I'm not nearly 
 
 I have been a Buffalo Sabres fan since birth (probably because that's where I was born...).  I played hockey when I was younger (actually played with Dominik Hasek's son when I was *really* young... didn't know who the hell that was at the time).  I can still feel the pain of the ubiquitous [No-Goal](https://www.youtube.com/watch?v=mRoN0-dFetk) in 1999.  I am an avid reader of [/r/hockey](http://reddit.com/r/hockey) as well as [/r/sabres](http://reddit.com/r/sabres) and set time aside to watch every Sabres game.  I'm also just a raw hockey fan, so I like to keep tabs on other teams like the Minnesota Wild and Winnipeg Jets.  I also keep tabs on what the Maple Leafs and Bruins are doing because I hate both of those franchises.  Keep your friends close and your enemies closer, or so they say.
 
-# Woodworking
-
-I am a very novice woodworker, but I enjoy it quite a bit (when I can find the time).  I have a small workshop setup in my basement.  I've built a few things I'm proud of, namely a bookshelf for my daughter and a nightstand for my wife.  No crazy joinery yet, but I'm getting there.
