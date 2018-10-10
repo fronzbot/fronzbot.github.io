@@ -21,8 +21,9 @@ layout: default
       {{ post.excerpt | strip_html | truncate:200 }} <a href="{{ site.url }}{{post.url}}">Read more</a>
     </div>
     {% assign words = post.title | downcase | split: " " %}
-    {% assign excerpt = {{ post.content | strip_html | truncate:100 }} %}
-    {% assign my_link = /blog/{{ post.title | join:'-' | escape }} %}
+    {% assign excerpt = post.content | strip_html | truncate:100 %}
+    {% assign joined_title = post.title | join:'-' | escape %}
+    {% assign my_link = "/blog/" | append: joined_title %}
     {%
       include structured_data/posts.html
       headline=post.title
