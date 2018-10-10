@@ -7,7 +7,7 @@ EXT = '.md'
 
 VALID_TAGS = ['analog', 'theory', 'systems', 'circuits', 'projects', 'university project', 'fun',
               'python', 'scripts', 'MATLAB', 'device physics', 'admin', 'home automation', 'noise',
-              'signals', 'digital', 'website', 'server'
+              'signals', 'digital', 'website', 'server', 'unraid', 'linux'
              ]
 
 class ColorLog(object):

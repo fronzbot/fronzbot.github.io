@@ -11,7 +11,7 @@ import glob
 from helpers import VALID_TAGS, COLOR
 from helpers import print_errors as ERRPRINT
 
-BASEDIR = '/home/kevin/fronzbot.github.io'
+BASEDIR = '/home/kevin/Projects/fronzbot.github.io'
 POSTDIR = '_posts/'
 TAGDIR = 'tag/'
 

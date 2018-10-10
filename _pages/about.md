@@ -10,7 +10,7 @@ Outside of work, I have many interests and hobbies.  Here are a few highlights:
 
 # Woodworking
 
-I enjoy woodworking, especially building custom furniture.  Check out my work at [make.kevinfronczak.com](http://make.kevinfronczak.com).
+I enjoy woodworking, especially building custom furniture.  Check out my work at [my other site](https://kevinfronczakdesigns.com).
 
 # Home Automation
 
