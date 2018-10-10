@@ -16,7 +16,7 @@ image_path: /images
 doc_path: /assets/docs
 code_path: /assets/code
 
-gems:
+plugins:
   - jekyll-paginate
   - kramdown
   - jekyll-assets
