@@ -19,7 +19,7 @@ Before moving to [Jekyll](http://jekyllrb.com/) I had been using a [Wordpress](h
 
 ## Moving From Wordpress
 
-This was a rather tedious process, but made much easier with the `jekyll-import` tool.  I mostly followed the [tutorial here](http://www.adamwadeharris.com/how-to-convert-a-wordpress-site-to-jekyll-with-github-pages/) but I'll go over my exact steps anyways (slightly different than the linked article):
+This was a rather tedious process, but made much easier with the `jekyll-import` tool.  I mostly followed the [tutorial here](https://adam.garrett-harris.com/how-to-convert-a-wordpress-site-to-jekyll-with-github-pages) but I'll go over my exact steps anyways (slightly different than the linked article):
 
 ### Create Github Page
 
