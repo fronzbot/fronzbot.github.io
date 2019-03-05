@@ -18,7 +18,7 @@ Analog circuit designer with experience implementing creative designs for Touch 
 -----
 **Sr. Mixed Signal IC Design Engineer** <span style="color: gray">at</span> **Sony Electronics** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> July 2018 to Present
 
-- Responsible for the design of CMOS Image Sensor chips.
+- Responsible for the design of circuits to interface with a pixel array on a low-power CMOS imaging product. This work also involved generating detailed pixel models for simulations, as well as the study of power and area reduction techniques to improve product marketability and cost.
 
 
 **Sr. Mixed Signal IC Design Engineer** <span style="color: gray">at</span> **Synaptics Inc** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> Feb 2014 to July 2018
