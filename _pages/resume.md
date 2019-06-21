@@ -5,7 +5,7 @@ permalink: "/resume/"
 navbar: true
 ---
 
-Analog circuit designer with experience implementing creative designs for Touch and Biometric ASICs
+Analog circuit designer with experience implementing low-noise and low-power sensor designs.
 {: .resumeAlignCenter}
 
 [Download PDF Version]({{ site.url }}/assets/docs/Fronczak_Resume.pdf "Resume")
@@ -17,6 +17,9 @@ Analog circuit designer with experience implementing creative designs for Touch 
 
 -----
 **Sr. Mixed Signal IC Design Engineer** <span style="color: gray">at</span> **Sony Electronics** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> July 2018 to Present
+
+-  Involved in the power management architecture for next generaon ultra low power image sensors, including
+the design of a sub-uW LDO capable of supporng loads 1000x the quiescent current
 
 - Responsible for the design of circuits to interface with a pixel array on a low-power CMOS imaging product. This work also involved generating detailed pixel models for simulations, as well as the study of power and area reduction techniques to improve product marketability and cost.
 
@@ -79,6 +82,7 @@ Thesis: ***Stability Analysis of Switched DC-DC Boost Converters for Integrated 
 # **PATENTS/PUBLICATIONS**
 
 -----
-- US 9,780,736 - Temperature compensated offset cancellation for high-speed amplifiers - Issued Oct. 3, 2017
-- US 9,817,428 - Current-mode Bandgap Reference with Proportional to Absolute Temperature Current and Zero Temperature Current -Generation - Issued Nov. 14, 2017
-- US 15/685,937 - Mixer Circuit - Pending Aug. 24, 2017
+- US 9,780,736 - Temperature compensated offset cancellation for high-speed amplifiers - Grant Oct. 3, 2017
+- US 9,817,428 - Current-mode Bandgap Reference with Proportional to Absolute Temperature Current and Zero Temperature Current -Generation - Grant Nov. 14, 2017
+- US 15/685,937 - Mixer Circuit - Application February 28, 2019
+- US 15/885,769 - Oscillator Temperature Coefficient Adjustment - Pending Jan. 31, 2018
