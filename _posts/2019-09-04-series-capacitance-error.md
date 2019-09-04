@@ -122,14 +122,12 @@ $$C_{eff} = \frac{C}{N}\frac{1}{1+\frac{1}{N}\sum_{k=2}^{N}\binom{N+k-1}{2k-1}} 
 
 If you start to plug in various values of $$N$$ (and keep the result in fractional form) you start to see a familiar pattern emerge:
 
-$$
-\frac{C}{1} for N=1
-\frac{C}{3} for N=2
-\frac{C}{8} for N=3
-\frac{C}{21} for N=4
-\frac{C}{55} for N=5
-etc ...
-$$
+$$\frac{C}{1} for N=1$$
+$$\frac{C}{3} for N=2$$
+$$\frac{C}{8} for N=3$$
+$$\frac{C}{21} for N=4$$
+$$\frac{C}{55} for N=5$$
+$$...$$
 
 Anyone even cursorily familiar with the Fibonacci sequence will notice that the denomiator of that result is just the $$2N^{th}$$ Fibonnaci number!  So for the special case of $$C=C_p$$, the equation reduces to a very simple:
 
