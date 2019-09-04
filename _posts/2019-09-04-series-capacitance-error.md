@@ -21,12 +21,12 @@ A few years ago I was working on a circuit to cancel background signals in trans
 
 Density aside, this created an issue with parasitic capacitances since, at those dimensions, the parasitics can be a non-negligible fraction of the explicitly drawn capacitance.  So I made an attempt to create a generic formula to calculate the effective capacitance for any arbitrary number of series capacitors.  I failed at this.
 
-What I _did_ come up with was a series of equations for different numbers of capacitors.  For example, assuming a drawn capactiance of $$C$$ and a parasitic capacitance of $$C_p$$ I generated the following equation for three series capacitors (diagram below):
+What I _did_ come up with was a series of equations for different numbers of capacitors.  For example, assuming a drawn capactiance of $$C$$ and a parasitic capacitance of $$C_p$$ I generated the following equation for three series capacitors (generic diagram for "N" caps below):
 
 $$C_{eff} = \frac{1}{3}C\left[ \frac{1}{1+\frac{4}{3}\left(\frac{C_p}{C}\right)+\frac{1}{3}\left(\frac{C_p}{C}\right)^2} \right]$$
 
 {: .center}
-[![{{site.url}}]({{ site.url }}{{ site.image_path }}/series_cap/three-caps.jpg)]({{ site.url }}{{ site.image_path }}/series_cap/three_caps.jpg)
+[![{{site.url}}]({{ site.url }}{{ site.image_path }}/series_cap/n-caps.jpg)]({{ site.url }}{{ site.image_path }}/series_cap/n-caps.jpg)
 
 I did this for a few other variations and saw a semblance of a pattern but just couldn't quite generate that ubiquitous general expression I wanted.  Unfortunately, schedule pressure forced me to abandon the idea...until now.
 
@@ -113,4 +113,28 @@ Now, how do I prove that this is actually a closed-form solution?  Well...I don'
 [![{{site.url}}]({{ site.url }}{{ site.image_path }}/series_cap/cerr_0p4.png)]({{ site.url }}{{ site.image_path }}/series_cap/cerr_0p4.png)
 
 So...yeah.  Kinda neat, eh?
+
+## Special Case $$C=C_p$$
+
+There's a pretty neat outcome when you set C=Cp, which reduces our $$C_{eff}$$ to the following:
+
+$$C_{eff} = \frac{C}{N}\frac{1}{1+\frac{1}{N}\sum_{k=2}^{N}\binom{N+k-1}{2k-1}} for C=C_p$$
+
+If you start to plug in various values of $$N$$ (and keep the result in fractional form) you start to see a familiar pattern emerge:
+
+$$
+\frac{C}{1} for N=1
+\frac{C}{3} for N=2
+\frac{C}{8} for N=3
+\frac{C}{21} for N=4
+\frac{C}{55} for N=5
+etc ...
+$$
+
+Anyone even cursorily familiar with the Fibonacci sequence will notice that the denomiator of that result is just the $$2N^{th}$$ Fibonnaci number!  So for the special case of $$C=C_p$$, the equation reduces to a very simple:
+
+$$ C_{eff} = \frac{C}{F_{2N}} for C=C_p$$
+
+Which is, as I mentioned previously, [pretty darn neat](https://www.youtube.com/watch?v=Hm3JodBR-vs)!
+
 
