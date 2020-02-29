@@ -2,7 +2,7 @@ matrix:
   include:
     - language: ruby
       rvm:
-      - 2.7.7
+      - 2.6
 
       before_script:
         - chmod +x ./script/cibuild
