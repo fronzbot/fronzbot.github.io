@@ -80,10 +80,8 @@ $$H(\omega) = \frac{1}{2}\csc(\frac{\omega}{2})$$
 
 Obviously, getting the frequency response is a bit more labor-intensive than we'd like (I talk about an easier approach later). However we can now plot the response to see that it looks like it's integrating (infinite gain at DC with a decreasing gain as frequency increases).
 
-[img]/zdomain/integrator.jpg
-
 {: .center}
-[![{{site.url}}]({{ site.url }}{{ site.image_path }}/zdomain/integrator.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/integrator.jpg)
+[![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/integrator.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/integrator.jpg)
 
 But that's not quite true, is it? At every integer multiple of the sample frequency, the waveform again has infinite gain. This is an artifact of sampling. An intuitve way to thing about this is recall that we're mapping the z-domain to a unit circle so unique values can only exist as we traverse the circumference of the circle once. We will see the same thing on the second revolution that we did on the first.  Hence, every integer multiple of the sample frequency just means we've gone back to our starting point on the unit circle.
 
@@ -91,7 +89,8 @@ But that's not quite true, is it? At every integer multiple of the sample freque
 
 Let's take a look at a simple example. See the diagram below. We have a signal that splits into two paths, one has a delay and the other does not. These lines are then summed before being output. As a sidenote, this example is actually part of an interview question I've been asked before and now ask when I'm interviewing. I think it's a really good one that helps to figure out whether a candidate is comfortable with sampled systems (and if they're not, it's a really good way to see how they think about a problem and learn. Interview questions are somewhat useless if the candidate already knows the answer!).
 
-[img]/zdomain/delayline.jpg
+{: .center}
+[![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/delayline.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/delayline.jpg)
 
 ## Switched Capacitor Circuits
 
