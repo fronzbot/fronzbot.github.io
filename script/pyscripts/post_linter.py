@@ -5,13 +5,14 @@ Author: Kevin Fronczak
 Date: July 27, 2017
 
 Usage:
-    python3 check_images.py [opts]
+    python3 post_linter.py [opts]
 
 Options:
-    --ignore [list]  :  Allow tags given in 'list'
-    --skip-html      :  Skips checking html
-    --center-images  :  Verifies markdown tag to center images exists in file
-    --center-eqs     :  Verifies non-inline equations are centered
+    --ignore [list]       :  Allow tags given in 'list'
+    --skip-html           :  Skips checking html
+    --center-images       :  Verifies markdown tag to center images exists in file
+    --center-eqs          :  Verifies non-inline equations are centered
+    --image-tag [string]  :  Check if image tags have been updated
 
 Runs through posts to find image tags and throws error if html tags are found
 
@@ -31,14 +32,17 @@ def main(ignore_list, extra_args):
     file_list = helpers.get_posts()
     html_strings = dict()
     non_centered = dict()
+    found_tags = dict()
     errCount = 0
-    if 'skip-html' not in extra_args:
+    if not extra_args['skip-html']:
         print(COLOR.colorize('Checking for errant HTML tags', 'info'), end=' ')
+        errs_here = 0
         for filename in file_list:
             (html_found, errs) = get_html(filename, ignore_list)
             html_strings = helpers.merge_dicts(html_strings, html_found)
+            errs_here += errs
             errCount += errs
-        if errs > 0:
+        if errs_here > 0:
             print(PRINT_FAIL)
         for key, entry in html_strings.items():
             if entry:
@@ -46,40 +50,65 @@ def main(ignore_list, extra_args):
                 for element in entry:
                     print('{}: {}'.format(element[0], element[1]))
                 print('')
-        if errs == 0:
+        if errs_here == 0:
             print(PRINT_OK)
 
-    if 'center-image' in extra_args:
+    if extra_args['img-tag']:
+        tag = extra_args['img-tag']
+        print(COLOR.colorize('\nVerifying all image tags have been updated', 'info'), end= ' ')
+        errs_here = 0
+        for filename in file_list:
+            (found, errs) = check_image_tags(filename, tag)
+            found_tags = helpers.merge_dicts(found, found_tags)
+            errs_here += errs
+            errCount += errs
+        if errs_here > 0:
+            print(PRINT_FAIL)
+        for key, entry in found_tags.items():
+            if entry:
+                print(f"{key}\n{PRINT_ERROR}")
+                for element in entry:
+                    print(f"{element[0]}: {element[1]}", end='')
+        if errs_here == 0:
+            print(PRINT_OK)
+        else:
+            print(COLOR.colorize('Must run ./script/gen_img!', 'warn'))
+
+    if extra_args['center-image']:
         print(COLOR.colorize('\nVerifying images are centered', 'info'), end=' ')
+        errs_here = 0
         for filename in file_list:
             (found, errs) = check_image_centering(filename)
             non_centered = helpers.merge_dicts(found, non_centered)
+            errs_here += errs
             errCount += errs
-        if errs > 0:
+        if errs_here > 0:
             print(PRINT_FAIL)
         for key, entry in non_centered.items():
             if entry:
                 print('{}\n{}'.format(key, PRINT_ERROR))
                 for element in entry:
                     print('{}: {}'.format(element[0], element[1]), end='')
-        if errs == 0:
+        if errs_here == 0:
             print(PRINT_OK)
 
-    if 'center-eqs' in extra_args:
+    if extra_args['center-eqs']:
         non_centered = dict()
+        errs_here = 0
         print(COLOR.colorize('\nVerifying equations are centered', 'info'), end=' ')
         for filename in file_list:
             (found, errs) = check_eq_centering(filename)
             non_centered = helpers.merge_dicts(found, non_centered)
+            errs_here += errs
             errCount += errs
-        if errs > 0:
+        if errs_here > 0:
             print(PRINT_FAIL)
         for key, entry in non_centered.items():
             if entry:
                 print('{}\n{}'.format(key, PRINT_ERROR))
                 for element in entry:
                     print('{}: {}'.format(element[0], element[1], end=''))
-        if errs == 0:
+        if errs_here == 0:
             print(PRINT_OK)
 
     print('\n')
@@ -101,6 +130,20 @@ def check_eq_centering(filename):
                 entry = COLOR.colorize(line, 'error')
                 entries.append([lnum, entry])
     return({filename: entries}, errs)
+
+def check_image_tags(filename, tag):
+    errs = 0
+    line_num = 0
+    entries = list()
+    with open(filename, 'r') as file:
+        for line in file:
+            line_num += 1
+            if tag in line:
+                errs += 1
+                lnum = COLOR.colorize(str(line_num), 'linenum')
+                entry = COLOR.colorize(line, 'error')
+                entries.append([lnum, entry])
+    return ({filename: entries}, errs)
 
 def check_image_centering(filename):
     errs = 0
@@ -146,22 +189,29 @@ def get_html(filename, ignore_list):
 
 if __name__ == "__main__":
     ignore_list = []
-    extra_args = []
+    extra_args = {}
+    extra_args['center-image'] = False
+    extra_args['skip-html'] = False
+    extra_args['center-eqs'] = False
+    extra_args['img-tag'] = False
     if len(sys.argv) > 1:
         get_ignore_list = False
         for arg in sys.argv:
             if arg == '--center-images':
                 get_ignore_list = False
-                extra_args.append('center-image')
+                extra_args['center-image'] = True
             if arg == '--skip-html':
                 get_ignore_list = False
-                extra_args.append('skip-html')
+                extra_args['skip-html'] = True
             if arg == '--center-eqs':
                 get_ignore_list = False
-                extra_args.append('center-eqs')
+                extra_args['center-eqs'] = True
             if get_ignore_list:
                 ignore_list.append(arg)
             if arg == '--ignore':
                 get_ignore_list = True
+            if arg == '--image-tag':
+                arg_index = sys.argv.index('--image-tag')
+                extra_args['img-tag'] = sys.argv[arg_index + 1]
 
     main(ignore_list, extra_args)

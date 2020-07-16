@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+python ./script/pyscripts/img_gen.py --tag [img]

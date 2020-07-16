@@ -8,6 +8,7 @@ if [[ $* == *--lint* ]]; then
 else
   rm _config_dev.yml
   cp _config.yml _config_dev.yml
+  ./script/gen_img 
   python3 ./script/pyscripts/tag_gen.py
   sed -i -e 's/kevinfronczak\.com//g' _config_dev.yml
   sed -i -e 's/https\:\/\///g' _config_dev.yml
