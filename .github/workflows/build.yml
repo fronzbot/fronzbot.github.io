@@ -19,5 +19,5 @@ jobs:
     - name: Install dependencies
       run: bundle install
     - name: Run tests
-      run: bash ./cibuild
+      run: bash ./script/cibuild
 

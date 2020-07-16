@@ -13,7 +13,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v1
       with:
-        ruby-version: 3.7
+        python-version: 3.7
     - name: Install dependencies
       run: pip install -r ./script/pyscripts/requirements.txt
     - name: Run tests
