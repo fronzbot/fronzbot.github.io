@@ -18,6 +18,24 @@ Analog circuit designer with experience implementing low-noise and low-power sen
 -----
 **Staff Mixed Signal IC Design Engineer** <span style="color: gray">at</span> **Sony Electronics** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> July 2018 to Present
 
+- Involved in the Dynamic Frequency and Voltage Scaling (DFVS) power management architecture for next-gen stacked-chip CMOS image sensors in 40nm which involves frequent communication with worldwide cross-functional teams
+
+- Led effort to introduce and implement a new low-jitter 600 MHz oscillator architecture with 8x power saving over existing PLL-based implementations, and also eliminating the need for external oscillator references
+
+- Performed architecture study on potential LDO designs to use for next-generation ULP CMOS imaging products
+
+- Architected and designed a 5-uW unconditionally-stable capacitorless-LDO supporting up to 10mA of load current
+
+- Implemented an innovative scheme to handle undershoot during voltage-domain crossover
+
+- Responsible for evaluating external delta-sigma-based temperature sensor IP for propagation within other business units
+
+- Responsible for the design of circuits to interface with a pixel array for a stacked-chip low-power CMOS imaging product in 40nm. This work required generation of an accurate pixel model to gauge sensitivity to adjacent column coupling, as well as transient performance during image capture
+
+- Used unique multiplexing scheme to be able to intelligently bin adjacent columns for power reduction during motion detection capture
+
+- Specified testing scheme to ensure each multiplexer per column was void of defects with negligible contribution to total test time
+
 -  Involved in the power management architecture for next generaon ultra low power image sensors, including
 the design of a sub-uW LDO capable of supporng loads 1000x the quiescent current
 
@@ -26,6 +44,26 @@ the design of a sub-uW LDO capable of supporng loads 1000x the quiescent current
 
 **Sr. Mixed Signal IC Design Engineer** <span style="color: gray">at</span> **Synaptics Inc** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> Feb 2014 to July 2018
 <br>
+
+- Worked on architecture, design, and bring-up of a low-area, noise optimized continuous-time delta-sigma based AFE for capacitive fingerprint sensing in 55nm achieving 50% cost reduction over existing solutions
+
+- Designed and implemented a a low-noise current conveyor with innovative mixing topology meant to improve SNR with minimal overhead
+
+- Performed interference susceptibility analysis on existing and proposed architectures and designed an innovative a mitigation technique that took advantage of existing system design for improved performance
+
+- Responsible for initial prototyping of fingerprint AFE architecture in silicon, prior to introduction into a part and led the effort to evaluate, track, and debug A0 silicon to enable rapid evaluation of needs for metal or all-layer spins
+
+- Designed a noise-optimized discrete-time demodulator and filter for first market introduction of Touch and Display Driver Integrated Circuits (TDDI). Initial prototypes in 130nm, mass-produced parts in 55nm.
+
+- Designed an innovative bandgap topology to enable a more efficient power management strategy for TDDI chips
+
+- Led the introduction of a new 1Gbps MIPI DSI receiver architecture to the, utilizing continuous-time linear equalization, to replace existing solution and proposed an integrated offset calibration scheme
+
+- Proposed, architected, and implemented a prototype sub-uW power management architecture for next-generation fingerprint sensors to aid in >30% power reduction over existing solutions. This involved brand-new designs for bias generation circuits, oscillators, and long sample-and-hold bandgap references (>1ms hold time)
+
+- Designed a nW-level time-to-digital (TDC) temperature sensor capable of sub-1℃ resolution as measured in silicon
+
+- Designed an innovative adaptive bias mechanism for POR circuits to enable fast reaction time while only taking up a few nW of total power budget
 
 ### Fingerprint Sensing
 - Designed a small area, noise-optimized current-mode front-end which helped reduce die cost by nearly 50%
