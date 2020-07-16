@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/fronzbot/fronzbot.github.io.svg?branch=master)](https://travis-ci.org/fronzbot/fronzbot.github.io)
+[![Build Status](https://github.com/fronzbot/fronzbot.github.io/workflows/build/badge.svg)](https://travis-ci.org/fronzbot/fronzbot.github.io/actions?query=workflow%3Abuild)
 # Personal Website
 
 Source code for my website [https://kevinfronczak.com](https://kevinfronczak.com)
