@@ -160,7 +160,9 @@ def check_old_eq_delim(filename):
             line_num += 1
             match1 = re.findall('^\$\$.*?\$\$\.$', line)
             match2 = re.findall('\$\$.*?\$\$', line)
-            if match1 or match2:
+            match3 = re.findall('\+\+.*?\$', line)
+            match4 = re.findall('\$.*?\+\+', line)
+            if match1 or match2 or match3 or match4:
                 errs += 1
                 lnum = COLOR.colorize(str(line_num), 'linenum')
                 entry = COLOR.colorize(line, 'error')
