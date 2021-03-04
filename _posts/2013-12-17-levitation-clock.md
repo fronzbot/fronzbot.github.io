@@ -38,7 +38,7 @@ This block was the brains of the operation. For simplicity, we opted to use an a
 {: .center}
 [![Levitation Height]({{ site.url }}{{ site.image_path }}/Solenoid_Levitation_Height_Test_1200_turns.png)]({{ site.url }}{{ site.image_path }}/Solenoid_Levitation_Height_Test_1200_turns.png)
 
-Next, I ran a script in MATLAB in order to determine the required heatsink thermal resistance at varying ambient temps and voltage levels. For our design, we needed a roughly $$ 2\frac{^{\circ}C}{W} $$ heatsink.
+Next, I ran a script in MATLAB in order to determine the required heatsink thermal resistance at varying ambient temps and voltage levels. For our design, we needed a roughly $ 2\frac{^{\circ}C}{W} $ heatsink.
 
 {: .center}
 [![Thermal Resistance]({{ site.url }}{{ site.image_path }}/Thermal_Resistance_Required_for_Regulator.png)]({{ site.url }}{{ site.image_path }}/Thermal_Resistance_Required_for_Regulator.png)

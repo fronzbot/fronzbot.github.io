@@ -32,7 +32,7 @@ Sketch the small-signal model for a MOS capacitor.
 
 #### **Solution**
 
-This can easily be accomplished with an understanding of the causes of capacitance within a MOSFET. Obviously, there is the oxide capacitance but there are also two other capacitances caused by the depletion layer, $$ C_{b} $$ and by the inversion layer, $$ C_{i} $$. This equivalent circuit, therefore, is shown below. 
+This can easily be accomplished with an understanding of the causes of capacitance within a MOSFET. Obviously, there is the oxide capacitance but there are also two other capacitances caused by the depletion layer, $ C_{b} $ and by the inversion layer, $ C_{i} $. This equivalent circuit, therefore, is shown below. 
 
 {: .center}
 [![Interview Question 10]({{ site.url }}{{ site.image_path }}/interview_mos_cap_small_signal.png)]({{ site.url }}{{ site.image_path }}/interview_mos_cap_small_signal.png)

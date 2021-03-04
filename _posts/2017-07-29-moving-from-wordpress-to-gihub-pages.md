@@ -97,7 +97,7 @@ For global find-and-replace (like links, or broken LaTeX syntax), I used
 $ sed -i 's/FIND/REPLACE/g' *
 ```
 
-Which would iterate over all files and replace the `FIND` string with `REPLACE`.  You can use regular expressions with `sed` so it's really powerful.  For example, a previous LaTeX plugin I used with Wordpress required `[latex] EQUATION [/latex]` to be wrapped around my equation, but [Mathjax](https://www.mathjax.org/) uses `$$ EQUATION $$`.  To replace this in all of my blog posts, I used (note the use of the escape character `\`):
+Which would iterate over all files and replace the `FIND` string with `REPLACE`.  You can use regular expressions with `sed` so it's really powerful.  For example, a previous LaTeX plugin I used with Wordpress required `[latex] EQUATION [/latex]` to be wrapped around my equation, but [Mathjax](https://www.mathjax.org/) uses `$ EQUATION $`.  To replace this in all of my blog posts, I used (note the use of the escape character `\`):
 
 ```
 $ sed -i s/\[latex\]/\$\$/g' _posts/*.md

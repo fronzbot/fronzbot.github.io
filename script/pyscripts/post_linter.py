@@ -13,6 +13,7 @@ Options:
     --center-images       :  Verifies markdown tag to center images exists in file
     --center-eqs          :  Verifies non-inline equations are centered
     --image-tag [string]  :  Check if image tags have been updated
+    --skip-eq-tags        :  Skip checking of eq tags
 
 Runs through posts to find image tags and throws error if html tags are found
 
@@ -111,6 +112,25 @@ def main(ignore_list, extra_args):
         if errs_here == 0:
             print(PRINT_OK)
 
+    if not extra_args['skip-eq-tags']:
+        bad_tags = dict()
+        errs_here = 0
+        print(COLOR.colorize('\nVerifying equation tags', 'info'), end=' ')
+        for filename in file_list:
+            (found, errs) = check_old_eq_delim(filename)
+            bad_tags = helpers.merge_dicts(found, bad_tags)
+            errs_here += errs
+            errCount += errs
+        if errs_here > 0:
+            print(PRINT_FAIL)
+        for key, entry in bad_tags.items():
+            if entry:
+                print('{}\n{}'.format(key, PRINT_ERROR))
+                for element in entry:
+                    print('{}: {}'.format(element[0], element[1], end=''))
+        if errs_here == 0:
+            print(PRINT_OK)
+
     print('\n')
     ERRPRINT(errCount, completion=True)
 
@@ -123,8 +143,24 @@ def check_eq_centering(filename):
     with open(filename, 'r') as file:
         for line in file:
             line_num += 1
-            match = re.findall('^\$\$.*?\$\$\.$', line)
+            match = re.findall('^\+\+.*?\+\+\.$', line)
             if match and '<!-- lint-disable -->' not in line:
+                errs += 1
+                lnum = COLOR.colorize(str(line_num), 'linenum')
+                entry = COLOR.colorize(line, 'error')
+                entries.append([lnum, entry])
+    return({filename: entries}, errs)
+
+def check_old_eq_delim(filename):
+    errs = 0
+    line_num = 0
+    entries = list()
+    with open(filename, 'r') as file:
+        for line in file:
+            line_num += 1
+            match1 = re.findall('^\$\$.*?\$\$\.$', line)
+            match2 = re.findall('\$\$.*?\$\$', line)
+            if match1 or match2:
                 errs += 1
                 lnum = COLOR.colorize(str(line_num), 'linenum')
                 entry = COLOR.colorize(line, 'error')
@@ -194,6 +230,7 @@ if __name__ == "__main__":
     extra_args['skip-html'] = False
     extra_args['center-eqs'] = False
     extra_args['img-tag'] = False
+    extra_args['skip-eq-tags'] = False
     if len(sys.argv) > 1:
         get_ignore_list = False
         for arg in sys.argv:
@@ -206,6 +243,9 @@ if __name__ == "__main__":
             if arg == '--center-eqs':
                 get_ignore_list = False
                 extra_args['center-eqs'] = True
+            if arg == '--skip-eq-tags':
+                get_ignore_list = False
+                extra_args['skip-eq-tags'] = True
             if get_ignore_list:
                 ignore_list.append(arg)
             if arg == '--ignore':
