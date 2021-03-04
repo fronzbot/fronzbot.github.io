@@ -25,7 +25,7 @@ What this equation says is exactly what we would expect: the operation region of
 
 Dr. Sansen actually derives this expression in his book, "Analog Design Essentials" [2], where he shows that a MOST's trans-conductance is:
 
- $ g_m = \frac{I_D}{n\phi_t}\cdot\frac{1-exp\left(-\sqrt{i_f}\right)}{\sqrt{i_f}}++
+++  g_m = \frac{I_D}{n\phi_t}\cdot\frac{1-exp\left(-\sqrt{i_f}\right)}{\sqrt{i_f}}++
 
 This equation is interesting because it claims that for a constant current, you can modify $g_m$ just by changing the region that the MOST operates in (ie. change $V_{GS}$).
 
@@ -37,8 +37,8 @@ Again, we see an interesting relationship that indicates we can control the fund
 
 So how could we utilize the inversion coefficient idea to optimize a design for speed, noise, and power?  Well, in Sansen's presentation at ISSCC, he made the following assumptions to illustrate how to optimally design for those three parameters:
 
-*   Noise will usually be dominated by contributions from $\frac{kT}{C}++
-*   The GBW of a circuit is some form of $\frac{g_m}{2\pi C}++
+*   Noise will usually be dominated by contributions from $\frac{kT}{C}$
+*   The GBW of a circuit is some form of $\frac{g_m}{2\pi C}$
 *   We can re-write $g_m$ as $2\pi\cdot GBW\cdot C$ which allows us to keep the trans-conductance constant for a constant noise (C) and a constant speed (GBW)
 
 ## Design Using the Inversion Coefficient
@@ -61,24 +61,24 @@ In the Fall 2015 edition of "IEEE Solid-State Circuits Magazine", Sansen publish
 
 Let's do a little exercise to see this methodology work.  Say we are asked to design a simple 5T OTA with a required DC Gain of 40dB, GBW of 100 MHz and a load capacitance of 1 pF.
 
-1.  Calculate $g_m++
-    *   Here we can use $g_m=2\pi\cdot GBW\cdot C_L$ which gives us $g_m\approx 630 \mu S++
+1.  Calculate $g_m$
+    *   Here we can use $g_m=2\pi\cdot GBW\cdot C_L$ which gives us $g_m\approx 630 \mu S$
 2.  Choose $i_f$ and calculate required drain current
     *   Let's use $i_f=1$.  Remember, this is our first of two design choices!
-    *   Now we can plug this into $ g_m = \frac{I_D}{n\phi_t}\cdot\frac{1-exp\left(-\sqrt{i_f}\right)}{\sqrt{i_f}}$ and solve for $I_D$ which ends up being $I_D\approx 0.001\cdot n\phi_t$.  The parameter 'n' is process-dependent, but let's assume it's equal to '1' and solve this at room temperature which yields $I_D\approx 26 \mu A++
-3.  Using our drain current value, we can calculate $I_S = \frac{I_D}{i_f} = 26 \mu A++
+    *   Now we can plug this into $ g_m = \frac{I_D}{n\phi_t}\cdot\frac{1-exp\left(-\sqrt{i_f}\right)}{\sqrt{i_f}}$ and solve for $I_D$ which ends up being $I_D\approx 0.001\cdot n\phi_t$.  The parameter 'n' is process-dependent, but let's assume it's equal to '1' and solve this at room temperature which yields $I_D\approx 26 \mu A$
+3.  Using our drain current value, we can calculate $I_S = \frac{I_D}{i_f} = 26 \mu A$
 4.  Next, we need to know $\mu C_{ox}$ for our process in order to extract the required $\frac{W}{L}$ ratio.
-    *   Let's just say $\mu C_{ox} = 100 \mu A/V^2++
-    *   Given this and the fact that $I_S = 2\mu C_{ox}\frac{W}{L}\phi_{t}^{2}$, we can solve for the width-to-length ratio which results in $\frac{W}{L}\approx 194++
-5.  Now we get to make our last design choice: length.  The length is going to end up determining our non-dominant pole frequency, as well as our DC gain (since it will impact the output resistance).  Let's choose $L=0.5 \mu m++
-    *   This results in $W=97 \mu m++
-    *   The cutoff frequency can be found via $f_t = \frac{\mu\phi_t}{2\pi L^2}\cdot 2\left(\sqrt{1+i_f}-1\right) $ which indicates that $f_t \approx 55 GHz$ for $ \mu \approx 400 \frac{cm}{V\cdot s}++
+    *   Let's just say $\mu C_{ox} = 100 \mu A/V^2$
+    *   Given this and the fact that $I_S = 2\mu C_{ox}\frac{W}{L}\phi_{t}^{2}$, we can solve for the width-to-length ratio which results in $\frac{W}{L}\approx 194$
+5.  Now we get to make our last design choice: length.  The length is going to end up determining our non-dominant pole frequency, as well as our DC gain (since it will impact the output resistance).  Let's choose $L=0.5 \mu m$
+    *   This results in $W=97 \mu m$
+    *   The cutoff frequency can be found via $f_t = \frac{\mu\phi_t}{2\pi L^2}\cdot 2\left(\sqrt{1+i_f}-1\right) $ which indicates that $f_t \approx 55 GHz$ for $ \mu \approx 400 \frac{cm}{V\cdot s}$
 
 So our final list of design parameters for the input pair of our 5T OTA is:
 
-*   $I_D = 26 \mu A++
-*   $\frac{W}{L} = \frac{97 \mu m}{0.5 \mu m}++
-*   $g_m = 630 \mu S++
+*   $I_D = 26 \mu A$
+*   $\frac{W}{L} = \frac{97 \mu m}{0.5 \mu m}$
+*   $g_m = 630 \mu S$
 
 I went ahead and put a schematic in cadence using a PDK I have access to and got the following result using stability analysis.  We hit our desired 40dB gain target and are quite close to the GBW requirement of 100 MHz (it turns out, the trans-conductance is a bit low in the simulation due to a mismatch between the actual transistor $\mu C_{ox}$ and what we used as an approximation).
 

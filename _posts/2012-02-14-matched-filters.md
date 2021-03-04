@@ -31,7 +31,7 @@ Now, lets say we have a sinusoidal input defined as
 
 where $N_{i}(t)$ is zero mean, white Gaussian noise.  If you're not sure what white Gaussian noise is, it's simply noise that has the same amplitude across every frequency.  Given we have white Gaussian noise, we know that the Power Spectral Density,
 
-++S_{N_{i}}(f) = \frac{N_{0}}{2}$  
+++S_{N_{i}}(f) = \frac{N_{0}}{2}++  
 
 This will be handy eventually, so just keep it in mind moving forward. First, let's take a look what our signal to noise ratio, or $SNR_{i}$ is at the input of our filter.  Since $SNR_{i} = \frac{Signal Power}{Noise Power}$ this is very easy to calculate.
 
@@ -53,7 +53,7 @@ Now, let's find the magnitude of this transfer function:
 
 The next step we need to take is to find the -3dB point.  This is the point where the signal starts to deteriorate at a -3dB/decade rate. Now, since this is a passive filter, we know the 0dB point is 1 and located at $\omega=0$.  Therefore, we can find the -3dB point by solving for x in the follwoing equation:
 
-++-3 = 20\log(x)$ which yields a value of $\frac{1}{\sqrt{2}}++
+$-3 = 20\log(x)$ which yields a value of $\frac{1}{\sqrt{2}}$
 
 To help visualize this a bit better, refer to the following graph (ignore the x-axis values- they are arbitrary and were just used to help generate the plot):
 

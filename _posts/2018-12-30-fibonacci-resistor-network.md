@@ -37,7 +37,7 @@ To solve this, I took the approach of solving for N=1, N=2, etc. in order to fin
 
 #### N = 1
 
-Here we have $R_{eq} = R + R = 2R++
+Here we have $R_{eq} = R + R = 2R$
 
 #### N = 2
 Now we see this previous solution in parallel with a single $R$ and that parallel combination in series with a single $R$.  At this point it is possible to create a solution that says $R_{eq}(N) = R + R_{eq}(N-1)||R$.  But this doesn't create our interesting solution... so we will continue on with plugging in numbers:

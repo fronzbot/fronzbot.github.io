@@ -114,7 +114,7 @@ Now, how do I prove that this is actually a closed-form solution?  Well...I don'
 
 So...yeah.  Kinda neat, eh?
 
-## Special Case $C=C_p++
+## Special Case $C=C_p$
 
 There's a pretty neat outcome when you set C=Cp, which reduces our $C_{eff}$ to the following:
 

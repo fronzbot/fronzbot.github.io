@@ -41,13 +41,13 @@ and that
 
 Since we're operating at room temperature, $\frac{kT}{q} = 0.0259 V$ so the calculated values are as follows:
 
-* $ g_{m1} = g_{m2} = 69.5 m\mho ++
-* $ r_{E1} = r_{E2} = 14.4 \Omega ++
-* $ r_{o1} = r_{o2} = 83.3 k\Omega ++
-* $ r_{o3} = 27.7 k\Omega ++
-* $ R_{Leq} = \frac{r_{o2}\cdot r_{o3}}{r_{o2} + r_{o3}} = 20.4 k\Omega ++
-* $ A_{V} \approx -1400 \\ C_{T} = C_{\mu 2} + C_{\mu 3} = 2 pF ++
-* $ BW = \frac{1}{2\pi R_{Leq} C_{T}} = 3.9 MHz ++
+* $ g_{m1} = g_{m2} = 69.5 m\mho $
+* $ r_{E1} = r_{E2} = 14.4 \Omega $
+* $ r_{o1} = r_{o2} = 83.3 k\Omega $
+* $ r_{o3} = 27.7 k\Omega $
+* $ R_{Leq} = \frac{r_{o2}\cdot r_{o3}}{r_{o2} + r_{o3}} = 20.4 k\Omega $
+* $ A_{V} \approx -1400 \\ C_{T} = C_{\mu 2} + C_{\mu 3} = 2 pF $
+* $ BW = \frac{1}{2\pi R_{Leq} C_{T}} = 3.9 MHz $
 
 Well that was easy, right? Now let's come up with a noise-equivalent circuit. All that means is that basically we take our normal small-signal model (low frequency model here: we're ignoring the capacitors) and add in the noise sources. Wherever there is a _physical_ resistance (not equivalent) we need a thermal noise source and wherever there is a pn-junction we need a shot noise source. When all is said and done, there is a total of nine noise sources that need to be evaluated - and all for a simple, 4-transistor cascode amp! The noise equivalent circuit is shown below.
 
@@ -76,7 +76,7 @@ Just like in the first noise source, this one is being 'gained-up' by the system
 
 **3) Contribution due to Collector-Emitter energy bands in Q1.**
 
-Again, this is shot noise so $ i_{n}^{2} = 2qI_{C}\delta f$ which means $ i_{n3}^2 = 2.25\times 10^{-15} A^{2}$. Since we have a current source, we will need to multiply by a resistance to get a noise voltage (as was the case in the last source). By inspection, it's clear that this resistance will be $ r_{o1} \| (r_{E2} + R_{BB,2}') = 83.3 k\Omega \| (14.4 \Omega + 1 k\Omega) \approx 1 k\Omega $. Thus, $ e_{n3}^{2} = 2.25\times 10^{-15}(1\times 10^{3})^{2} = 2.25 \times 10^{-9} V^{2}$. Finally, to get the noise at the output we multiply by the square of the gain, so: $ e_{n3,o}^2 = 4.41 \times 10^{-3} V^{2}++
+Again, this is shot noise so $ i_{n}^{2} = 2qI_{C}\delta f$ which means $ i_{n3}^2 = 2.25\times 10^{-15} A^{2}$. Since we have a current source, we will need to multiply by a resistance to get a noise voltage (as was the case in the last source). By inspection, it's clear that this resistance will be $ r_{o1} \| (r_{E2} + R_{BB,2}') = 83.3 k\Omega \| (14.4 \Omega + 1 k\Omega) \approx 1 k\Omega $. Thus, $ e_{n3}^{2} = 2.25\times 10^{-15}(1\times 10^{3})^{2} = 2.25 \times 10^{-9} V^{2}$. Finally, to get the noise at the output we multiply by the square of the gain, so: $ e_{n3,o}^2 = 4.41 \times 10^{-3} V^{2}$
 
 **4) Contribution due to Base-Emitter PN-Junction in Q2.**
 
@@ -84,22 +84,22 @@ It should be pretty obvious that this noise source will be negligible, but let's
 
 **5) Contribution due to Collector-Emitter energy bands in Q2.**
 
-Shot noise so $ i_{n}^{2} = 2qI_{C}\delta f$ which means $ i_{n5}^2 = 2.25\times 10^{-15} A^{2}$. The resistance this source sees is just $ r_{o2}$ so $ e_{n5}^2 = 2.25\times 10^{-15}(83.3\times 10^{3})^{2} = 1.56 \times 10^{-5}$. Since this noise voltage is already at the output of the amplifier (the collector of Q2) we _ do not _ need to multiply by the square of the gain. Therefore: $ e_{n5,o}^{2} = e_{n5,o}^{2} = 1.56\times 10^{-5}++
+Shot noise so $ i_{n}^{2} = 2qI_{C}\delta f$ which means $ i_{n5}^2 = 2.25\times 10^{-15} A^{2}$. The resistance this source sees is just $ r_{o2}$ so $ e_{n5}^2 = 2.25\times 10^{-15}(83.3\times 10^{3})^{2} = 1.56 \times 10^{-5}$. Since this noise voltage is already at the output of the amplifier (the collector of Q2) we _ do not _ need to multiply by the square of the gain. Therefore: $ e_{n5,o}^{2} = e_{n5,o}^{2} = 1.56\times 10^{-5}$
 
 **6) Contribution due to Collector-Emitter energy bands in Q3.**
 
-Surprise, surprise, we've got shot noise yet again. The current noise will be the same as both (5) and (3) where $ i_{n6}^{2} = 2.25\times 10^{-15} A^{2}$. This is where it's easy to get tripped up. Of course you see the resistance of $ r_{o3}$ but you will _also_ see $ r_{o2} + r_{E2} + R_{BB,2}' \approx r_{o2}$. Since this ensuing noise voltage is already at the output, no need to multiply by the square of the gain so: $ e_{n6,o}^{2} = e_{n6}^{2} = 2.25\times 10^{-15}(83.3\times 10^{3} \| 27.7\times 10^{3})^{2} = 9.36\times 10^{-7} V^{2}++
+Surprise, surprise, we've got shot noise yet again. The current noise will be the same as both (5) and (3) where $ i_{n6}^{2} = 2.25\times 10^{-15} A^{2}$. This is where it's easy to get tripped up. Of course you see the resistance of $ r_{o3}$ but you will _also_ see $ r_{o2} + r_{E2} + R_{BB,2}' \approx r_{o2}$. Since this ensuing noise voltage is already at the output, no need to multiply by the square of the gain so: $ e_{n6,o}^{2} = e_{n6}^{2} = 2.25\times 10^{-15}(83.3\times 10^{3} \| 27.7\times 10^{3})^{2} = 9.36\times 10^{-7} V^{2}$
 
 **7) Contribution due to Base-Emitter PN-junction in Q3.**
 
-Since this is a PNP we need to calculate $ I_{B}$ which is just going to be $ I_{B,3} = 18 \mu A$. Thus, $ i_{n7}^{2} = 2.25\times 10^{-17}$. Here we see $ r_{\pi 3} \| (1 k\Omega + R_{BB,3})' $ so $ e_{n7}^{2} = 2.25\times 10^{-17}(1.45\times 10^{3} \| 2\times 10^{3})^{2} = 1.59\times 10^{-11}$. Now, probably against your intuition, we need to multiply this by the gain of the amp. Well, that's not _exactly_ true. You see, what's actually happening is that the noise on the base of Q3 (which is where $i_{n7}^{2}$ is located) is being multiplied by the _gain of Q3_. If you were to calculate the gain of Q3, you'd see that it is identical to the gain of the system because it has the same transconductance and the same output resistance. But wait: if this is basically just acting as a common-emitter amplifier, shouldn't the bandwidth of the noise change? **YES**. The new bandwidth (at least for any noise on the base of Q3) will end up being lowered due to the Miller Effect for $ C_{\mu}$ where the new capacitance is $C_{T,new} \approx C_{\mu}\cdot A_{v} = 1.4 nF $. This yields a new bandwidth of $ 5.6 kHz$ which, in turn, decreases the noise terms to $ i_{n7}^{2} = 3.23\times 10^{-20}$ and $ e_{n7}^{2} = 2.28 \times 10^(-14)$. Thus: $ e_{n7,o}^{2} = 4.47 \times 10^{-8} V^{2}++
+Since this is a PNP we need to calculate $ I_{B}$ which is just going to be $ I_{B,3} = 18 \mu A$. Thus, $ i_{n7}^{2} = 2.25\times 10^{-17}$. Here we see $ r_{\pi 3} \| (1 k\Omega + R_{BB,3})' $ so $ e_{n7}^{2} = 2.25\times 10^{-17}(1.45\times 10^{3} \| 2\times 10^{3})^{2} = 1.59\times 10^{-11}$. Now, probably against your intuition, we need to multiply this by the gain of the amp. Well, that's not _exactly_ true. You see, what's actually happening is that the noise on the base of Q3 (which is where $i_{n7}^{2}$ is located) is being multiplied by the _gain of Q3_. If you were to calculate the gain of Q3, you'd see that it is identical to the gain of the system because it has the same transconductance and the same output resistance. But wait: if this is basically just acting as a common-emitter amplifier, shouldn't the bandwidth of the noise change? **YES**. The new bandwidth (at least for any noise on the base of Q3) will end up being lowered due to the Miller Effect for $ C_{\mu}$ where the new capacitance is $C_{T,new} \approx C_{\mu}\cdot A_{v} = 1.4 nF $. This yields a new bandwidth of $ 5.6 kHz$ which, in turn, decreases the noise terms to $ i_{n7}^{2} = 3.23\times 10^{-20}$ and $ e_{n7}^{2} = 2.28 \times 10^(-14)$. Thus: $ e_{n7,o}^{2} = 4.47 \times 10^{-8} V^{2}$
 
 **8) Contribution due to $ R_{BB,3}'$ and the $ 1 k\Omega $ resistor on the base of Q3.**
 
-This is actually the sum of both thermal noise terms for each resistor. Remember that the bandwidth here is not the bandwidth of the amp from input to output but, rather, from the base of Q3 to the output. Thus, $ e_{n8}^{2} = 4kT(1k\Omega + R_{BB,3}')\delta f = 1.86 \times 10^{-13}$. Multiplying by the square of the gain and we get: $ e_{n8,o}^{2} = 3.64\times 10^{-7} V^{2}++
+This is actually the sum of both thermal noise terms for each resistor. Remember that the bandwidth here is not the bandwidth of the amp from input to output but, rather, from the base of Q3 to the output. Thus, $ e_{n8}^{2} = 4kT(1k\Omega + R_{BB,3}')\delta f = 1.86 \times 10^{-13}$. Multiplying by the square of the gain and we get: $ e_{n8,o}^{2} = 3.64\times 10^{-7} V^{2}$
 
 **9) Contribution due to $ R_{BB,2}'$.**
 
-This is identical to (1), so: $ e_{n9,o}^{2} = 1.27 \times 10^{-4} V^{2} ++
+This is identical to (1), so: $ e_{n9,o}^{2} = 1.27 \times 10^{-4} V^{2} $
 
 ... _Phew._ Ok, now that we have all the noise terms at the output, let's sum 'em up! $ e_{no,total}^{2} = 4.69 \times 10^{-3} V^{2}$ Since we want input-referred noise, however, we just need to divide that value by the square of the gain: $ e_{ni}^{2} = \frac{4.69\times 10^{-3}}{1400^{2}} = 2.39\times 10^-9 V^{2}$ Typically, noise is given in units of $ \frac{V}{\sqrt{Hz}}$ so just divide by the bandwidth and take the square root of the whole thing to get: $ e_{ni} = 24.8 \frac{nV}{\sqrt{Hz}}$ As you can see, the term that has the biggest impact on the circuit noise is clearly due to the collector-emitter path on the input transistor. This is actually analogous to any opamp: the input will cause the most noise (which should make sense because it is 'gained-up' by the system). If you were to analyze this circuit again, you could save a significant amount of time by ignoring everything but the shot-noise on the signal-path in Q1 which was $ 4.41 \times 10^{-3}$. Doing so will give you $ e_{ni} = 24 \frac{nV}{\sqrt{Hz}}$ which only differs from the more exact solution by only 3.2% despite ignoring the other **_eight_** noise sources. Yeah, I like that approach better too!

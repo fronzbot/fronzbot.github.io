@@ -30,7 +30,7 @@ Our process will be the same as in the [BJT case]({{ site.url }}/blogcircuit-noi
 
 **1) Thermal Noise from R1**
 
-<!-- lint-disable -->$ e_{n1}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(10\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-9} V^{2}$ Since it is an inverting amplifier and we are on the '-' pin of the amp, gain is just $ A = \frac{RF}{R1} = 10 \frac{V}{V}$. Therefore, $ e_{n1,o}^{2} = (1.328 \times 10^{-9})(10)^{2} = 1.328 \times 10^{-7}++
+<!-- lint-disable -->$ e_{n1}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(10\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-9} V^{2}$ Since it is an inverting amplifier and we are on the '-' pin of the amp, gain is just $ A = \frac{RF}{R1} = 10 \frac{V}{V}$. Therefore, $ e_{n1,o}^{2} = (1.328 \times 10^{-9})(10)^{2} = 1.328 \times 10^{-7}$
 
 **2) Input Referred Voltage Noise**
 
@@ -38,19 +38,19 @@ This will simply be the value we already calculated times the square of the gain
 
 **3) Thermal Noise from R2**
 
-<!-- lint-disable -->$ e_{n3}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(10\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-9} V^{2}$. Since we are on the non-inverting side, we need to calculated the non-inverting gain which is just $ A = 1+\frac{RF}{R1} = 11$ so $ e_{n3,o}^{2} = (1.328\times 10^{-9})(11)^{2} = 1.607 \times 10^{-7} V^{2}++
+<!-- lint-disable -->$ e_{n3}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(10\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-9} V^{2}$. Since we are on the non-inverting side, we need to calculated the non-inverting gain which is just $ A = 1+\frac{RF}{R1} = 11$ so $ e_{n3,o}^{2} = (1.328\times 10^{-9})(11)^{2} = 1.607 \times 10^{-7} V^{2}$
 
 **4) Input Referred Current Noise ('minus' pin)**
 
-First, we need to convert our already calculated current noise value into a voltage. This requires us to look at the equivalent resistance that this source sees. It should be obvious that we'll see R1 in parallel with the input common-mode resistance; since $ R_{in,cm} >> R1$, we can approximate the equivalent resistance as $ 10k\Omega$. Thus, $ e_{n4}^{2} = (1.28\times 10^{-16})(10\times 10^{3})^{2} = 1.28 \times 10^{-8}$. It follows that $ e_{n4,o}^{2} = (1.28 \times 10^{-8})(10)^{2} = 1.28 \times 10^{-6} V^{2}++
+First, we need to convert our already calculated current noise value into a voltage. This requires us to look at the equivalent resistance that this source sees. It should be obvious that we'll see R1 in parallel with the input common-mode resistance; since $ R_{in,cm} >> R1$, we can approximate the equivalent resistance as $ 10k\Omega$. Thus, $ e_{n4}^{2} = (1.28\times 10^{-16})(10\times 10^{3})^{2} = 1.28 \times 10^{-8}$. It follows that $ e_{n4,o}^{2} = (1.28 \times 10^{-8})(10)^{2} = 1.28 \times 10^{-6} V^{2}$
 
 **5) Input Referred Current Noise ('plus' pin)**
 
-Obviously, the calculation here will be the same as the previous with the only modification being the gain (11 as opposed to 10). Thus, $ e_{n5,o}^{2} = (1.28 \times 10^{-8})(11)^{2} = 1.549 \times 10^{-6} V^{2}++
+Obviously, the calculation here will be the same as the previous with the only modification being the gain (11 as opposed to 10). Thus, $ e_{n5,o}^{2} = (1.28 \times 10^{-8})(11)^{2} = 1.549 \times 10^{-6} V^{2}$
 
 **6) Thermal Noise from RF**
 
-<!-- lint-disable -->$ e_{n6,o}^{2} = e_{n6}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(100\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-8} V^{2}++
+<!-- lint-disable -->$ e_{n6,o}^{2} = e_{n6}^{2} = 4kTR\delta f = (1.66\times 10^{-20})(100\times 10^{3})(8\times 10^{6}) = 1.328 \times 10^{-8} V^{2}$
 
 **Total Noise**
 

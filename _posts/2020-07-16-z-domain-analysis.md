@@ -179,7 +179,7 @@ Another fun example is demodulating a periodic signal with switched capacitors. 
 {: .center}
 [![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/demod_timing.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/demod_timing.jpg)
 
-So let's start to analyize this and, since we're interested in the Z-domain, we'll say the supply voltage is zero. First, let's consider what the circuit looks like during $\phi_1++
+So let's start to analyize this and, since we're interested in the Z-domain, we'll say the supply voltage is zero. First, let's consider what the circuit looks like during $\phi_1$
 
 {: .center}
 [![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/demod_ph1.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/demod_ph1.jpg)
@@ -188,7 +188,7 @@ Here we are storing $V_{IN}$ on $C_1$ so our charge equations are:
 
 ++Q_1[n-1] = V_{IN}[n-1]C_1++
 
-Next, let's see what happens on $\phi_2++
+Next, let's see what happens on $\phi_2$
 
 {: .center}
 [![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/demod_ph2.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/demod_ph2.jpg)
@@ -206,7 +206,7 @@ Due to the conservation of charge, we know the total charge previously stored on
 
 ++Q_{OUT}[n] = -V_{OUT}[n](C_1+C_2)++
 
-and, due to the polarity flip on $C_1++
+and, due to the polarity flip on $C_1$
 
 ++Q_{OUT}[n] =  -Q_1[n-1] - Q_2[n]++
 
@@ -247,7 +247,7 @@ Next, we have to think about what the inverting terminal voltage is. For an idea
 
 ++Q_1[n-1] = V_{OUT}[n-1]C_1(1+\frac{1}{A_V})++
 
-Now let's consider $\phi_2++
+Now let's consider $\phi_2$
 
 {: .center}
 [![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/parasitic_insensitive_integrator_ph2.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/parasitic_insensitive_integrator_ph2.jpg)
@@ -266,7 +266,7 @@ Now, if we assume that $A_V \rightarrow \infty$ and that $C_1=C_2$ we can see th
 
 ++H(z) = \frac{z^{-1}}{1-z^{-1}}++
 
-So let's go ahead and plot both the ideal and non-ideal equations. Again, we'll assume $C_1=C_2$ and we'll set $A_V=30\frac{V}{V}++
+So let's go ahead and plot both the ideal and non-ideal equations. Again, we'll assume $C_1=C_2$ and we'll set $A_V=30\frac{V}{V}$
 
 {: .center}
 [![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/parasitic_insensitive_integrator_plot.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/parasitic_insensitive_integrator_plot.jpg)
@@ -380,11 +380,11 @@ Up to this point we really haven't considered poles and zeros as far as a Z-doma
 
 ### Estimating Frequency Response
 
-Enter the unit circle. I alluded to it earlier, but the unit circle can be related to frequency by considering we traverse frequencies in the range of $0$ to $F_S$ as we travel counter-clockwise around the unit circle starting at $z=1$. So a zero at $z=-1$ means we'd expect the output of our system to go to zero at $\frac{F_S}{2}$.  But what about that pole at $z=0++
+Enter the unit circle. I alluded to it earlier, but the unit circle can be related to frequency by considering we traverse frequencies in the range of $0$ to $F_S$ as we travel counter-clockwise around the unit circle starting at $z=1$. So a zero at $z=-1$ means we'd expect the output of our system to go to zero at $\frac{F_S}{2}$.  But what about that pole at $z=0$?
 
 This is something that I, personally, didn't learn until many years into my career.  Which is a shame because it's _damn_ powerful.
 
-Note that the example I'm highlighting is known as a 2-tap FIR filter, shown below. However, in the interest of keeping things simple I actually am ignoring the gain terms in the following analysis. However, since it is just a gain, all of the following plots can simply be scaled by $\frac{1}{2}++
+Note that the example I'm highlighting is known as a 2-tap FIR filter, shown below. However, in the interest of keeping things simple I actually am ignoring the gain terms in the following analysis. However, since it is just a gain, all of the following plots can simply be scaled by $\frac{1}{2}$.
 
 {: .center}
 [![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/fir_2tap.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/fir_2tap.jpg)
@@ -401,7 +401,7 @@ To start, we're at $f=0$. We are 2 units away from the zero and one away from th
 {: .center}
 [![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/pole_zero_0.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/pole_zero_0.jpg)
 
-Next, we progress to $f=\frac{F_S}{4}$ at $z=j$. Here we need to use some trigonometry to figure out the distance we are from the zero. It should be relatively obvious that this means we are $\sqrt{2}$ away from the zero and 1 unit away from the pole so our value is now $\sqrt{2}++
+Next, we progress to $f=\frac{F_S}{4}$ at $z=j$. Here we need to use some trigonometry to figure out the distance we are from the zero. It should be relatively obvious that this means we are $\sqrt{2}$ away from the zero and 1 unit away from the pole so our value is now $\sqrt{2}$.
 
 {: .center}
 [![{{ site.url }}]({{ site.url }}{{ site.image_path }}/zdomain/pole_zero_1.jpg)]({{ site.url }}{{ site.image_path }}/zdomain/pole_zero_1.jpg)
@@ -448,15 +448,15 @@ If we solve the N=4 case for the poles and zeros, we can see we'll end up with a
 
 Now, let's move around the unit circle and see what happens. This time we'll make some intermediate stops since we can see there's zeros at every multiple of $\frac{F_S}{4}$ which makes analysis less-than-interesting.
 
-- f=0: $\frac{1}{4}\cdot\left(\frac{2}{1}\cdot\frac{\sqrt{2}}{1}\cdot\frac{\sqrt{2}}{1}\right)=\frac{1}{4}\cdot 4 = 1++
-- f=Fs/8: using law of cosines $\frac{1}{4}\cdot\left(2+\sqrt{2}\right)\sqrt{2-\sqrt{2}}++
-- f=Fs/4: $0++
-- f=3/8Fs: $\frac{1}{4}\cdot\left(2-\sqrt{2}\right)\sqrt{2+\sqrt{2}}++
-- f=Fs/2: $0++
-- f=5/8Fs: $\frac{1}{4}\cdot\left(2-\sqrt{2}\right)\sqrt{2+\sqrt{2}}++
-- f=3/4Fs: $0++
-- f=7/8Fs: $\frac{1}{4}\cdot\left(2+\sqrt{2}\right)\sqrt{2-\sqrt{2}}++
-- f=Fs: $1++
+- f=0: $\frac{1}{4}\cdot\left(\frac{2}{1}\cdot\frac{\sqrt{2}}{1}\cdot\frac{\sqrt{2}}{1}\right)=\frac{1}{4}\cdot 4 = 1$
+- f=Fs/8: using law of cosines $\frac{1}{4}\cdot\left(2+\sqrt{2}\right)\sqrt{2-\sqrt{2}}$
+- f=Fs/4: $0$
+- f=3/8Fs: $\frac{1}{4}\cdot\left(2-\sqrt{2}\right)\sqrt{2+\sqrt{2}}$
+- f=Fs/2: $0$
+- f=5/8Fs: $\frac{1}{4}\cdot\left(2-\sqrt{2}\right)\sqrt{2+\sqrt{2}}$
+- f=3/4Fs: $0$
+- f=7/8Fs: $\frac{1}{4}\cdot\left(2+\sqrt{2}\right)\sqrt{2-\sqrt{2}}$
+- f=Fs: $1$
 
 Plotting these values on top of the expected graph via MATLAB shows perfect alignment (and all it took was some light algebra):
 

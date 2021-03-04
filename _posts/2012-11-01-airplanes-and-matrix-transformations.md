@@ -58,7 +58,7 @@ Where α is the roll angle, β is the pitch angle and ɣ is the yaw angle.  Thu
 
 Figure 8 shows a translation by 10 units in the X direction, 10 units in the Y direction and 0 units in the Z direction followed by a rotation about the X-axis by 30˚ and finally a dilation of 2.  The order was then changed to a rotation, translation and then dilation (all with the same parameters) which resulted in Figure 9.  As one can see, the figures are clearly different.  Mathematically, this makes sense and can be proven experimentally quite easily.  Say we have a matrix 
 
-++A= \begin{bmatrix} 1 & 2 & 3 \\ 2 & 3 & 4\\ 1 & 0 & 1 \end{bmatrix}$ . 
+++A= \begin{bmatrix} 1 & 2 & 3 \\ 2 & 3 & 4\\ 1 & 0 & 1 \end{bmatrix}++
 
 If we were to translate by 10 units in the X and Y direction and then rotate with a roll of 30˚ followed by a dilation of two, we would need to pre-multiply in the following order: Dilation*Rotation*Translation*A.  Thus, we can first multiply our Dilation and Rotation matrices:
 

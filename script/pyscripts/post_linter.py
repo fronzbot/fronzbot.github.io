@@ -127,7 +127,8 @@ def main(ignore_list, extra_args):
             if entry:
                 print('{}\n{}'.format(key, PRINT_ERROR))
                 for element in entry:
-                    print('{}: {}'.format(element[0], element[1], end=''))
+                    print('{}, '.format(element[0]), end='')
+                print()
         if errs_here == 0:
             print(PRINT_OK)
 
