@@ -204,7 +204,7 @@ Finally, during $\phi_3$ the capacitors are shared (and note the polarity flip o
 
 Due to the conservation of charge, we know the total charge previously stored on the capacitors must be the same as whatever the total charge is now.  So:
 
-++Q_{OUT}[n] = -V_{OUT}[n](C_1+C_2)++
+++Q_{OUT}[n] = -V_{OUT}[n]\left(C_1+C_2\right)++
 
 and, due to the polarity flip on $C_1$
 
