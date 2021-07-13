@@ -8,7 +8,7 @@ navbar: true
 Analog circuit designer with experience implementing low-noise and low-power sensor designs.
 {: .resumeAlignCenter}
 
-[Download PDF Version]({{ site.url }}/assets/docs/Fronczak_Resume.pdf "Resume")
+[Download PDF Version - NOT UP TO DATE]({{ site.url }}/assets/docs/Fronczak_Resume.pdf "Resume")
 {: .resumeAlignRight}
 
 -----
@@ -16,7 +16,13 @@ Analog circuit designer with experience implementing low-noise and low-power sen
 # **PROFESSIONAL**
 
 -----
-**Staff Mixed Signal IC Design Engineer** <span style="color: gray">at</span> **Sony Electronics** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> July 2018 to Present
+**Senior Staff Analog Designer** <span style="color: gray">at</span> **ams Sensors** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> Aug 2020 to Present
+
+- Analog team leader and responsible for continued analog and layout team growth
+
+- Technical chip lead on small-format global-shutter CMOS imager for AR/VR applications with framerates in excess of 200fps at 12b depth
+
+**Staff Mixed Signal IC Design Engineer** <span style="color: gray">at</span> **Sony Electronics** <span style="color: gray">in</span> Rochester, NY <span style="color: gray">from</span> July 2018 to Aug 2020
 
 - Involved in the Dynamic Frequency and Voltage Scaling (DFVS) power management architecture for next-gen stacked-chip CMOS image sensors in 40nm which involves frequent communication with worldwide cross-functional teams
 
@@ -120,8 +126,29 @@ Thesis: ***Stability Analysis of Switched DC-DC Boost Converters for Integrated 
 # **PATENTS/PUBLICATIONS**
 
 -----
-- US 9,780,736 - Temperature compensated offset cancellation for high-speed amplifiers - Grant Oct. 3, 2017
-- US 9,817,428 - Current-mode Bandgap Reference with Proportional to Absolute Temperature Current and Zero Temperature Current -Generation - Grant Nov. 14, 2017
-- US 10,394,386 - Interference Detection - Grant Aug. 27, 2019
-- US 15/685,937 - Mixer Circuit - Application February 28, 2019
-- US 15/885,769 - Oscillator Temperature Coefficient Adjustment - Pending Jan. 31, 2018
+- US 9,780,736 - Grant Oct. 3, 2017 - 
+"Temperature compensated offset cancellation for high-speed amplifiers", **Kevin Fronczak**, Murat Ozbas, Yonggang Chen
+
+- US 9,817,428 - Grant Nov. 14, 2017 - 
+"Current-mode Bandgap Reference with Proportional to Absolute Temperature Current and Zero Temperature Current Generation", **Kevin Fronczak** and Eric Bohannon
+
+- US 10,394,386 - Grant Aug. 27, 2019 - 
+"Interference Detection", **Kevin Fronczak** and Eric Bohannon
+
+- US 10,530,296 - Grant Jan. 7, 2020 - 
+"Oscillator Temperature Coefficient Adjustment", Andrew Jabrucki, Eric Bohannon, and **Kevin Fronczak**
+
+- US 10,606,368 - Grant Mar. 31, 2020 - 
+"Mixer Circuit", **Kevin Fronczak** and Eric Bohannon
+
+- US 10,659,025 - Grant May 19, 2020 - 
+"Adaptive Bias Circuit for Power Event Detection Comparator", **Kevin Fronczak** and Mark Pude
+
+- US 17/020,116 (Pending) - Filed Sep. 14, 2020 - 
+"Low-Dropout Regulator Architecture with Undershoot Mitigation", **Kevin Fronczak**
+
+- US 17/335,800 (Pending) - Filed Jun. 1, 2021 - 
+"CMOS Oscillator Biased with Mixed Bias Current", Eric Bohannon, **Kevin Fronczak**, Jason Inman
+
+- US 17/352,776 (Pending) - Filed Jun. 21, 2021 - 
+"Imaging Pixel to Mitigate cross-talk Effects", Jason Inman and **Kevin Fronczak**
