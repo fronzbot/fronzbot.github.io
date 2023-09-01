@@ -52,7 +52,7 @@ We want to find an expression $Y(z)$ for an input $X(z)$. That means we must con
 
 That yields:
 
-++Y(z) = X(z) + Y(z)\cdot x^{-1}++
+++Y(z) = X(z) + Y(z)\cdot z^{-1}++
 
 ++\frac{Y(z)}{X(z)} = \frac{1}{1-z^{-1}}++
 
